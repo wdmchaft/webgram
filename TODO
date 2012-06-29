@@ -1,0 +1,7 @@
+* write tests for all (or most of) the functionalities
+* implement undo/redo actions
+* implement a GroupElement derived from ContainerElement, especially for the purpose of grouping more elements
+
+(others)
+* fine moving doesn't work due to snapping
+* no reference to the MultipleSelectionContainer class should be made outside of the SelectDrawingControl

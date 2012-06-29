@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="examples.css">
+
+        <script type="text/javascript" src="../webgram/webgram.js"></script>
+        <script type="text/javascript">
+
+            function onLoad() {
+                if (Webgram.singleScript) {
+                    /* if the webgram library is minified, no additional loading is necessary */
+                    
+                    initialize();
+                }
+                else {
+                    /* if the webgram library is divided into separate script files,
+                    the load() function will load them dynamically;
+                    this happens when including "webgram.js" instead of "webgram.min.js",
+                    usually for debugging purposes */
+                    
+                    Webgram.load(initialize);
+                }
+            }
+            
+            function initialize() {
+                /* obtain a JavaScript reference to the main canvas element */
+                var canvasElement = document.getElementById('mainCanvas');
+                
+                /* create a webgram canvas around the canvas element */
+                var canvas = new Webgram.Canvas(canvasElement.getContext('2d'));
+                
+                /* create the webgram instance */
+                var webgram = new Webgram(canvasElement, canvas);
+                
+                /* install the mouse and keyboard event handlers */
+                webgram.attachHandlers();
+
+                /* create a rectangle element class */
+                var RectangleElement = Webgram.Class('RectangleElement', Webgram.DrawingElements.RectangularElement, {
+                    draw: function () {
+                        this.drawRect(this.getDrawingRectangle());
+                        this.paint();
+                        this.drawText('Webgram is cool!', this.getDrawingRectangle());
+                    }
+                });
+                
+                /* create a rectangle element object */
+                var rectangleElement = new RectangleElement('my_rectangle', -50, -50, 201, 101);
+                
+                /* add the rectangle element object to the webgram */
+                webgram.addDrawingElement(rectangleElement);
+                
+                /* create a stroke style */
+                var strokeStyle = new Webgram.Styles.StrokeStyle(5, 'round', 'round', 0, '#A52800');
+
+                /* obtain a fill style by modifying the default one */
+                var fillStyle = Webgram.Styles.getFillStyle('default').replace({'colors': 'rgba(166, 40, 0, 0.5)'});
+
+                /* obtain a text style by modifying the element's text style */
+                var textStyle = rectangleElement.getTextStyle().replace({'size': 32});
+                
+                /* set the new styles to the rectangle element */
+                rectangleElement.setStrokeStyle(strokeStyle);
+                rectangleElement.setFillStyle(fillStyle);
+                rectangleElement.setTextStyle(textStyle);
+            }
+            
+        </script>
+    </head>
+
+    <body onload="onLoad()">
+        <table>
+            <tr>
+                <td class="example">
+                    <canvas id="mainCanvas" width="600" height="300">HTML Canvas element is not supported.</canvas>
+                </td>
+                <td class="example">
+                    <div class="example-source">
+                    
+<pre style='color:#000000;background:#ffffff;'><span style='color:#3f7f59; '>/* obtain a JavaScript reference to the main canvas element */</span>
+<span style='color:#7f0055; font-weight:bold; '>var</span> canvasElement = document.getElementById(<span style='color:#2a00ff; '>'mainCanvas'</span>);
+
+<span style='color:#3f7f59; '>/* create a webgram canvas around the canvas element */</span>
+<span style='color:#7f0055; font-weight:bold; '>var</span> canvas = <span style='color:#7f0055; font-weight:bold; '>new</span> Webgram.Canvas(canvasElement.getContext(<span style='color:#2a00ff; '>'2d'</span>));
+
+<span style='color:#3f7f59; '>/* create the webgram instance */</span>
+<span style='color:#7f0055; font-weight:bold; '>var</span> webgram = <span style='color:#7f0055; font-weight:bold; '>new</span> Webgram(canvasElement, canvas);
+
+<span style='color:#3f7f59; '>/* install the mouse and keyboard event handlers */</span>
+webgram.attachHandlers();
+
+<span style='color:#3f7f59; '>/* create a rectangle element class */</span>
+<span style='color:#7f0055; font-weight:bold; '>var</span> RectangleElement = Webgram.Class(<span style='color:#2a00ff; '>'RectangleElement'</span>, Webgram.DrawingElements.RectangularElement, {
+    draw: <span style='color:#7f0055; font-weight:bold; '>function</span> () {
+        <span style='color:#7f0055; font-weight:bold; '>this</span>.drawRect(<span style='color:#7f0055; font-weight:bold; '>this</span>.getDrawingRectangle());
+        <span style='color:#7f0055; font-weight:bold; '>this</span>.paint();
+        <span style='color:#7f0055; font-weight:bold; '>this</span>.drawText(<span style='color:#2a00ff; '>'Webgram is cool!'</span>, <span style='color:#7f0055; font-weight:bold; '>this</span>.getDrawingRectangle());
+    }
+});
+
+<span style='color:#3f7f59; '>/* create a rectangle element object */</span>
+<span style='color:#7f0055; font-weight:bold; '>var</span> rectangleElement = <span style='color:#7f0055; font-weight:bold; '>new</span> RectangleElement(<span style='color:#2a00ff; '>'my_rectangle'</span>, -50, -50, 201, 101);
+
+<span style='color:#3f7f59; '>/* add the rectangle element object to the webgram */</span>
+webgram.addDrawingElement(rectangleElement);
+
+<span style='color:#3f7f59; '>/* create a stroke style */</span>
+<span style='color:#7f0055; font-weight:bold; '>var</span> strokeStyle = <span style='color:#7f0055; font-weight:bold; '>new</span> Webgram.Styles.StrokeStyle(5, <span style='color:#2a00ff; '>'round'</span>, <span style='color:#2a00ff; '>'round'</span>, 0, <span style='color:#2a00ff; '>'#A52800'</span>);
+
+<span style='color:#3f7f59; '>/* obtain a fill style by modifying the default one */</span>
+<span style='color:#7f0055; font-weight:bold; '>var</span> fillStyle = Webgram.Styles.getFillStyle(<span style='color:#2a00ff; '>'default'</span>).<span style='color:#7f0055; font-weight:bold; '>replace</span>({<span style='color:#2a00ff; '>'colors'</span>: <span style='color:#2a00ff; '>'rgba(166, 40, 0, 0.5)'</span>});
+
+<span style='color:#3f7f59; '>/* obtain a text style by modifying the element's text style */</span>
+<span style='color:#7f0055; font-weight:bold; '>var</span> textStyle = rectangleElement.getTextStyle().<span style='color:#7f0055; font-weight:bold; '>replace</span>({<span style='color:#2a00ff; '>'size'</span>: 32});
+
+<span style='color:#3f7f59; '>/* set the new styles to the rectangle element */</span>
+rectangleElement.setStrokeStyle(strokeStyle);
+rectangleElement.setFillStyle(fillStyle);
+rectangleElement.setTextStyle(textStyle);
+</pre>                    
+                    
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

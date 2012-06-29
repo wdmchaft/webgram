@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="examples.css">
+
+        <script type="text/javascript" src="../webgram/webgram.js"></script>
+        <script type="text/javascript">
+            function onLoad() {
+                if (Webgram.singleScript) {
+                    /* if the webgram library is minified, no additional loading is necessary */
+                    
+                    initialize();
+                }
+                else {
+                    /* if the webgram library is divided into separate script files,
+                    the load() function will load them dynamically;
+                    this happens when including "webgram.js" instead of "webgram.min.js",
+                    usually for debugging purposes */
+                    
+                    Webgram.load(initialize);
+                }
+            }
+            
+            function initialize() {
+                /* obtain a JavaScript reference to the main canvas element */
+                var canvasElement = document.getElementById('mainCanvas');
+                
+                /* create a webgram canvas around the canvas element */
+                var canvas = new Webgram.Canvas(canvasElement.getContext('2d'));
+                
+                /* create the webgram instance */
+                var webgram = new Webgram(canvasElement, canvas);
+                
+                /* install the mouse and keyboard event handlers */
+                webgram.attachHandlers();
+            }
+            
+        </script>
+    </head>
+
+    <body onload="onLoad()">
+        <table>
+            <tr>
+                <td class="example">
+                    <canvas id="mainCanvas" width="600" height="300">HTML Canvas element is not supported.</canvas>
+                </td>
+                <td class="example">
+                    <div class="example-source">
+
+<pre style='color:#000000;background:#ffffff;'><span style='color:#3f7f59; '>/* obtain a JavaScript reference to the main canvas element */</span>
+<span style='color:#7f0055; font-weight:bold; '>var</span> canvasElement = document.getElementById(<span style='color:#2a00ff; '>'mainCanvas'</span>);
+
+<span style='color:#3f7f59; '>/* create a webgram canvas around the canvas element */</span>
+<span style='color:#7f0055; font-weight:bold; '>var</span> canvas = <span style='color:#7f0055; font-weight:bold; '>new</span> Webgram.Canvas(canvasElement.getContext(<span style='color:#2a00ff; '>'2d'</span>));
+
+<span style='color:#3f7f59; '>/* create the webgram instance */</span>
+<span style='color:#7f0055; font-weight:bold; '>var</span> webgram = <span style='color:#7f0055; font-weight:bold; '>new</span> Webgram(canvasElement, canvas);
+
+<span style='color:#3f7f59; '>/* install the mouse and keyboard event handlers */</span>
+webgram.attachHandlers();
+</pre>
+
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

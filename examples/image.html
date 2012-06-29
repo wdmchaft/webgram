@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="examples.css">
+
+        <script type="text/javascript" src="../webgram/webgram.js"></script>
+        <script type="text/javascript">
+
+            function onLoad() {
+                if (Webgram.singleScript) {
+                    /* if the webgram library is minified, no additional loading is necessary */
+                    
+                    initialize();
+                }
+                else {
+                    /* if the webgram library is divided into separate script files,
+                    the load() function will load them dynamically;
+                    this happens when including "webgram.js" instead of "webgram.min.js",
+                    usually for debugging purposes */
+                    
+                    Webgram.load(initialize);
+                }
+            }
+            
+            function initialize() {
+                /* obtain a JavaScript reference to the main canvas element */
+                var canvasElement = document.getElementById('mainCanvas');
+                
+                /* create a webgram canvas around the canvas element */
+                var canvas = new Webgram.Canvas(canvasElement.getContext('2d'));
+                
+                /* create the webgram instance */
+                var webgram = new Webgram(canvasElement, canvas);
+                
+                /* install the mouse and keyboard event handlers */
+                webgram.attachHandlers();
+
+                /* create an image element class */
+                var ImageElement = Webgram.Class('ImageElement', Webgram.DrawingElements.RectangularElement, {
+                    initialize: function (id, src) {
+                        /* call the parent class constructor */
+                        Webgram.DrawingElements.RectangularElement.call(this, id, -100, -110, 185, 250);
+                        
+                        /* load the image into the store */
+                        webgram.getImageStore().load('zoidberg', src); 
+                    },
+                    
+                    draw: function () {
+                        var image = webgram.getImageStore().get('zoidberg');
+                        
+                        /* if the image hasn't been loaded yet, 
+                         * we skip this drawing iteration */
+                        if (image == null) {
+                            return;
+                        }
+                        
+                        this.drawImage(image.content, Webgram.Geometry.Point.zero(), this.getDrawingSize());
+                    }
+                });
+                
+                /* create an image element object */
+                var imageElement = new ImageElement('my_image', 'zoidberg.png');
+                
+                /* enable rotation for the element */
+                imageElement.setRotateEnabled(true);
+                imageElement.setRotationAngle(Math.PI / 3);
+                
+                /* add the image element object to the webgram */
+                webgram.addDrawingElement(imageElement);
+            }
+            
+        </script>
+    </head>
+
+    <body onload="onLoad()">
+        <table>
+            <tr>
+                <td class="example">
+                    <canvas id="mainCanvas" width="600" height="300">HTML Canvas element is not supported.</canvas>
+                </td>
+                <td class="example">
+                    <div class="example-source">
+
+<pre style='color:#000000;background:#ffffff;'><span style='color:#3f7f59; '>/* obtain a JavaScript reference to the main canvas element */</span>
+<span style='color:#7f0055; font-weight:bold; '>var</span> canvasElement = document.getElementById(<span style='color:#2a00ff; '>'mainCanvas'</span>);
+
+<span style='color:#3f7f59; '>/* create a webgram canvas around the canvas element */</span>
+<span style='color:#7f0055; font-weight:bold; '>var</span> canvas = <span style='color:#7f0055; font-weight:bold; '>new</span> Webgram.Canvas(canvasElement.getContext(<span style='color:#2a00ff; '>'2d'</span>));
+
+<span style='color:#3f7f59; '>/* create the webgram instance */</span>
+<span style='color:#7f0055; font-weight:bold; '>var</span> webgram = <span style='color:#7f0055; font-weight:bold; '>new</span> Webgram(canvasElement, canvas);
+
+<span style='color:#3f7f59; '>/* install the mouse and keyboard event handlers */</span>
+webgram.attachHandlers();
+
+<span style='color:#3f7f59; '>/* create an image element class */</span>
+<span style='color:#7f0055; font-weight:bold; '>var</span> ImageElement = Webgram.Class(<span style='color:#2a00ff; '>'ImageElement'</span>, Webgram.DrawingElements.RectangularElement, {
+    initialize: <span style='color:#7f0055; font-weight:bold; '>function</span> (id, src) {
+        <span style='color:#3f7f59; '>/* call the parent class constructor */</span>
+        Webgram.DrawingElements.RectangularElement.call(<span style='color:#7f0055; font-weight:bold; '>this</span>, id, -100, -110, 185, 250);
+        
+        <span style='color:#3f7f59; '>/* load the image into the store */</span>
+        webgram.getImageStore().load(<span style='color:#2a00ff; '>'zoidberg'</span>, src); 
+    },
+    
+    draw: <span style='color:#7f0055; font-weight:bold; '>function</span> () {
+        <span style='color:#7f0055; font-weight:bold; '>var</span> image = webgram.getImageStore().get(<span style='color:#2a00ff; '>'zoidberg'</span>);
+        
+        <span style='color:#3f7f59; '>/* if the image hasn't been loaded yet, </span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;* we skip this drawing iteration */</span>
+        <span style='color:#7f0055; font-weight:bold; '>if</span> (image == <span style='color:#7f0055; font-weight:bold; '>null</span>) {
+            <span style='color:#7f0055; font-weight:bold; '>return</span>;
+        }
+        
+        <span style='color:#7f0055; font-weight:bold; '>this</span>.drawImage(image.content, Webgram.Geometry.Point.zero(), <span style='color:#7f0055; font-weight:bold; '>this</span>.getDrawingSize());
+    }
+});
+
+<span style='color:#3f7f59; '>/* create an image element object */</span>
+<span style='color:#7f0055; font-weight:bold; '>var</span> imageElement = <span style='color:#7f0055; font-weight:bold; '>new</span> ImageElement(<span style='color:#2a00ff; '>'my_image'</span>, <span style='color:#2a00ff; '>'zoidberg.png'</span>);
+
+<span style='color:#3f7f59; '>/* enable rotation for the element */</span>
+imageElement.setRotateEnabled(<span style='color:#7f0055; font-weight:bold; '>true</span>);
+imageElement.setRotationAngle(Math.PI / 3);
+
+<span style='color:#3f7f59; '>/* add the image element object to the webgram */</span>
+webgram.addDrawingElement(imageElement);
+</pre>
+
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="200"
+   height="100"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="artwork.svg">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient4294">
+      <stop
+         style="stop-color:#7898ce;stop-opacity:1;"
+         offset="0"
+         id="stop4296" />
+      <stop
+         style="stop-color:#597db9;stop-opacity:1;"
+         offset="1"
+         id="stop4298" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4206">
+      <stop
+         style="stop-color:#9cc1ed;stop-opacity:1;"
+         offset="0"
+         id="stop4208" />
+      <stop
+         id="stop4216"
+         offset="0.19052874"
+         style="stop-color:#b7d2f7;stop-opacity:1;" />
+      <stop
+         id="stop4214"
+         offset="0.80341381"
+         style="stop-color:#b7d2f7;stop-opacity:1;" />
+      <stop
+         style="stop-color:#d0e4ff;stop-opacity:1;"
+         offset="1"
+         id="stop4210" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4206"
+       id="linearGradient4212"
+       x1="-968.11548"
+       y1="207.16846"
+       x2="-952.35156"
+       y2="207.16878"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-2.0039154,-197.00004)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4206"
+       id="linearGradient4240"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(2.0000099,0,0,2.0000099,950.36391,-376.98316)"
+       x1="-968.11548"
+       y1="207.16846"
+       x2="-952.35156"
+       y2="207.16878" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4206"
+       id="linearGradient4292"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(4.0000198,0,0,4.0000198,2855.09,-740.94744)"
+       x1="-968.11548"
+       y1="207.16846"
+       x2="-952.35156"
+       y2="207.16878" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4294"
+       id="radialGradient4302"
+       cx="-999.12604"
+       cy="68.897667"
+       fx="-999.12604"
+       fy="68.897667"
+       r="8.9998207"
+       gradientTransform="matrix(-1.908313,-4.554731e-5,3.1621372e-4,-2.2669417,-2897.4458,229.06209)"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4294"
+       id="radialGradient4316"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-1.908313,-4.554731e-5,3.1621372e-4,-2.2669417,-2897.4452,257.06209)"
+       cx="-999.12604"
+       cy="68.897667"
+       fx="-999.12604"
+       fy="68.897667"
+       r="8.9998207" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4294"
+       id="radialGradient4320"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-1.908313,-3.6437827e-5,3.1621372e-4,-1.8135523,-2869.4448,211.85007)"
+       cx="-999.12604"
+       cy="68.897667"
+       fx="-999.12604"
+       fy="68.897667"
+       r="8.9998207" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="4"
+     inkscape:cx="79.124196"
+     inkscape:cy="34.219727"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-952.36215)">
+    <rect
+       style="opacity:0.5;fill:#000000;fill-opacity:1;stroke:none"
+       id="rect3754"
+       width="8.3625259"
+       height="8.3625259"
+       x="-698.80609"
+       y="776.00433"
+       rx="0.99999994"
+       ry="0.99999994"
+       inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="matrix(0.70709745,-0.70711612,0.70709745,0.70711612,0,0)" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/media/data/projects/webgram/webgram/images/rotate.png"
+       ry="5.5"
+       rx="5.5"
+       y="1037.3622"
+       x="42"
+       height="11"
+       width="11"
+       id="rect3762"
+       style="opacity:0.5;fill:#000000;fill-opacity:1;stroke:none" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/media/data/projects/webgram/webgram/images/poly-point.png"
+       ry="1"
+       rx="1"
+       y="1038.3622"
+       x="31"
+       height="9"
+       width="9"
+       id="rect3764"
+       style="opacity:0.5;fill:#000000;fill-opacity:1;stroke:none" />
+    <rect
+       style="opacity:0.5;fill:none;stroke:#000000;stroke-width:0.99999994;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3763"
+       width="10"
+       height="10"
+       x="42.5"
+       y="1024.8622"
+       rx="5.5"
+       ry="5.5"
+       inkscape:export-filename="/media/data/projects/webgram/webgram/images/round-control-point-empty.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0.5;fill:none;stroke:#000000;stroke-opacity:1"
+       id="rect3765"
+       width="8"
+       height="8"
+       x="31.5"
+       y="1025.8622"
+       rx="1"
+       ry="1"
+       inkscape:export-filename="/media/data/projects/webgram/webgram/images/square-control-point-empty.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       transform="matrix(0.70710958,-0.70710398,0.70710958,0.70710398,0,0)"
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point-empty.png"
+       ry="1"
+       rx="1"
+       y="767.17743"
+       x="-689.27338"
+       height="7.6555858"
+       width="7.6555858"
+       id="rect3766"
+       style="opacity:0.5;fill:none;stroke:#000000;stroke-width:1;stroke-opacity:1" />
+    <path
+       style="opacity:0.5;fill:#000000;fill-opacity:1;stroke:none"
+       d="m 79,1042.3622 c 0,3.047 -2.453,6 -5.5,6 -3.047,0 -5.5,-2.953 -5.5,-6"
+       id="rect3768"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csc"
+       inkscape:export-filename="/media/data/projects/webgram/webgram/images/semicircle-control-point.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.5;fill:none;stroke:#000000;stroke-width:0.99999994;stroke-miterlimit:4;stroke-opacity:1"
+       d="m 78.5,1029.8622 c 0,2.77 -2.23,5 -5,5 -2.77,0 -5,-2.23 -5,-5 3.138662,0 5.88732,0 10,0 z"
+       id="rect3773"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cscc"
+       inkscape:export-filename="/media/data/projects/webgram/webgram/images/semicircle-control-point-empty.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <g
+       id="g3801"
+       style="opacity:0.5"
+       inkscape:export-filename="/media/data/projects/webgram/webgram/images/rotation-center.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/rotation-center.png"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 13.5,1026.8622 0,23"
+         id="path3935"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cc" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/rotation-center.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3937"
+         d="m 25.5,1037.8622 -23,0"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/rotation-center.png"
+         sodipodi:nodetypes="ccc"
+         inkscape:connector-curvature="0"
+         id="path3946"
+         d="m 17,1039.3622 1,4 4,-1"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="csssc"
+         inkscape:connector-curvature="0"
+         id="path3792"
+         d="m 17.192295,76.331688 c -0.655801,-0.615813 -1.061422,-1.466551 -1.061422,-2.40625 0,-1.879398 1.622485,-3.402952 3.623922,-3.402952 2.001437,0 3.623922,1.523554 3.623922,3.402952 0,0.939699 -0.405621,1.790437 -1.061422,2.40625"
+         style="fill:none;stroke:#000000;stroke-width:0.50167131;stroke-miterlimit:4;stroke-opacity:1"
+         transform="matrix(1.9316087,0,0,2.0570379,-24.658534,885.79472)" />
+    </g>
+    <g
+       id="g4322"
+       inkscape:export-filename="/media/data/projects/webgram/webgram-16.png"
+       inkscape:export-xdpi="90.000443"
+       inkscape:export-ydpi="90.000443">
+      <rect
+         transform="matrix(-1.9869706e-5,-1,1,1.9869696e-5,0,0)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+         y="1.9810702"
+         x="-970.36151"
+         height="15.999682"
+         width="15.99968"
+         id="rect4182"
+         style="fill:url(#linearGradient4212);fill-opacity:1;stroke:none"
+         rx="2"
+         ry="2" />
+      <rect
+         style="fill:#cedeff;fill-opacity:1;stroke:none"
+         id="rect4186"
+         width="4.9998999"
+         height="4.9999008"
+         x="-969.36176"
+         y="3.9809027"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90"
+         transform="matrix(-1.9869706e-5,-1,1,1.9869696e-5,0,0)" />
+      <path
+         sodipodi:nodetypes="ccc"
+         inkscape:connector-curvature="0"
+         id="path4188"
+         d="m 8.5,959.8622 -2,0 0,3"
+         style="fill:none;stroke:#cedeff;stroke-width:1px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1" />
+      <rect
+         transform="matrix(-1.9869706e-5,-1,1,1.9869696e-5,0,0)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+         y="3.9809179"
+         x="-968.36176"
+         height="4.9999008"
+         width="4.9998999"
+         id="rect4190"
+         style="fill:#6788bf;fill-opacity:1;stroke:none" />
+      <path
+         style="fill:none;stroke:#cedeff;stroke-width:1px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 11.5,959.8622 2,0 0,3"
+         id="path4192"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccc" />
+      <rect
+         style="fill:#cedeff;fill-opacity:1;stroke:none"
+         id="rect4194"
+         width="4.9998999"
+         height="4.9999008"
+         x="-969.36157"
+         y="10.980903"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90"
+         transform="matrix(-1.9869706e-5,-1,1,1.9869696e-5,0,0)" />
+      <rect
+         transform="matrix(-1.9869706e-5,-1,1,1.9869696e-5,0,0)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+         y="10.980918"
+         x="-968.36157"
+         height="4.9999008"
+         width="4.9998999"
+         id="rect4196"
+         style="fill:#6788bf;fill-opacity:1;stroke:none" />
+      <path
+         style="fill:none;stroke:#6788bf;stroke-width:1px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 8.5,958.8622 -2,0 0,4"
+         id="path4198"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccc" />
+      <path
+         sodipodi:nodetypes="ccc"
+         inkscape:connector-curvature="0"
+         id="path4200"
+         d="m 11.5,958.8622 2,0 0,4"
+         style="fill:none;stroke:#6788bf;stroke-width:1px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1" />
+      <rect
+         transform="matrix(-1.5895764e-5,-1,1,2.4837122e-5,0,0)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+         y="7.9848151"
+         x="-962.36176"
+         height="3.9999206"
+         width="4.9998999"
+         id="rect4202"
+         style="fill:#cedeff;fill-opacity:1;stroke:none" />
+      <rect
+         style="fill:#6788bf;fill-opacity:1;stroke:none"
+         id="rect4204"
+         width="4.9998999"
+         height="3.9999206"
+         x="-961.36176"
+         y="7.9848151"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90"
+         transform="matrix(-1.5895764e-5,-1,1,2.4837122e-5,0,0)" />
+    </g>
+    <g
+       id="g4335"
+       inkscape:export-filename="/media/data/projects/webgram/webgram-32.png"
+       inkscape:export-xdpi="90.000443"
+       inkscape:export-ydpi="90.000443">
+      <path
+         sodipodi:nodetypes="ccc"
+         inkscape:connector-curvature="0"
+         id="path4250"
+         d="m 40.000021,962.36247 4.00002,0 0,8.00004"
+         style="fill:none;stroke:#587bb8;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <rect
+         ry="4.0000196"
+         rx="4.0000196"
+         style="fill:url(#linearGradient4240);fill-opacity:1;stroke:none"
+         id="rect4218"
+         width="31.999517"
+         height="31.999523"
+         x="-986.36084"
+         y="20.981037"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90"
+         transform="matrix(-1.9869706e-5,-1,1,1.9869696e-5,0,0)" />
+      <rect
+         transform="matrix(-1.9869706e-5,-1,1,1.9869696e-5,0,0)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+         y="24.980759"
+         x="-982.36133"
+         height="9.9998512"
+         width="9.9998493"
+         id="rect4220"
+         style="fill:#cedeff;fill-opacity:1;stroke:none" />
+      <path
+         style="fill:none;stroke:#cedeff;stroke-width:2.00000978px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 33.999992,964.36248 -4.00002,0 0,6.00003"
+         id="path4222"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccc" />
+      <path
+         sodipodi:nodetypes="ccc"
+         inkscape:connector-curvature="0"
+         id="path4232"
+         d="m 33.999992,963.36247 -4.00002,0 0,8.00004"
+         style="fill:none;stroke:#6788bf;stroke-width:2.00000978px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         style="fill:none;stroke:#587bb8;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 33.50002,962.86211 -4.00002,0"
+         id="path4248"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cc" />
+      <rect
+         transform="matrix(-1.9869706e-5,-1,1,1.9869696e-5,0,0)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+         y="24.98077"
+         x="-981.36133"
+         height="9.9998512"
+         width="9.9998493"
+         id="rect4242"
+         style="fill:#587bb8;fill-opacity:1;stroke:none" />
+      <rect
+         style="fill:#6788bf;fill-opacity:1;stroke:none"
+         id="rect4224"
+         width="8.9998207"
+         height="9.9998512"
+         x="-981.36139"
+         y="24.978601"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90"
+         transform="matrix(-2.2077557e-5,-1,1,1.7882641e-5,0,0)" />
+      <path
+         sodipodi:nodetypes="ccc"
+         inkscape:connector-curvature="0"
+         id="path4226"
+         d="m 40.000021,964.36248 4.00002,0 0,6.00003"
+         style="fill:none;stroke:#cedeff;stroke-width:2.00000978px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1" />
+      <rect
+         transform="matrix(-1.9869706e-5,-1,1,1.9869696e-5,0,0)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+         y="38.980831"
+         x="-982.36096"
+         height="9.9998512"
+         width="9.9998493"
+         id="rect4228"
+         style="fill:#cedeff;fill-opacity:1;stroke:none" />
+      <path
+         style="fill:none;stroke:#6788bf;stroke-width:2.00000978px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 40.000021,963.36247 4.00002,0 0,8.00004"
+         id="path4234"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccc" />
+      <rect
+         style="fill:#587bb8;fill-opacity:1;stroke:none"
+         id="rect4244"
+         width="9.9998493"
+         height="9.9998512"
+         x="-981.36096"
+         y="38.98077"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90"
+         transform="matrix(-1.9869706e-5,-1,1,1.9869696e-5,0,0)" />
+      <rect
+         style="fill:#6788bf;fill-opacity:1;stroke:none"
+         id="rect4230"
+         width="8.9998207"
+         height="9.9998512"
+         x="-981.36102"
+         y="38.978676"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90"
+         transform="matrix(-2.2077557e-5,-1,1,1.7882641e-5,0,0)" />
+      <rect
+         style="fill:#587bb8;fill-opacity:1;stroke:none"
+         id="rect4246"
+         width="9.9998493"
+         height="7.9998808"
+         x="-967.36115"
+         y="32.98481"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90"
+         transform="matrix(-1.5895764e-5,-1,1,2.4837122e-5,0,0)" />
+      <rect
+         style="fill:#cedeff;fill-opacity:1;stroke:none"
+         id="rect4236"
+         width="9.9998493"
+         height="7.9998808"
+         x="-968.36115"
+         y="32.984825"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90"
+         transform="matrix(-1.5895764e-5,-1,1,2.4837122e-5,0,0)" />
+      <path
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path4252"
+         d="m 44.50002,962.86211 -4.00002,0"
+         style="fill:none;stroke:#587bb8;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <rect
+         transform="matrix(-1.7662045e-5,-1,1,2.2353303e-5,0,0)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+         y="32.983101"
+         x="-967.36127"
+         height="7.9998808"
+         width="8.9998207"
+         id="rect4238"
+         style="fill:#6788bf;fill-opacity:1;stroke:none" />
+    </g>
+    <g
+       id="g4354"
+       inkscape:export-filename="/media/data/projects/webgram/webgram-64.png"
+       inkscape:export-xdpi="90.000443"
+       inkscape:export-ydpi="90.000443">
+      <path
+         style="fill:none;stroke:#587bb8;stroke-width:4;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 92.999962,970.363 8.000038,0 0,16.00008"
+         id="path4258"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccc" />
+      <rect
+         transform="matrix(-1.9869706e-5,-1,1,1.9869696e-5,0,0)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+         y="54.980961"
+         x="-1018.3597"
+         height="63.999046"
+         width="63.999035"
+         id="rect4260"
+         style="fill:url(#linearGradient4292);fill-opacity:1;stroke:none"
+         rx="8.0000391"
+         ry="8.0000391" />
+      <rect
+         ry="2"
+         style="fill:#bdd4f7;fill-opacity:1;stroke:none"
+         id="rect4262"
+         width="19.999699"
+         height="19.999702"
+         x="-1009.3607"
+         y="62.980423"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90"
+         transform="matrix(-1.9869706e-5,-1,1,1.9869696e-5,0,0)" />
+      <path
+         sodipodi:nodetypes="ccc"
+         inkscape:connector-curvature="0"
+         id="path4264"
+         d="m 80.999905,973.36302 -8.00004,0 0,12.00006"
+         style="fill:none;stroke:#bdd4f7;stroke-width:4.00001955px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         style="fill:none;stroke:#6788bf;stroke-width:4;stroke-linecap:square;stroke-linejoin:round;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+         d="m 80.999905,972.363 -8.00004,0 0,16.00008"
+         id="path4266"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccc" />
+      <path
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path4268"
+         d="m 81.00004,970.86215 -8.00004,0"
+         style="fill:none;stroke:#587bb8;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <rect
+         ry="2"
+         style="fill:#587bb8;fill-opacity:1;stroke:none"
+         id="rect4270"
+         width="17.999641"
+         height="19.999702"
+         x="-1007.3609"
+         y="62.978218"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90"
+         transform="matrix(-2.2077557e-5,-1,1,1.7882641e-5,0,0)" />
+      <rect
+         ry="2"
+         transform="matrix(-2.2077557e-5,-1,1,1.7882641e-5,0,0)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+         y="62.978195"
+         x="-1008.3607"
+         height="19.999702"
+         width="17.999641"
+         id="rect4272"
+         style="fill:url(#radialGradient4302);fill-opacity:1;stroke:none" />
+      <path
+         style="fill:none;stroke:#bdd4f7;stroke-width:4.00001955px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 92.999962,973.36302 8.000038,0 0,12.00006"
+         id="path4274"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccc" />
+      <rect
+         ry="2"
+         style="fill:#bdd4f7;fill-opacity:1;stroke:none"
+         id="rect4276"
+         width="19.999699"
+         height="19.999702"
+         x="-1009.36"
+         y="90.980568"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90"
+         transform="matrix(-1.9869706e-5,-1,1,1.9869696e-5,0,0)" />
+      <path
+         sodipodi:nodetypes="ccc"
+         inkscape:connector-curvature="0"
+         id="path4278"
+         d="m 92.999962,972.363 8.000038,0 0,16.00008"
+         style="fill:none;stroke:#6788bf;stroke-width:4.00001955000000020px;stroke-linecap:square;stroke-linejoin:round;stroke-opacity:1" />
+      <rect
+         ry="2"
+         transform="matrix(-2.2077557e-5,-1,1,1.788264e-5,0,0)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+         y="90.978218"
+         x="-1007.3602"
+         height="19.999702"
+         width="17.999641"
+         id="rect4280"
+         style="fill:#587bb8;fill-opacity:1;stroke:none" />
+      <rect
+         ry="2"
+         transform="matrix(-1.5895764e-5,-1,1,2.4837122e-5,0,0)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+         y="78.984756"
+         x="-981.36023"
+         height="15.999762"
+         width="19.999699"
+         id="rect4286"
+         style="fill:#bdd4f7;fill-opacity:1;stroke:none" />
+      <rect
+         rx="2"
+         transform="matrix(-1.7662045e-5,-1,1,2.2353302e-5,0,0)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+         y="78.983002"
+         x="-979.36047"
+         height="15.999762"
+         width="17.999641"
+         id="rect4284"
+         style="fill:#587bb8;fill-opacity:1;stroke:none" />
+      <path
+         style="fill:none;stroke:#587bb8;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 101.00004,970.86215 -8.00004,0"
+         id="path4288"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cc" />
+      <rect
+         style="fill:url(#radialGradient4316);fill-opacity:1;stroke:none"
+         id="rect4314"
+         width="17.999641"
+         height="19.999702"
+         x="-1008.3601"
+         y="90.978195"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90"
+         transform="matrix(-2.2077557e-5,-1,1,1.7882641e-5,0,0)"
+         ry="2" />
+      <rect
+         ry="1.5999991"
+         transform="matrix(-1.7662035e-5,-1,1,2.2353314e-5,0,0)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/media/data/projects/webgram/webgram/images/diamond-control-point.png"
+         y="78.983093"
+         x="-980.35974"
+         height="15.999753"
+         width="17.999641"
+         id="rect4318"
+         style="fill:url(#radialGradient4320);fill-opacity:1;stroke:none" />
+    </g>
+  </g>
+</svg>

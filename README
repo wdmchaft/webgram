@@ -1,0 +1,25 @@
+Webgram is a JavaScript diagramming library for HTML5. It uses the HTML Canvas
+element to draw the figures on a web page. The purpose of this projet is to
+enable the development of all kinds of diagram-based interactive tools on the
+web.
+
+The library works well with most modern browsers, but due to the use of the HTML
+Canvas technology, version 9 or greater is needed for Internet Explorer. 
+
+This directory contains the source code of the Webgram library. To build it
+(i.e. to minify and compress it to a single .js file), you need a Linux machine
+with Java SE 5 or later. Download the Yahoo UI Compressor from
+http://developer.yahoo.com/yui/compressor/ and extract it. Alternatively you
+could use Douglas Crockford's jsmin tool at
+http://www.crockford.com/javascript/jsmin.html.
+Then run the following command (on a Linux system) to obtain the webgram.min.js:
+    ./build.sh yui /path/to/yuicompressor-x.y.z.jar
+    or
+    ./build.sh jsmin /path/to/jsmin
+
+Including the library is simple and straight forward: copy the webgram.min.js
+file together with the webgram/images folder to your project's static folder
+and load the script into your HTML file(s).
+
+For further information on how to use this library, see the examples folder
+and the API documentation in the doc/api-docs folder.

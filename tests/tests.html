@@ -1,0 +1,86 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <!-- the webgram library -->
+        <script type="text/javascript" src="../webgram/webgram.js"></script>
+
+        <script type="text/javascript" src="../webgram/utils.js"></script>
+        <script type="text/javascript" src="../webgram/geometry.js"></script>
+        <script type="text/javascript" src="../webgram/styles.js"></script>
+        <script type="text/javascript" src="../webgram/default-styles.js"></script>
+        <script type="text/javascript" src="../webgram/event.js"></script>
+        <script type="text/javascript" src="../webgram/image-store.js"></script>
+        <script type="text/javascript" src="../webgram/canvas.js"></script>
+        <script type="text/javascript" src="../webgram/control-point.js"></script>
+        <script type="text/javascript" src="../webgram/action-menu-item.js"></script>
+        <script type="text/javascript" src="../webgram/drawing-element.js"></script>
+        <script type="text/javascript" src="../webgram/drawing-control.js"></script>
+         
+        <script type="text/javascript" src="../webgram/control-points/absolute-control-point.js"></script>
+        <script type="text/javascript" src="../webgram/control-points/proportional-control-point.js"></script>
+        <script type="text/javascript" src="../webgram/control-points/gradient-control-points.js"></script>
+        <script type="text/javascript" src="../webgram/control-points/rotate-control-points.js"></script>
+        
+        <script type="text/javascript" src="../webgram/drawing-elements/simple-element.js"></script>
+        <script type="text/javascript" src="../webgram/drawing-elements/rectangular-element.js"></script>
+        <script type="text/javascript" src="../webgram/drawing-elements/container-element.js"></script>
+        <script type="text/javascript" src="../webgram/drawing-elements/poly-element.js"></script>
+        <script type="text/javascript" src="../webgram/drawing-elements/root-container.js"></script>
+        
+        <script type="text/javascript" src="../webgram/connectors/connector.js"></script>
+        <script type="text/javascript" src="../webgram/connectors/socket.js"></script>
+        <script type="text/javascript" src="../webgram/connectors/end-point.js"></script>
+        
+        <script type="text/javascript" src="../webgram/drawing-elements/samples/rectangle-element.js"></script>
+        <script type="text/javascript" src="../webgram/drawing-elements/samples/polyline-element.js"></script>
+        <script type="text/javascript" src="../webgram/drawing-elements/samples/image-element.js"></script>
+        
+        <script type="text/javascript" src="../webgram/drawing-controls/select-drawing-control.js"></script>
+        <script type="text/javascript" src="../webgram/drawing-controls/create-drawing-control.js"></script>
+        <script type="text/javascript" src="../webgram/drawing-controls/text-drawing-control.js"></script>
+        
+        <script type="text/javascript" src="../webgram/mini-webgram.js"></script>
+        <script type="text/javascript" src="../webgram/debug.js"></script>
+        
+        <!-- test utilities -->
+        <script type="text/javascript" src="mock-canvas.js"></script>
+        <script type="text/javascript" src="mock-elements.js"></script>
+        <script type="text/javascript" src="tests.js"></script>
+        
+        <!-- the actual test scripts -->
+        <script type="text/javascript" src="test-webgram.js"></script>
+        
+        <style type="text/css">
+            * {
+                margin: 0px;
+                padding: 0px;
+                border: 0px;
+                outline: 0px;
+                border-collapse: collapse;
+                font-family: sans;
+                font-size: 13px;
+            }
+            
+            td.component, td.category, td.name, td.case, td.result, td.message,
+            th.component, th.category, th.name, th.case, th.result, th.message {
+                padding: 3px 5px;
+                border: 1px solid #CCC;
+            }
+        </style>
+    </head>
+    
+    <body onload="onBodyLoad()" style="width: 100%; height: 100%;">
+        <div id="dummy"></div>
+        <div style="width: 100%; height: 100%;" id="testResultsDiv" style="overflow: auto;">
+            <table id="testResultsTable">
+                <tr>
+                    <th class="component">Component</th>
+                    <th class="category">Category</th>
+                    <th class="name">Name</th>
+                    <th class="case">Case</th>
+                    <th class="result">Result</th>
+                    <th class="message">Message</th>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
