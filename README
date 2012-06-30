@@ -1,5 +1,5 @@
 Webgram is a JavaScript diagramming library for HTML5. It uses the HTML Canvas
-element to draw the figures on a web page. The purpose of this projet is to
+element to draw the figures on a web page. The purpose of this project is to
 enable the development of all kinds of diagram-based interactive tools on the
 web.
 
@@ -21,5 +21,5 @@ Including the library is simple and straight forward: copy the webgram.min.js
 file together with the webgram/images folder to your project's static folder
 and load the script into your HTML file(s).
 
-For further information on how to use this library, see the examples folder
+For further information on how to use this library, see the doc/examples folder
 and the API documentation in the doc/api-docs folder.
