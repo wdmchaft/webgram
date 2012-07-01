@@ -3,12 +3,13 @@ element to draw the figures on a web page. The purpose of this project is to
 enable the development of all kinds of diagram-based interactive tools on the
 web.
 
-The library works well with most modern browsers, but due to the use of the HTML
-Canvas technology, version 9 or greater is needed for Internet Explorer. 
+The library works well with most modern browsers, but due to the use of the
+HTML Canvas technology, version 9 or greater is needed for Internet Explorer. 
 
-This directory contains the source code of the Webgram library. To build it
-(i.e. to minify and compress it to a single .js file), you need a Linux machine
-with Java SE 5 or later. Download the Yahoo UI Compressor from
+This directory contains the source code of the Webgram library. The file
+webgram.min.js represents the compiled library (i.e. minified and compressed
+into a single .js file). To rebuild it, you need a Linux machine with Java SE 5
+or later. Download the Yahoo UI Compressor from
 http://developer.yahoo.com/yui/compressor/ and extract it. Alternatively you
 could use Douglas Crockford's jsmin tool at
 http://www.crockford.com/javascript/jsmin.html.
