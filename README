@@ -11,16 +11,15 @@ webgram.min.js represents the compiled library (i.e. minified and compressed
 into a single .js file). To rebuild it, you need a Linux machine with Java SE 5
 or later. Download the Yahoo UI Compressor from
 http://developer.yahoo.com/yui/compressor/ and extract it. Alternatively you
-could use Douglas Crockford's jsmin tool at
+could use Douglas Crockford's jsmin tool from
 http://www.crockford.com/javascript/jsmin.html.
-Then run the following command (on a Linux system) to obtain the webgram.min.js:
+Run the following command (on a Linux system) to obtain the webgram.min.js:
     ./build.sh yui /path/to/yuicompressor-x.y.z.jar
     or
     ./build.sh jsmin /path/to/jsmin
 
 Including the library is simple and straight forward: copy the webgram.min.js
-file together with the webgram/images folder to your project's static folder
-and load the script into your HTML file(s).
+file to your project's static folder and load the script into your HTML file(s).
 
 For further information on how to use this library, see the doc/examples folder
 and the API documentation in the doc/api-docs folder.

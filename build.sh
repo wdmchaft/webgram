@@ -1,22 +1,37 @@
 #!/bin/bash
 
+function list_scripts() {
+    echo "lib/webgram.js"
+    grep -E "^\s+'[a-zA-Z0-9_/-]+\.js',\s*$" lib/webgram.js | tr -d "', " | grep -v 'debug.js' | sed 's/^/lib\//g'
+}
+
+function encode_images() {
+    regex="^(.+)Webgram.jsPath \+ '(images\/[a-zA-Z\-]+\.png)'(.+)\$"
+    while IFS= read -r line; do
+        if [[ "${line}" =~ ${regex} ]]; then
+            encoded="data:image/png;base64,$(base64 -w 0 "lib/${BASH_REMATCH[2]}")"
+            echo "${BASH_REMATCH[1]}'${encoded}'${BASH_REMATCH[3]}"
+            echo "${line}" >> /tmp/out.txt
+        else
+            echo "${line}"
+        fi
+    done
+}
+
+function unify() {
+    cat $(list_scripts) | sed 's/singleScript = false/singleScript = true/g' | encode_images
+}
+
 function build_yui() {
-    cat $(list_scripts) | sed 's/singleScript = false/singleScript = true/g' > webgram.unified.js
-    java -jar $1 -o webgram.min.js webgram.unified.js
-    rm webgram.unified.js
+    unify | java -jar $1 --type js > webgram.min.js
 }
 
 function build_jsmin() {
-    cat $(list_scripts) | sed 's/singleScript = false/singleScript = true/g' | $1 > webgram.min.js
+    unify | $1 > webgram.min.js
 }
 
 function build_cat() {
-    cat $(list_scripts) | sed 's/singleScript = false/singleScript = true/g' > webgram.min.js
-}
-
-function list_scripts() {
-    echo "webgram/webgram.js"
-    grep -E "^\s+'[a-zA-Z0-9_/-]+\.js',\s*$" webgram/webgram.js | tr -d "', " | grep -v 'debug.js' | sed 's/^/webgram\//g'
+    unify > webgram.min.js
 }
 
 function print_help() {
@@ -35,19 +50,19 @@ method=$1
 
 if [ ${method} == "yui" ]; then
     if [ -z "$2" ]; then
-	print_help
-	exit -1
+        print_help
+    exit -1
     fi
-    
+
     echo "Using the YUI compressor..."
     build_yui "$2"
 
 elif [ ${method} == "jsmin" ]; then
     if [ -z "$2" ]; then
-	print_help
-	exit -1
+        print_help
+        exit -1
     fi
-    
+
     echo "Using the jsmin minifier..."
     build_jsmin "$2"
 
