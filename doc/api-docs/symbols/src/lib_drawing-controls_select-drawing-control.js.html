@@ -1347,28 +1347,27 @@
 <span class='line'>1340</span> </span><span class="WHIT">        </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.drawingElements.length</span><span class="WHIT"> </span><span class="PUNC">></span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>1341</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
 <span class='line'>1342</span> </span><span class="WHIT">    
-<span class='line'>1343</span>     </span><span class="COMM">/** @ignore */</span><span class="WHIT">
-<span class='line'>1344</span> </span><span class="WHIT">    </span><span class="NAME">triggerShapeChange</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">force</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>1345</span> </span><span class="WHIT">        </span><span class="COMM">/* we override this method because we don`t want any onShapeChange events
-<span class='line'>1346</span>          * on the MS CE, but we want them triggered on the contained elements */</span><span class="WHIT">
-<span class='line'>1347</span> </span><span class="WHIT">        
-<span class='line'>1348</span>         </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this._firstShapeChange</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>1349</span> </span><span class="WHIT">            </span><span class="COMM">/* workaround to avoid triggering shapeEndChange events when adding the MS CE */</span><span class="WHIT">
-<span class='line'>1350</span> </span><span class="WHIT">            </span><span class="NAME">this._firstShapeChange</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>1351</span> </span><span class="WHIT">            </span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>1352</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>1353</span> </span><span class="WHIT">        
-<span class='line'>1354</span>         </span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NAME">this.drawingElements.length</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">++</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>1355</span> </span><span class="WHIT">            </span><span class="NAME">this.drawingElements</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">triggerShapeChange</span><span class="PUNC">(</span><span class="NAME">force</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>1356</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>1357</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>1358</span> 
-<span class='line'>1359</span> </span><span class="WHIT">    </span><span class="NAME">_triggerAdded</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>1360</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>1361</span> 
-<span class='line'>1362</span> </span><span class="WHIT">    </span><span class="NAME">_triggerRemoved</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>1363</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>1364</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>1365</span> 
-<span class='line'>1366</span> </span><span class="NAME">Webgram.Class</span><span class="PUNC">(</span><span class="STRN">'Webgram.DrawingControls.SelectDrawingControl._MultipleSelectionContainer'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">Webgram.DrawingElements.ContainerElement</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>1367</span> </span></pre></body></html>
+<span class='line'>1343</span>     </span><span class="NAME">triggerShapeChange</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">force</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>1344</span> </span><span class="WHIT">        </span><span class="COMM">/* we override this method because we don`t want any onShapeChange events
+<span class='line'>1345</span>          * on the MS CE, but we want them triggered on the contained elements */</span><span class="WHIT">
+<span class='line'>1346</span> </span><span class="WHIT">        
+<span class='line'>1347</span>         </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this._firstShapeChange</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>1348</span> </span><span class="WHIT">            </span><span class="COMM">/* workaround to avoid triggering shapeEndChange events when adding the MS CE */</span><span class="WHIT">
+<span class='line'>1349</span> </span><span class="WHIT">            </span><span class="NAME">this._firstShapeChange</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>1350</span> </span><span class="WHIT">            </span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>1351</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>1352</span> </span><span class="WHIT">        
+<span class='line'>1353</span>         </span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NAME">this.drawingElements.length</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">++</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>1354</span> </span><span class="WHIT">            </span><span class="NAME">this.drawingElements</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">triggerShapeChange</span><span class="PUNC">(</span><span class="NAME">force</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>1355</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>1356</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>1357</span> 
+<span class='line'>1358</span> </span><span class="WHIT">    </span><span class="NAME">_triggerAdded</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>1359</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>1360</span> 
+<span class='line'>1361</span> </span><span class="WHIT">    </span><span class="NAME">_triggerRemoved</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>1362</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>1363</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>1364</span> 
+<span class='line'>1365</span> </span><span class="NAME">Webgram.Class</span><span class="PUNC">(</span><span class="STRN">'Webgram.DrawingControls.SelectDrawingControl._MultipleSelectionContainer'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">Webgram.DrawingElements.ContainerElement</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>1366</span> </span></pre></body></html>
