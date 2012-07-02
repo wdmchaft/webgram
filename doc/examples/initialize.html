@@ -5,23 +5,8 @@
 
         <script type="text/javascript" src="../../lib/webgram.js"></script>
         <script type="text/javascript">
-            function onLoad() {
-                if (Webgram.singleScript) {
-                    /* if the webgram library is minified, no additional loading is necessary */
-                    
-                    initialize();
-                }
-                else {
-                    /* if the webgram library is divided into separate script files,
-                    the load() function will load them dynamically;
-                    this happens when including "webgram.js" instead of "webgram.min.js",
-                    usually for debugging purposes */
-                    
-                    Webgram.load(initialize);
-                }
-            }
             
-            function initialize() {
+            function onLoad() {
                 /* obtain a JavaScript reference to the main canvas element */
                 var canvasElement = document.getElementById('mainCanvas');
                 

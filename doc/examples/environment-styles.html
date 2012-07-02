@@ -7,22 +7,6 @@
         <script type="text/javascript">
 
             function onLoad() {
-                if (Webgram.singleScript) {
-                    /* if the webgram library is minified, no additional loading is necessary */
-                    
-                    initialize();
-                }
-                else {
-                    /* if the webgram library is divided into separate script files,
-                    the load() function will load them dynamically;
-                    this happens when including "webgram.js" instead of "webgram.min.js",
-                    usually for debugging purposes */
-                    
-                    Webgram.load(initialize);
-                }
-            }
-            
-            function initialize() {
                 /* change the background fill style */
                 Webgram.Styles.setFillStyle('background',
                         new Webgram.Styles.FillStyle('black'));
