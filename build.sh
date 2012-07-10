@@ -19,7 +19,7 @@ function encode_images() {
 }
 
 function unify() {
-    cat $(list_scripts) | sed 's/singleScript = false/singleScript = true/g' | encode_images
+    cat $(list_scripts) | sed 's/_singleScript = false/_singleScript = true/g' | encode_images
 }
 
 function build_yui() {
