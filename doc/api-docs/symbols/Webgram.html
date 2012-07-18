@@ -295,6 +295,22 @@
                              </li>
                            
                              <li>
+                               <a href="../symbols/Webgram.html#onZoomFitAction">onZoomFitAction</a>
+                             </li>
+                           
+                             <li>
+                               <a href="../symbols/Webgram.html#onZoomInAction">onZoomInAction</a>
+                             </li>
+                           
+                             <li>
+                               <a href="../symbols/Webgram.html#onZoomOneAction">onZoomOneAction</a>
+                             </li>
+                           
+                             <li>
+                               <a href="../symbols/Webgram.html#onZoomOutAction">onZoomOutAction</a>
+                             </li>
+                           
+                             <li>
                                <a href="../symbols/Webgram.html#rootContainer">rootContainer</a>
                              </li>
                            
@@ -377,6 +393,22 @@
                                 </li>
                            
                                <li>
+                                    <a href="../symbols/Webgram.html#doZoomFitAction">doZoomFitAction</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.html#doZoomInAction">doZoomInAction</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.html#doZoomOneAction">doZoomOneAction</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.html#doZoomOutAction">doZoomOutAction</a>
+                                </li>
+                           
+                               <li>
                                     <a href="../symbols/Webgram.html#getActiveDrawingControl">getActiveDrawingControl</a>
                                 </li>
                            
@@ -386,6 +418,10 @@
                            
                                <li>
                                     <a href="../symbols/Webgram.html#getDrawingElementIndex">getDrawingElementIndex</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.html#getDrawingElements">getDrawingElements</a>
                                 </li>
                            
                                <li>
@@ -747,7 +783,7 @@ and should not be altered.</p>
 					            </div>
 					            <div class="description">
 						            <p>An event that is triggered when the <em>bring-to-front</em> action takes place.<br>
-Handlers receive the following arguments: <tt>(drawingElements)</tt>,
+Handlers receive the following arguments: <tt>(drawingElements, byKeyboard)</tt>,
 where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by a keyboard combination.</p>
 						            
 						            
@@ -814,7 +850,7 @@ Handlers receive the following arguments: <tt>(clipboard)</tt>.</p>
 					            </div>
 					            <div class="description">
 						            <p>An event that is triggered when the <em>copy</em> action takes place.<br>
-Handlers receive the following arguments: <tt>(drawingElements)</tt>,
+Handlers receive the following arguments: <tt>(drawingElements, byKeyboard)</tt>,
 where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by a keyboard combination.</p>
 						            
 						            
@@ -847,7 +883,7 @@ where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by
 					            </div>
 					            <div class="description">
 						            <p>An event that is triggered when the <em>delete</em> action takes place.<br>
-Handlers receive the following arguments: <tt>(drawingElements)</tt>,
+Handlers receive the following arguments: <tt>(drawingElements, byKeyboard)</tt>,
 where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by a keyboard combination.</p>
 						            
 						            
@@ -1040,7 +1076,7 @@ Handlers receive the following arguments: <tt>(drawingElement)</tt>.</p>
 					            </div>
 					            <div class="description">
 						            <p>An event that is triggered when the <em>duplicate</em> action takes place.<br>
-Handlers receive the following arguments: <tt>(drawingElements)</tt>,
+Handlers receive the following arguments: <tt>(drawingElements, byKeyboard)</tt>,
 where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by a keyboard combination.</p>
 						            
 						            
@@ -1073,7 +1109,7 @@ where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by
 					            </div>
 					            <div class="description">
 						            <p>An event that is triggered when the <em>flip-horizontally</em> action takes place.<br>
-Handlers receive the following arguments: <tt>(drawingElements)</tt>,
+Handlers receive the following arguments: <tt>(drawingElements, byKeyboard)</tt>,
 where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by a keyboard combination.</p>
 						            
 						            
@@ -1106,7 +1142,7 @@ where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by
 					            </div>
 					            <div class="description">
 						            <p>An event that is triggered when the <em>flip-vertically</em> action takes place.<br>
-Handlers receive the following arguments: <tt>(drawingElements)</tt>,
+Handlers receive the following arguments: <tt>(drawingElements, byKeyboard)</tt>,
 where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by a keyboard combination.</p>
 						            
 						            
@@ -1372,7 +1408,7 @@ Handlers receive the following arguments: <tt>(point, button, modifiers)</tt></p
 					            </div>
 					            <div class="description">
 						            <p>An event that is triggered when the <em>move</em> action takes place.<br>
-Handlers receive the following arguments: <tt>(drawingElements)</tt>,
+Handlers receive the following arguments: <tt>(drawingElements, direction, byKeyboard)</tt>,
 where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by a keyboard combination.</p>
 						            
 						            
@@ -1436,7 +1472,7 @@ Handlers receive the following arguments: <tt>(visibleCenter)</tt>.</p>
 					            </div>
 					            <div class="description">
 						            <p>An event that is triggered when the <em>paste</em> action takes place.<br>
-Handlers receive the following arguments: <tt>(drawingElements)</tt>,
+Handlers receive the following arguments: <tt>(drawingElements, byKeyboard)</tt>,
 where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by a keyboard combination.</p>
 						            
 						            
@@ -1495,7 +1531,7 @@ Handlers receive the following arguments: <tt>(drawingElements)</tt>.</p>
 					            </div>
 					            <div class="description">
 						            <p>An event that is triggered when the <em>send-to-back</em> action takes place.<br>
-Handlers receive the following arguments: <tt>(drawingElements)</tt>,
+Handlers receive the following arguments: <tt>(drawingElements, byKeyboard)</tt>,
 where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by a keyboard combination.</p>
 						            
 						            
@@ -1539,6 +1575,138 @@ Handlers receive the following arguments: <tt>(zoomLevel)</tt>.</p>
 
 						            
 						            
+						            
+						            
+                              </div>
+				            
+                              <div class="member">
+					            <a name="onZoomFitAction"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					
+					            <span class="light">{<a href="../symbols/Webgram.Event.html">Webgram.Event</a>}</span>
+					            <b>onZoomFitAction</b>
+					
+					            </div>
+					            <div class="description">
+						            <p>An event that is triggered when the <em>zoom-fit</em> action takes place.<br>
+Handlers receive the following arguments: <tt>(zoomLevel, byKeyboard)</tt>,
+where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by a keyboard combination.</p>
+						            
+						            
+					            </div>
+					
+					            
+
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">See:</dt>
+							            
+							            <dd>Webgram#doZoomFit</dd>
+							            
+							            </dl>
+						            
+						            
+                              </div>
+				            
+                              <div class="member">
+					            <a name="onZoomInAction"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					
+					            <span class="light">{<a href="../symbols/Webgram.Event.html">Webgram.Event</a>}</span>
+					            <b>onZoomInAction</b>
+					
+					            </div>
+					            <div class="description">
+						            <p>An event that is triggered when the <em>zoom-in</em> action takes place.<br>
+Handlers receive the following arguments: <tt>(zoomLevel, byKeyboard)</tt>,
+where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by a keyboard combination.</p>
+						            
+						            
+					            </div>
+					
+					            
+
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">See:</dt>
+							            
+							            <dd>Webgram#doZoomIn</dd>
+							            
+							            </dl>
+						            
+						            
+                              </div>
+				            
+                              <div class="member">
+					            <a name="onZoomOneAction"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					
+					            <span class="light">{<a href="../symbols/Webgram.Event.html">Webgram.Event</a>}</span>
+					            <b>onZoomOneAction</b>
+					
+					            </div>
+					            <div class="description">
+						            <p>An event that is triggered when the <em>zoom-one</em> action takes place.<br>
+Handlers receive the following arguments: <tt>(zoomLevel, byKeyboard)</tt>,
+where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by a keyboard combination.</p>
+						            
+						            
+					            </div>
+					
+					            
+
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">See:</dt>
+							            
+							            <dd>Webgram#doZoomOne</dd>
+							            
+							            </dl>
+						            
+						            
+                              </div>
+				            
+                              <div class="member">
+					            <a name="onZoomOutAction"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					
+					            <span class="light">{<a href="../symbols/Webgram.Event.html">Webgram.Event</a>}</span>
+					            <b>onZoomOutAction</b>
+					
+					            </div>
+					            <div class="description">
+						            <p>An event that is triggered when the <em>zoom-out</em> action takes place.<br>
+Handlers receive the following arguments: <tt>(zoomLevel, byKeyboard)</tt>,
+where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by a keyboard combination.</p>
+						            
+						            
+					            </div>
+					
+					            
+
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">See:</dt>
+							            
+							            <dd>Webgram#doZoomOut</dd>
+							            
+							            </dl>
 						            
 						            
                               </div>
@@ -2228,6 +2396,149 @@ This action is available only when a <a href="../symbols/Webgram.DrawingControls
                               </div>
 				            
                               <div class="member">
+					            <a name="doZoomFitAction"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            <span class="light">{Boolean}</span>
+					            <b>doZoomFitAction</b>()
+					
+					            </div>
+					            <div class="description">
+						            <p>This action sets the maximal zoom level at which all the drawing elements
+added to the webgram are still visible.
+This action is available only when a <a href="../symbols/Webgram.DrawingControls.SelectDrawingControl.html">Webgram.DrawingControls.SelectDrawingControl</a> is active.</p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+						            
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Returns:</dt>
+							            
+								            <dd><span class="light fixedFont">{Boolean}</span> <tt>true</tt> if the action succeeded, <tt>false</tt> otherwise</dd>
+							            
+							            </dl>
+						            
+						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
+					            <a name="doZoomInAction"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            <span class="light">{Boolean}</span>
+					            <b>doZoomInAction</b>()
+					
+					            </div>
+					            <div class="description">
+						            <p>This action increases the zoom level if the maximum zoom level
+hasn't been reached yet.
+This action is available only when a <a href="../symbols/Webgram.DrawingControls.SelectDrawingControl.html">Webgram.DrawingControls.SelectDrawingControl</a> is active.</p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+						            
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Returns:</dt>
+							            
+								            <dd><span class="light fixedFont">{Boolean}</span> <tt>true</tt> if the action succeeded, <tt>false</tt> otherwise</dd>
+							            
+							            </dl>
+						            
+						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
+					            <a name="doZoomOneAction"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            <span class="light">{Boolean}</span>
+					            <b>doZoomOneAction</b>()
+					
+					            </div>
+					            <div class="description">
+						            <p>This action sets the zoom level to 1:1.
+This action is available only when a <a href="../symbols/Webgram.DrawingControls.SelectDrawingControl.html">Webgram.DrawingControls.SelectDrawingControl</a> is active.</p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+						            
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Returns:</dt>
+							            
+								            <dd><span class="light fixedFont">{Boolean}</span> <tt>true</tt> if the action succeeded, <tt>false</tt> otherwise</dd>
+							            
+							            </dl>
+						            
+						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
+					            <a name="doZoomOutAction"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            <span class="light">{Boolean}</span>
+					            <b>doZoomOutAction</b>()
+					
+					            </div>
+					            <div class="description">
+						            <p>This action decreases the zoom level if the minimum zoom level
+hasn't been reached yet.
+This action is available only when a <a href="../symbols/Webgram.DrawingControls.SelectDrawingControl.html">Webgram.DrawingControls.SelectDrawingControl</a> is active.</p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+						            
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Returns:</dt>
+							            
+								            <dd><span class="light fixedFont">{Boolean}</span> <tt>true</tt> if the action succeeded, <tt>false</tt> otherwise</dd>
+							            
+							            </dl>
+						            
+						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
 					            <a name="getActiveDrawingControl"> </a>
 					            <div class="fixedFont">
                                   <div class="modifiers">
@@ -2343,6 +2654,41 @@ in the list of children of this webgram's root container. <br><br>
 							            <dt class="heading">Returns:</dt>
 							            
 								            <dd><span class="light fixedFont">{Number}</span> the position of the drawing element if found, <tt>-1</tt> otherwise</dd>
+							            
+							            </dl>
+						            
+						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
+					            <a name="getDrawingElements"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            <span class="light">{Array}</span>
+					            <b>getDrawingElements</b>()
+					
+					            </div>
+					            <div class="description">
+						            <p>Returns a list of all the children.
+<em>(should not be overridden)</em></p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+						            
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Returns:</dt>
+							            
+								            <dd><span class="light fixedFont">{Array}</span> a list with all the children</dd>
 							            
 							            </dl>
 						            
@@ -4107,6 +4453,22 @@ The list of the available zoom levels is defined through the <tt>zoomLevels</tt>
                              </li>
                            
                              <li>
+                               <a href="../symbols/Webgram.html#onZoomFitAction">onZoomFitAction</a>
+                             </li>
+                           
+                             <li>
+                               <a href="../symbols/Webgram.html#onZoomInAction">onZoomInAction</a>
+                             </li>
+                           
+                             <li>
+                               <a href="../symbols/Webgram.html#onZoomOneAction">onZoomOneAction</a>
+                             </li>
+                           
+                             <li>
+                               <a href="../symbols/Webgram.html#onZoomOutAction">onZoomOutAction</a>
+                             </li>
+                           
+                             <li>
                                <a href="../symbols/Webgram.html#rootContainer">rootContainer</a>
                              </li>
                            
@@ -4189,6 +4551,22 @@ The list of the available zoom levels is defined through the <tt>zoomLevels</tt>
                                 </li>
                            
                                <li>
+                                    <a href="../symbols/Webgram.html#doZoomFitAction">doZoomFitAction</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.html#doZoomInAction">doZoomInAction</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.html#doZoomOneAction">doZoomOneAction</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.html#doZoomOutAction">doZoomOutAction</a>
+                                </li>
+                           
+                               <li>
                                     <a href="../symbols/Webgram.html#getActiveDrawingControl">getActiveDrawingControl</a>
                                 </li>
                            
@@ -4198,6 +4576,10 @@ The list of the available zoom levels is defined through the <tt>zoomLevels</tt>
                            
                                <li>
                                     <a href="../symbols/Webgram.html#getDrawingElementIndex">getDrawingElementIndex</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.html#getDrawingElements">getDrawingElements</a>
                                 </li>
                            
                                <li>
@@ -4373,7 +4755,7 @@ The list of the available zoom levels is defined through the <tt>zoomLevels</tt>
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both;text-align:center">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Mon Jul 02 2012 11:46:08 GMT+0300 (EEST)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Thu Jul 19 2012 00:57:10 GMT+0300 (EEST)
 		</div>
 	</body>
 </html>
