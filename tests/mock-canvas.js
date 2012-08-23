@@ -3,7 +3,7 @@ MockCanvas = function (width, height, callback) {
     this.width = width;
     this.height = height;
     this.callback = callback;
-}
+};
 
 MockCanvas.prototype = {
     clear: function () {

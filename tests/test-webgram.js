@@ -105,12 +105,10 @@ registerTest('webgram', 'events', 'onZoom', 'zoom out with setZoomLevel()', {
     }
 });
 
-registerTest('webgram', 'events', 'onPan', 'pan with mouse', {
+registerTest('webgram', 'events', 'onPan', 'pan with setVisibleCenter()', {
     run: function (webgram, miniWebgram) {
         var called = false;
         
-        var center = webgram.getVisibleCenter();
-
         webgram.onPan.bind(function (newCenter) {
             if (newCenter.x !== 100 || newCenter.y !== 100) {
                 throw new TestError('newCenter.x !== ' + 100 + ' || newCenter.y !== ' + 100);
@@ -127,12 +125,10 @@ registerTest('webgram', 'events', 'onPan', 'pan with mouse', {
     }
 });
 
-registerTest('webgram', 'events', 'onPan', 'pan with setVisibleCenter()', {
+registerTest('webgram', 'events', 'onPan', 'pan with mouse', {
     run: function (webgram, miniWebgram) {
         var called = false;
         
-        var center = webgram.getVisibleCenter();
-
         webgram.onPan.bind(function (newCenter) {
             if (newCenter.x !== 100 || newCenter.y !== 100) {
                 throw new TestError('newCenter.x !== ' + 100 + ' || newCenter.y !== ' + 100);
