@@ -418,6 +418,75 @@ registerTest('webgram', 'events', 'onDrawingElementChange', 'CE/DE, setRotationA
     }
 });
 
+registerTest('webgram', 'events', 'onDrawingElementChange', 'setStrokeStyle', {
+    run: function (webgram, miniWebgram) {
+        var drawingElement = new MockRectangleElement('drawingElement', 50, 50, 100, 50);
+        var called = false;
+        
+        webgram.addDrawingElement(drawingElement);
+        
+        webgram.onDrawingElementChange.bind(function (de) {
+            if (de !== drawingElement) {
+                throw new TestError('de != ' + drawingElement);
+            }
+            
+            called = true;
+        });
+        
+        drawingElement.setStrokeStyle(Webgram.Styles.getStrokeStyle('default'));
+        
+        if (!called) {
+            throw new TestError('event not triggered');
+        }
+    }
+});
+
+registerTest('webgram', 'events', 'onDrawingElementChange', 'setFillStyle', {
+    run: function (webgram, miniWebgram) {
+        var drawingElement = new MockRectangleElement('drawingElement', 50, 50, 100, 50);
+        var called = false;
+        
+        webgram.addDrawingElement(drawingElement);
+        
+        webgram.onDrawingElementChange.bind(function (de) {
+            if (de !== drawingElement) {
+                throw new TestError('de != ' + drawingElement);
+            }
+            
+            called = true;
+        });
+        
+        drawingElement.setFillStyle(Webgram.Styles.getFillStyle('default'));
+        
+        if (!called) {
+            throw new TestError('event not triggered');
+        }
+    }
+});
+
+registerTest('webgram', 'events', 'onDrawingElementChange', 'setTextStyle', {
+    run: function (webgram, miniWebgram) {
+        var drawingElement = new MockRectangleElement('drawingElement', 50, 50, 100, 50);
+        var called = false;
+        
+        webgram.addDrawingElement(drawingElement);
+        
+        webgram.onDrawingElementChange.bind(function (de) {
+            if (de !== drawingElement) {
+                throw new TestError('de != ' + drawingElement);
+            }
+            
+            called = true;
+        });
+        
+        drawingElement.setTextStyle(Webgram.Styles.getTextStyle('default'));
+        
+        if (!called) {
+            throw new TestError('event not triggered');
+        }
+    }
+});
+
 registerTest('webgram', 'events', 'onDrawingElementIndexChange', 'addDrawingElement', {
     run: function (webgram, miniWebgram) {
         var drawingElement1 = new MockRectangleElement('drawingElement1', 0, 0, 50, 50);
