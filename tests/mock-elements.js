@@ -19,3 +19,16 @@ MockRectangleElement.prototype = {
 };
 
 Webgram.Class('MockRectangleElement', Webgram.DrawingElements.RectangularElement);
+
+
+MockConnector = function (id, x1, y1, x2, y2) {
+    var point1 = new Webgram.Geometry.Point(x1, y1);
+    var point2 = new Webgram.Geometry.Point(x2, y2);
+    
+    Webgram.Connectors.Connector.call(this, id, [point1, point2]);
+};
+
+MockConnector.prototype = {
+};
+
+Webgram.Class('MockConnector', Webgram.Connectors.Connector);

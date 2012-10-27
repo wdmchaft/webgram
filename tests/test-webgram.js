@@ -361,6 +361,7 @@ registerTest('webgram', 'events', 'onDrawingElementChange', 'CE/DE, moveTo', {
         });
         
         drawingElement.moveTo(new Webgram.Geometry.Point(100, 100));
+        webgram.rootContainer.updatePoints();
         
         if (!called) {
             throw new TestError('event not triggered');
@@ -411,6 +412,59 @@ registerTest('webgram', 'events', 'onDrawingElementChange', 'CE/DE, setRotationA
         });
         
         drawingElement.setRotationAngle(Math.PI / 3);
+        
+        if (!called) {
+            throw new TestError('event not triggered');
+        }
+    }
+});
+
+registerTest('webgram', 'events', 'onDrawingElementChange', 'connector, moveTo', {
+    run: function (webgram, miniWebgram) {
+        var drawingElement = new MockRectangleElement('drawingElement', 0, 0, 100, 100);
+        var connector = new MockConnector('connector', -100, -100, 50, 50);
+        var called = false;
+        
+        webgram.addDrawingElement(drawingElement);
+        webgram.addDrawingElement(connector);
+        
+        drawingElement.socket.connect(connector.getEndPoints()[0]);
+        
+        webgram.onDrawingElementChange.bind(function (de) {
+            if (de == connector) {
+                called = true;
+            }
+        });
+        
+        drawingElement.moveTo(100, 100);
+        webgram.handleMouseUp(new Webgram.Geometry.Point(0, 0), 1, {});
+        
+        if (!called) {
+            throw new TestError('event not triggered');
+        }
+    }
+});
+
+registerTest('webgram', 'events', 'onDrawingElementChange', 'connector, setRotationAngle', {
+    run: function (webgram, miniWebgram) {
+        var drawingElement = new MockRectangleElement('drawingElement', 0, 0, 100, 100);
+        var connector = new MockConnector('connector', -100, -100, 50, 50);
+        var called = false;
+        
+        webgram.addDrawingElement(drawingElement);
+        webgram.addDrawingElement(connector);
+        
+        drawingElement.socket.connect(connector.getEndPoints()[0]);
+        
+        webgram.onDrawingElementChange.bind(function (de) {
+            if (de == connector) {
+                called = true;
+            }
+        });
+        
+        drawingElement.setRotationAngle(Math.PI / 3);
+        webgram.rootContainer.updatePoints();
+        webgram.handleMouseUp(new Webgram.Geometry.Point(0, 0), 1, {});
         
         if (!called) {
             throw new TestError('event not triggered');
@@ -892,7 +946,7 @@ registerTest('webgram', 'events', 'onSelectionChange', 'setSelectedDrawingElemen
     }
 });
 
-registerTest('webgram', 'events', 'onClipboardChange', 'setClipboard()', {
+registerTest('webgram', 'events', 'onClipboardChange', 'setClipboard', {
     run: function (webgram, miniWebgram) {
         var called = false;
         
@@ -915,7 +969,7 @@ registerTest('webgram', 'events', 'onClipboardChange', 'setClipboard()', {
     }
 });
 
-registerTest('webgram', 'events', 'onClipboardChange', 'clearClipboard()', {
+registerTest('webgram', 'events', 'onClipboardChange', 'clearClipboard', {
     run: function (webgram, miniWebgram) {
         var called = false;
         
