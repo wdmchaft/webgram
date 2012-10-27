@@ -195,6 +195,10 @@
                              </li>
                            
                              <li>
+                               <a href="../symbols/Webgram.DrawingElement.html#onChange">onChange</a>
+                             </li>
+                           
+                             <li>
                                <a href="../symbols/Webgram.DrawingElement.html#onChangeFocus">onChangeFocus</a>
                              </li>
                            
@@ -442,6 +446,10 @@
                            
                                <li>
                                     <a href="../symbols/Webgram.DrawingElement.html#fillStyleToJson">fillStyleToJson</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#finishShapeChange">finishShapeChange</a>
                                 </li>
                            
                                <li>
@@ -909,10 +917,6 @@
                                 </li>
                            
                                <li>
-                                    <a href="../symbols/Webgram.DrawingElement.html#triggerShapeChange">triggerShapeChange</a>
-                                </li>
-                           
-                               <li>
                                     <a href="../symbols/Webgram.DrawingElement.html#updatePoints">updatePoints</a>
                                 </li>
                            
@@ -1166,6 +1170,33 @@ Handlers receive the following arguments: <tt>(containerElement)</tt>.</p>
 					            <div class="description">
 						            <p>An event that is triggered when the user begins the rotation of this element.
 This event only occurs when the element is rotated using <a href="../symbols/Webgram.ControlPoints.RotateControlPoint.html">Webgram.ControlPoints.RotateControlPoint</a>.<br>
+Handlers receive no arguments.</p>
+						            
+						            
+					            </div>
+					
+					            
+
+						            
+						            
+						            
+						            
+                              </div>
+				            
+                              <div class="member">
+					            <a name="onChange"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					
+					            <span class="light">{<a href="../symbols/Webgram.Event.html">Webgram.Event</a>}</span>
+					            <b>onChange</b>
+					
+					            </div>
+					            <div class="description">
+						            <p>An event that is triggered whenever an attribute of this
+drawing element is modified. This event is linked with the
+more general <a href="../symbols/Webgram.html#onDrawingElementChange">Webgram#onDrawingElementChange</a> event<br>
 Handlers receive no arguments.</p>
 						            
 						            
@@ -3294,6 +3325,56 @@ The absolute coordinates and rotation angle of this element are preserved.</p>
 								            <dd><span class="light fixedFont">{Object}</span> the json object with the fill style</dd>
 							            
 							            </dl>
+						            
+						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
+					            <a name="finishShapeChange"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            
+					            <b>finishShapeChange</b>(force)
+					
+					            </div>
+					            <div class="description">
+						            <p>A drawing element uses three events to signal that
+the shape has been changed:
+<a href="../symbols/Webgram.DrawingElement.html#onShapeBeginChange">Webgram.DrawingElement#onShapeBeginChange</a>,
+<a href="../symbols/Webgram.DrawingElement.html#onShapeChange">Webgram.DrawingElement#onShapeChange</a> and 
+<a href="../symbols/Webgram.DrawingElement.html#onShapeEndChange">Webgram.DrawingElement#onShapeEndChange</a>.
+This method assures a successive and uniform triggering
+of the three events. It's automatically invoked when
+one of the shape points is modified via the library-provided
+methods. However if you add any extra fields that contribute
+to the definition of the shape, you should add specific <em>getters</em>
+and <em>setters</em> and call this method with <tt>force</tt> set to <tt>true</tt>
+at the end of these setters.</p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Parameters:</dt>
+							            
+								            <dt>
+									            <span class="light fixedFont">{Boolean}</span> <b>force</b>
+									            
+								            </dt>
+								            <dd>set to <tt>true</tt> to force the triggering of the events,
+ regardless of the fact that the shape points were actually changed or not.</dd>
+							            
+							            </dl>
+						            
+						            
+						            
+						            
 						            
 						            
 						            
@@ -7835,56 +7916,6 @@ into this element's coordinate system. This method does not affect the original 
                               </div>
 				            
                               <div class="member">
-					            <a name="triggerShapeChange"> </a>
-					            <div class="fixedFont">
-                                  <div class="modifiers">
-                                  </div>
-					            
-					            <b>triggerShapeChange</b>(force)
-					
-					            </div>
-					            <div class="description">
-						            <p>A drawing element uses three events to signal that
-the shape has been changed:
-<a href="../symbols/Webgram.DrawingElement.html#onShapeBeginChange">Webgram.DrawingElement#onShapeBeginChange</a>,
-<a href="../symbols/Webgram.DrawingElement.html#onShapeChange">Webgram.DrawingElement#onShapeChange</a> and 
-<a href="../symbols/Webgram.DrawingElement.html#onShapeEndChange">Webgram.DrawingElement#onShapeEndChange</a>.
-This method assures a successive and uniform trigger
-of the three events. It's automatically invoked when
-one of the shape points is modified via the library-provided
-methods. However if you add any extra fields that contribute
-to the definition of the shape, you should add specific <em>getters</em>
-and <em>setters</em> and call this method with <tt>force</tt> set to <tt>true</tt>
-at the end of these setters.</p>
-						            
-						            
-					            </div>
-					
-					            
-					
-						            
-							            <dl class="detailList">
-							            <dt class="heading">Parameters:</dt>
-							            
-								            <dt>
-									            <span class="light fixedFont">{Boolean}</span> <b>force</b>
-									            
-								            </dt>
-								            <dd>set to <tt>true</tt> to force the triggering of the events,
- regardless of the fact that the shape points were actually changed or not.</dd>
-							            
-							            </dl>
-						            
-						            
-						            
-						            
-						            
-						            
-						            
-
-                              </div>
-				            
-                              <div class="member">
 					            <a name="updatePoints"> </a>
 					            <div class="fixedFont">
                                   <div class="modifiers">
@@ -7967,6 +7998,10 @@ by calling their <tt>update</tt> methods.</p>
                            
                              <li>
                                <a href="../symbols/Webgram.DrawingElement.html#onBeginRotate">onBeginRotate</a>
+                             </li>
+                           
+                             <li>
+                               <a href="../symbols/Webgram.DrawingElement.html#onChange">onChange</a>
                              </li>
                            
                              <li>
@@ -8217,6 +8252,10 @@ by calling their <tt>update</tt> methods.</p>
                            
                                <li>
                                     <a href="../symbols/Webgram.DrawingElement.html#fillStyleToJson">fillStyleToJson</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#finishShapeChange">finishShapeChange</a>
                                 </li>
                            
                                <li>
@@ -8684,10 +8723,6 @@ by calling their <tt>update</tt> methods.</p>
                                 </li>
                            
                                <li>
-                                    <a href="../symbols/Webgram.DrawingElement.html#triggerShapeChange">triggerShapeChange</a>
-                                </li>
-                           
-                               <li>
                                     <a href="../symbols/Webgram.DrawingElement.html#updatePoints">updatePoints</a>
                                 </li>
                            
@@ -8708,7 +8743,7 @@ by calling their <tt>update</tt> methods.</p>
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both;text-align:center">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Thu Jul 19 2012 00:57:17 GMT+0300 (EEST)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sat Oct 27 2012 18:20:18 GMT+0300 (EEST)
 		</div>
 	</body>
 </html>
