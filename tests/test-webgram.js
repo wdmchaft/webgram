@@ -361,7 +361,6 @@ registerTest('webgram', 'events', 'onDrawingElementChange', 'CE/DE, moveTo', {
         });
         
         drawingElement.moveTo(new Webgram.Geometry.Point(100, 100));
-        webgram.rootContainer.updatePoints();
         
         if (!called) {
             throw new TestError('event not triggered');
@@ -437,7 +436,6 @@ registerTest('webgram', 'events', 'onDrawingElementChange', 'connector, moveTo',
         });
         
         drawingElement.moveTo(100, 100);
-        webgram.handleMouseUp(new Webgram.Geometry.Point(0, 0), 1, {});
         
         if (!called) {
             throw new TestError('event not triggered');
@@ -463,8 +461,6 @@ registerTest('webgram', 'events', 'onDrawingElementChange', 'connector, setRotat
         });
         
         drawingElement.setRotationAngle(Math.PI / 3);
-        webgram.rootContainer.updatePoints();
-        webgram.handleMouseUp(new Webgram.Geometry.Point(0, 0), 1, {});
         
         if (!called) {
             throw new TestError('event not triggered');

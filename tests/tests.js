@@ -80,7 +80,7 @@ function _addTestResult(component, category, name, kase, result, message) {
     testResultsTable.appendChild(testResultRow);
     
     var testResultsDiv = document.getElementById('testResultsDiv');
-    testResultsDiv.scrollTop = testResultsDiv.scrollHeight;
+    testResultsDiv.parentElement.scrollTop = testResultsDiv.parentElement.scrollHeight;
 }
 
 function runTests() {
