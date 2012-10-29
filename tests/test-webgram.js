@@ -1,6 +1,234 @@
 
     /* events */
 
+registerTest('webgram', 'events', 'onKeyPress', null, {
+    run: function (webgram, miniWebgram) {
+        var called = false;
+        
+        webgram.onKeyPress.bind(function (key, modifiers) {
+            if (key !== 13) {
+                throw new TestError('key != 13');
+            }
+            if (!modifiers.alt) {
+                throw new TestError('modifiers.alt != true');
+            }
+            if (!modifiers.ctrl) {
+                throw new TestError('modifiers.ctrl != true');
+            }
+            if (!modifiers.shift) {
+                throw new TestError('modifiers.shift != true');
+            }
+            
+            called = true;
+        });
+        
+        webgram.handleKeyPress(13, {'alt': true, 'ctrl': true, 'shift': true});
+        
+        if (!called) {
+            throw new TestError('event not triggered');
+        }
+    }
+});
+
+registerTest('webgram', 'events', 'onKeyDown', null, {
+    run: function (webgram, miniWebgram) {
+        var called = false;
+        
+        webgram.onKeyDown.bind(function (key, modifiers) {
+            if (key !== 13) {
+                throw new TestError('key != 13');
+            }
+            if (!modifiers.alt) {
+                throw new TestError('modifiers.alt != true');
+            }
+            if (!modifiers.ctrl) {
+                throw new TestError('modifiers.ctrl != true');
+            }
+            if (!modifiers.shift) {
+                throw new TestError('modifiers.shift != true');
+            }
+            
+            called = true;
+        });
+        
+        webgram.handleKeyDown(13, {'alt': true, 'ctrl': true, 'shift': true});
+        
+        if (!called) {
+            throw new TestError('event not triggered');
+        }
+    }
+});
+
+registerTest('webgram', 'events', 'onKeyUp', null, {
+    run: function (webgram, miniWebgram) {
+        var called = false;
+        
+        webgram.onKeyUp.bind(function (key, modifiers) {
+            if (key !== 13) {
+                throw new TestError('key != 13');
+            }
+            if (!modifiers.alt) {
+                throw new TestError('modifiers.alt != true');
+            }
+            if (!modifiers.ctrl) {
+                throw new TestError('modifiers.ctrl != true');
+            }
+            if (!modifiers.shift) {
+                throw new TestError('modifiers.shift != true');
+            }
+            
+            called = true;
+        });
+        
+        webgram.handleKeyUp(13, {'alt': true, 'ctrl': true, 'shift': true});
+        
+        if (!called) {
+            throw new TestError('event not triggered');
+        }
+    }
+});
+
+registerTest('webgram', 'events', 'onMouseDown', null, {
+    run: function (webgram, miniWebgram) {
+        var called = false;
+        
+        webgram.onMouseDown.bind(function (point, button, modifiers) {
+            if (point.x !== 100) {
+                throw new TestError('point.x != 100');
+            }
+            if (point.y !== 50) {
+                throw new TestError('point.y != 50');
+            }
+            if (button !== 1) {
+                throw new TestError('button != 1');
+            }
+            if (!modifiers.alt) {
+                throw new TestError('modifiers.alt != true');
+            }
+            if (!modifiers.ctrl) {
+                throw new TestError('modifiers.ctrl != true');
+            }
+            if (!modifiers.shift) {
+                throw new TestError('modifiers.shift != true');
+            }
+            
+            called = true;
+        });
+        
+        webgram.handleMouseDown(new Webgram.Geometry.Point(100, 50), 1,
+                {'alt': true, 'ctrl': true, 'shift': true});
+        
+        if (!called) {
+            throw new TestError('event not triggered');
+        }
+    }
+});
+
+registerTest('webgram', 'events', 'onMouseUp', null, {
+    run: function (webgram, miniWebgram) {
+        var called = false;
+        
+        webgram.onMouseUp.bind(function (point, button, modifiers) {
+            if (point.x !== 100) {
+                throw new TestError('point.x != 100');
+            }
+            if (point.y !== 50) {
+                throw new TestError('point.y != 50');
+            }
+            if (button !== 1) {
+                throw new TestError('button != 1');
+            }
+            if (!modifiers.alt) {
+                throw new TestError('modifiers.alt != true');
+            }
+            if (!modifiers.ctrl) {
+                throw new TestError('modifiers.ctrl != true');
+            }
+            if (!modifiers.shift) {
+                throw new TestError('modifiers.shift != true');
+            }
+            
+            called = true;
+        });
+        
+        webgram.handleMouseUp(new Webgram.Geometry.Point(100, 50), 1,
+                {'alt': true, 'ctrl': true, 'shift': true});
+        
+        if (!called) {
+            throw new TestError('event not triggered');
+        }
+    }
+});
+
+registerTest('webgram', 'events', 'onMouseMove', null, {
+    run: function (webgram, miniWebgram) {
+        var called = false;
+        
+        webgram.onMouseMove.bind(function (point, modifiers) {
+            if (point.x !== 100) {
+                throw new TestError('point.x != 100');
+            }
+            if (point.y !== 50) {
+                throw new TestError('point.y != 50');
+            }
+            if (!modifiers.alt) {
+                throw new TestError('modifiers.alt != true');
+            }
+            if (!modifiers.ctrl) {
+                throw new TestError('modifiers.ctrl != true');
+            }
+            if (!modifiers.shift) {
+                throw new TestError('modifiers.shift != true');
+            }
+            
+            called = true;
+        });
+        
+        webgram.handleMouseMove(new Webgram.Geometry.Point(100, 50),
+                {'alt': true, 'ctrl': true, 'shift': true});
+        
+        if (!called) {
+            throw new TestError('event not triggered');
+        }
+    }
+});
+
+registerTest('webgram', 'events', 'onMouseScroll', null, {
+    run: function (webgram, miniWebgram) {
+        var called = false;
+        
+        webgram.onMouseScroll.bind(function (point, up, modifiers) {
+            if (point.x !== 100) {
+                throw new TestError('point.x != 100');
+            }
+            if (point.y !== 50) {
+                throw new TestError('point.y != 50');
+            }
+            if (up !== true) {
+                throw new TestError('up != true');
+            }
+            if (!modifiers.alt) {
+                throw new TestError('modifiers.alt != true');
+            }
+            if (!modifiers.ctrl) {
+                throw new TestError('modifiers.ctrl != true');
+            }
+            if (!modifiers.shift) {
+                throw new TestError('modifiers.shift != true');
+            }
+            
+            called = true;
+        });
+        
+        webgram.handleMouseScroll(new Webgram.Geometry.Point(100, 50), true,
+                {'alt': true, 'ctrl': true, 'shift': true});
+        
+        if (!called) {
+            throw new TestError('event not triggered');
+        }
+    }
+});
+
 registerTest('webgram', 'events', 'onDraw', null, {
     run: function (webgram, miniWebgram) {
         var called = false;
