@@ -1227,7 +1227,7 @@ registerTest('webgram', 'events', 'onCopyAction', 'by keyboard', {
         webgram.addDrawingElement(drawingElement2);
         webgram.setSelectedDrawingElements([drawingElement1, drawingElement2]);
         
-        webgram.onCopyAction.bind(function (des, byKeyboard) {
+        webgram.onCopyAction.bind(function (des) {
             if (des.length !== 2) {
                 throw new TestError('des.length != 2');
             }
@@ -1236,9 +1236,6 @@ registerTest('webgram', 'events', 'onCopyAction', 'by keyboard', {
             }
             if (des[1] !== drawingElement2) {
                 throw new TestError('des[1] != ' + drawingElement2);
-            }
-            if (!byKeyboard) {
-                throw new TestError('byKeyboard is false');
             }
             
             called = true;
@@ -1263,7 +1260,7 @@ registerTest('webgram', 'events', 'onCopyAction', 'by program', {
         webgram.addDrawingElement(drawingElement2);
         webgram.setSelectedDrawingElements([drawingElement1, drawingElement2]);
         
-        webgram.onCopyAction.bind(function (des, byKeyboard) {
+        webgram.onCopyAction.bind(function (des) {
             if (des.length !== 2) {
                 throw new TestError('des.length != 2');
             }
@@ -1272,9 +1269,6 @@ registerTest('webgram', 'events', 'onCopyAction', 'by program', {
             }
             if (des[1] !== drawingElement2) {
                 throw new TestError('des[1] != ' + drawingElement2);
-            }
-            if (byKeyboard) {
-                throw new TestError('byKeyboard is true');
             }
             
             called = true;
@@ -1300,12 +1294,9 @@ registerTest('webgram', 'events', 'onPasteAction', 'by keyboard', {
         webgram.setSelectedDrawingElements([drawingElement1, drawingElement2]);
         webgram.doCopyAction();
         
-        webgram.onPasteAction.bind(function (des, byKeyboard) {
+        webgram.onPasteAction.bind(function (des) {
             if (des.length !== 2) {
                 throw new TestError('des.length != 2');
-            }
-            if (!byKeyboard) {
-                throw new TestError('byKeyboard is false');
             }
             
             called = true;
@@ -1331,12 +1322,9 @@ registerTest('webgram', 'events', 'onPasteAction', 'by program', {
         webgram.setSelectedDrawingElements([drawingElement1, drawingElement2]);
         webgram.doCopyAction();
         
-        webgram.onPasteAction.bind(function (des, byKeyboard) {
+        webgram.onPasteAction.bind(function (des) {
             if (des.length !== 2) {
                 throw new TestError('des.length != 2');
-            }
-            if (byKeyboard) {
-                throw new TestError('byKeyboard is true');
             }
             
             called = true;
@@ -1361,12 +1349,9 @@ registerTest('webgram', 'events', 'onDuplicateAction', 'by keyboard', {
         webgram.addDrawingElement(drawingElement2);
         webgram.setSelectedDrawingElements([drawingElement1, drawingElement2]);
         
-        webgram.onDuplicateAction.bind(function (des, byKeyboard) {
+        webgram.onDuplicateAction.bind(function (des) {
             if (des.length !== 2) {
                 throw new TestError('des.length != 2');
-            }
-            if (!byKeyboard) {
-                throw new TestError('byKeyboard is false');
             }
             
             called = true;
@@ -1391,12 +1376,9 @@ registerTest('webgram', 'events', 'onDuplicateAction', 'by program', {
         webgram.addDrawingElement(drawingElement2);
         webgram.setSelectedDrawingElements([drawingElement1, drawingElement2]);
         
-        webgram.onDuplicateAction.bind(function (des, byKeyboard) {
+        webgram.onDuplicateAction.bind(function (des) {
             if (des.length !== 2) {
                 throw new TestError('des.length != 2');
-            }
-            if (byKeyboard) {
-                throw new TestError('byKeyboard is true');
             }
             
             called = true;
@@ -1421,7 +1403,7 @@ registerTest('webgram', 'events', 'onDeleteAction', 'by keyboard', {
         webgram.addDrawingElement(drawingElement2);
         webgram.setSelectedDrawingElements([drawingElement1, drawingElement2]);
         
-        webgram.onDeleteAction.bind(function (des, byKeyboard) {
+        webgram.onDeleteAction.bind(function (des) {
             if (des.length !== 2) {
                 throw new TestError('des.length != 2');
             }
@@ -1430,9 +1412,6 @@ registerTest('webgram', 'events', 'onDeleteAction', 'by keyboard', {
             }
             if (des[1] !== drawingElement2) {
                 throw new TestError('des[1] != ' + drawingElement2);
-            }
-            if (!byKeyboard) {
-                throw new TestError('byKeyboard is false');
             }
             
             called = true;
@@ -1457,7 +1436,7 @@ registerTest('webgram', 'events', 'onDeleteAction', 'by program', {
         webgram.addDrawingElement(drawingElement2);
         webgram.setSelectedDrawingElements([drawingElement1, drawingElement2]);
         
-        webgram.onDeleteAction.bind(function (des, byKeyboard) {
+        webgram.onDeleteAction.bind(function (des) {
             if (des.length !== 2) {
                 throw new TestError('des.length != 2');
             }
@@ -1466,9 +1445,6 @@ registerTest('webgram', 'events', 'onDeleteAction', 'by program', {
             }
             if (des[1] !== drawingElement2) {
                 throw new TestError('des[1] != ' + drawingElement2);
-            }
-            if (byKeyboard) {
-                throw new TestError('byKeyboard is true');
             }
             
             called = true;
