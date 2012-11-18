@@ -317,6 +317,10 @@
                                 </li>
                            
                                <li>
+                                    <a href="../symbols/Webgram.ControlPoint.html#invalidateAnchor">invalidateAnchor</a>
+                                </li>
+                           
+                               <li>
                                     <a href="../symbols/Webgram.ControlPoint.html#isSnapToGridEnabled">isSnapToGridEnabled</a>
                                 </li>
                            
@@ -647,7 +651,7 @@ Handlers receive no arguments.</p>
 						            <p>An event that is triggered whenever the mouse enters the area of this control point.
 <a href="../symbols/Webgram.ControlPoint.html#pointInside">Webgram.ControlPoint#pointInside</a> method is used to evaluate this condition.<br>
 This is the equivalent of <tt>onMouseOver</tt> JavaScript event.<br>
-Handlers receive no arguments.</p>
+Handlers receive the following arguments: <tt>(point, modifiers)</tt>.</p>
 						            
 						            
 					            </div>
@@ -674,7 +678,7 @@ Handlers receive no arguments.</p>
 						            <p>An event that is triggered whenever the mouse leaves the area of this control point.
 <a href="../symbols/Webgram.ControlPoint.html#pointInside">Webgram.ControlPoint#pointInside</a> method is used to evaluate this condition.<br>
 This is the equivalent of <tt>onMouseOut</tt> JavaScript event.<br>
-Handlers receive no arguments.</p>
+Handlers receive the following arguments: <tt>(modifiers)</tt>.</p>
 						            
 						            
 					            </div>
@@ -800,7 +804,7 @@ Handlers receive no arguments.</p>
 					            </div>
 					            <div class="description">
 						            <p>An event that is triggered when the control point is updated.<br>
-Handlers receive the following arguments: <tt>(deltaX, deltaY)</tt></p>
+Handlers receive no arguments.</p>
 						            
 						            
 					            </div>
@@ -1664,6 +1668,35 @@ which in turn must be added to a webgram when calling this method.</p>
                               </div>
 				            
                               <div class="member">
+					            <a name="invalidateAnchor"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            
+					            <b>invalidateAnchor</b>()
+					
+					            </div>
+					            <div class="description">
+						            <p>This tells webgram that something about this control point has changed
+and that an update should be issued as soon as possible.<br><br>
+<em>(should not be overridden)</em></p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+						            
+						            
+						            
+						            
+						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
 					            <a name="isSnapToGridEnabled"> </a>
 					            <div class="fixedFont">
                                   <div class="modifiers">
@@ -1688,7 +1721,7 @@ which in turn must be added to a webgram when calling this method.</p>
 							            <dl class="detailList">
 							            <dt class="heading">Returns:</dt>
 							            
-								            <dd><span class="light fixedFont">{Boolean}</span> <tt>true></tt> if snapping to grid is enabled, <tt>false</tt> otherwise</dd>
+								            <dd><span class="light fixedFont">{Boolean}</span> <tt>true</tt> if snapping to grid is enabled, <tt>false</tt> otherwise</dd>
 							            
 							            </dl>
 						            
@@ -1722,10 +1755,10 @@ of dragging the control point with the mouse.<br><br>
 							            <dt class="heading">Parameters:</dt>
 							            
 								            <dt>
-									            <b>point</b>
+									            <span class="light fixedFont">{<a href="../symbols/Webgram.Geometry.Point.html">Webgram.Geometry.Point</a>}</span> <b>point</b>
 									            
 								            </dt>
-								            <dd></dd>
+								            <dd>the point that this control point will be moved to</dd>
 							            
 							            </dl>
 						            
@@ -2341,6 +2374,10 @@ are invalidated, but can be called by the user as well.<br><br>
                                 </li>
                            
                                <li>
+                                    <a href="../symbols/Webgram.ControlPoint.html#invalidateAnchor">invalidateAnchor</a>
+                                </li>
+                           
+                               <li>
                                     <a href="../symbols/Webgram.ControlPoint.html#isSnapToGridEnabled">isSnapToGridEnabled</a>
                                 </li>
                            
@@ -2405,7 +2442,7 @@ are invalidated, but can be called by the user as well.<br><br>
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both;text-align:center">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sat Oct 27 2012 20:05:55 GMT+0300 (EEST)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sun Nov 18 2012 22:31:36 GMT+0200 (EET)
 		</div>
 	</body>
 </html>

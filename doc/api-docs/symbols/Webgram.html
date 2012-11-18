@@ -183,6 +183,10 @@
                              </li>
                            
                              <li>
+                               <a href="../symbols/Webgram.html#onBlur">onBlur</a>
+                             </li>
+                           
+                             <li>
                                <a href="../symbols/Webgram.html#onBringToFrontAction">onBringToFrontAction</a>
                              </li>
                            
@@ -239,6 +243,10 @@
                              </li>
                            
                              <li>
+                               <a href="../symbols/Webgram.html#onFocus">onFocus</a>
+                             </li>
+                           
+                             <li>
                                <a href="../symbols/Webgram.html#onKeyDown">onKeyDown</a>
                              </li>
                            
@@ -287,11 +295,19 @@
                              </li>
                            
                              <li>
+                               <a href="../symbols/Webgram.html#onRedoAction">onRedoAction</a>
+                             </li>
+                           
+                             <li>
                                <a href="../symbols/Webgram.html#onSelectionChange">onSelectionChange</a>
                              </li>
                            
                              <li>
                                <a href="../symbols/Webgram.html#onSendToBackAction">onSendToBackAction</a>
+                             </li>
+                           
+                             <li>
+                               <a href="../symbols/Webgram.html#onUndoAction">onUndoAction</a>
                              </li>
                            
                              <li>
@@ -361,6 +377,10 @@
                                 </li>
                            
                                <li>
+                                    <a href="../symbols/Webgram.html#disableUndoCheckPoints">disableUndoCheckPoints</a>
+                                </li>
+                           
+                               <li>
                                     <a href="../symbols/Webgram.html#doBringToFrontAction">doBringToFrontAction</a>
                                 </li>
                            
@@ -393,7 +413,15 @@
                                 </li>
                            
                                <li>
+                                    <a href="../symbols/Webgram.html#doRedoAction">doRedoAction</a>
+                                </li>
+                           
+                               <li>
                                     <a href="../symbols/Webgram.html#doSendToBackAction">doSendToBackAction</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.html#doUndoAction">doUndoAction</a>
                                 </li>
                            
                                <li>
@@ -410,6 +438,14 @@
                            
                                <li>
                                     <a href="../symbols/Webgram.html#doZoomOutAction">doZoomOutAction</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.html#enableUndoCheckPoints">enableUndoCheckPoints</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.html#finishChangeEvents">finishChangeEvents</a>
                                 </li>
                            
                                <li>
@@ -450,6 +486,14 @@
                            
                                <li>
                                     <a href="../symbols/Webgram.html#getSetting">getSetting</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.html#getUndoCount">getUndoCount</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.html#getUndoPosition">getUndoPosition</a>
                                 </li>
                            
                                <li>
@@ -517,11 +561,11 @@
                                 </li>
                            
                                <li>
-                                    <a href="../symbols/Webgram.html#invalidate">invalidate</a>
+                                    <a href="../symbols/Webgram.html#invalidateDrawing">invalidateDrawing</a>
                                 </li>
                            
                                <li>
-                                    <a href="../symbols/Webgram.html#invalidateMini">invalidateMini</a>
+                                    <a href="../symbols/Webgram.html#invalidateDrawingMini">invalidateDrawingMini</a>
                                 </li>
                            
                                <li>
@@ -533,11 +577,23 @@
                                 </li>
                            
                                <li>
+                                    <a href="../symbols/Webgram.html#purgeUndoCheckPoints">purgeUndoCheckPoints</a>
+                                </li>
+                           
+                               <li>
                                     <a href="../symbols/Webgram.html#redraw">redraw</a>
                                 </li>
                            
                                <li>
                                     <a href="../symbols/Webgram.html#remDrawingElement">remDrawingElement</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.html#resetUndo">resetUndo</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.html#saveUndoCheckPoint">saveUndoCheckPoint</a>
                                 </li>
                            
                                <li>
@@ -586,6 +642,10 @@
                            
                                <li>
                                     <a href="../symbols/Webgram.html#setZoomLevel">setZoomLevel</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.html#userInteraction">userInteraction</a>
                                 </li>
                            
                          </ul>
@@ -780,6 +840,31 @@ and should not be altered.</p>
                               </div>
 				            
                               <div class="member">
+					            <a name="onBlur"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					
+					            <span class="light">{<a href="../symbols/Webgram.Event.html">Webgram.Event</a>}</span>
+					            <b>onBlur</b>
+					
+					            </div>
+					            <div class="description">
+						            <p>An event that is triggered whenever webgram loses the focus.<br>
+Handlers receive no arguments.</p>
+						            
+						            
+					            </div>
+					
+					            
+
+						            
+						            
+						            
+						            
+                              </div>
+				            
+                              <div class="member">
 					            <a name="onBringToFrontAction"> </a>
 					            <div class="fixedFont">
                                   <div class="modifiers">
@@ -791,8 +876,7 @@ and should not be altered.</p>
 					            </div>
 					            <div class="description">
 						            <p>An event that is triggered when the <em>bring-to-front</em> action takes place.<br>
-Handlers receive the following arguments: <tt>(drawingElements, byKeyboard)</tt>,
-where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by a keyboard combination.</p>
+Handlers receive the following arguments: <tt>(drawingElements)</tt>.</p>
 						            
 						            
 					            </div>
@@ -858,8 +942,7 @@ Handlers receive the following arguments: <tt>(clipboard)</tt>.</p>
 					            </div>
 					            <div class="description">
 						            <p>An event that is triggered when the <em>copy</em> action takes place.<br>
-Handlers receive the following arguments: <tt>(drawingElements, byKeyboard)</tt>,
-where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by a keyboard combination.</p>
+Handlers receive the following arguments: <tt>(drawingElements)</tt>.</p>
 						            
 						            
 					            </div>
@@ -891,8 +974,7 @@ where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by
 					            </div>
 					            <div class="description">
 						            <p>An event that is triggered when the <em>delete</em> action takes place.<br>
-Handlers receive the following arguments: <tt>(drawingElements, byKeyboard)</tt>,
-where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by a keyboard combination.</p>
+Handlers receive the following arguments: <tt>(drawingElements)</tt>.</p>
 						            
 						            
 					            </div>
@@ -976,9 +1058,9 @@ Handlers receive the following arguments: <tt>(drawingElement)</tt>.</p>
 					
 					            </div>
 					            <div class="description">
-						            <p>An event that is triggered when a drawing element is changed. Any attribute that
-is included in the <a href="../symbols/Webgram.DrawingElement.html#toJson">Webgram.DrawingElement#toJson</a>/<a href="../symbols/Webgram.DrawingElement.html#fromJson">Webgram.DrawingElement#fromJson</a>
-methods should trigger this event when modified.
+						            <p>An event that is triggered when a drawing element's style, shape or rotation angle is changed.
+Any additional attribute that contributes to the json form of an element
+should trigger this event upon modification.
 Handlers receive the following arguments: <tt>(drawingElement)</tt>.</p>
 						            
 						            
@@ -1111,8 +1193,7 @@ Handlers receive the following arguments: <tt>(drawingElement)</tt>.</p>
 					            </div>
 					            <div class="description">
 						            <p>An event that is triggered when the <em>duplicate</em> action takes place.<br>
-Handlers receive the following arguments: <tt>(drawingElements, byKeyboard)</tt>,
-where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by a keyboard combination.</p>
+Handlers receive the following arguments: <tt>(drawingElements)</tt>.</p>
 						            
 						            
 					            </div>
@@ -1144,8 +1225,7 @@ where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by
 					            </div>
 					            <div class="description">
 						            <p>An event that is triggered when the <em>flip-horizontally</em> action takes place.<br>
-Handlers receive the following arguments: <tt>(drawingElements, byKeyboard)</tt>,
-where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by a keyboard combination.</p>
+Handlers receive the following arguments: <tt>(drawingElements)</tt>.</p>
 						            
 						            
 					            </div>
@@ -1177,8 +1257,7 @@ where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by
 					            </div>
 					            <div class="description">
 						            <p>An event that is triggered when the <em>flip-vertically</em> action takes place.<br>
-Handlers receive the following arguments: <tt>(drawingElements, byKeyboard)</tt>,
-where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by a keyboard combination.</p>
+Handlers receive the following arguments: <tt>(drawingElements)</tt>.</p>
 						            
 						            
 					            </div>
@@ -1194,6 +1273,31 @@ where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by
 							            <dd>Webgram#doFlipVertically</dd>
 							            
 							            </dl>
+						            
+						            
+                              </div>
+				            
+                              <div class="member">
+					            <a name="onFocus"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					
+					            <span class="light">{<a href="../symbols/Webgram.Event.html">Webgram.Event</a>}</span>
+					            <b>onFocus</b>
+					
+					            </div>
+					            <div class="description">
+						            <p>An event that is triggered whenever webgram gains the focus.<br>
+Handlers receive no arguments.</p>
+						            
+						            
+					            </div>
+					
+					            
+
+						            
+						            
 						            
 						            
                               </div>
@@ -1315,7 +1419,7 @@ Handlers receive the following arguments: <tt>(point, button, modifiers)</tt></p
 					            <div class="description">
 						            <p>An event that is triggered whenever the mouse enters the area of the webgram.
 This is the equivalent of <tt>onMouseOver</tt> JavaScript event.<br>
-Handlers receive the following arguments: <tt>(point, button, modifiers)</tt></p>
+Handlers receive the following arguments: <tt>(point, modifiers)</tt></p>
 						            
 						            
 					            </div>
@@ -1341,7 +1445,7 @@ Handlers receive the following arguments: <tt>(point, button, modifiers)</tt></p
 					            <div class="description">
 						            <p>An event that is triggered whenever the mouse leaves the area of the webgram.
 This is the equivalent of <tt>onMouseOut</tt> JavaScript event.<br>
-Handlers receive the following arguments: <tt>(point, button, modifiers)</tt></p>
+Handlers receive the following arguments: <tt>(modifiers)</tt></p>
 						            
 						            
 					            </div>
@@ -1443,8 +1547,7 @@ Handlers receive the following arguments: <tt>(point, button, modifiers)</tt></p
 					            </div>
 					            <div class="description">
 						            <p>An event that is triggered when the <em>move</em> action takes place.<br>
-Handlers receive the following arguments: <tt>(drawingElements, direction, byKeyboard)</tt>,
-where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by a keyboard combination.</p>
+Handlers receive the following arguments: <tt>(drawingElements, direction)</tt>.</p>
 						            
 						            
 					            </div>
@@ -1507,8 +1610,7 @@ Handlers receive the following arguments: <tt>(visibleCenter)</tt>.</p>
 					            </div>
 					            <div class="description">
 						            <p>An event that is triggered when the <em>paste</em> action takes place.<br>
-Handlers receive the following arguments: <tt>(drawingElements, byKeyboard)</tt>,
-where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by a keyboard combination.</p>
+Handlers receive the following arguments: <tt>(drawingElements)</tt>.</p>
 						            
 						            
 					            </div>
@@ -1522,6 +1624,38 @@ where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by
 							            <dt class="heading">See:</dt>
 							            
 							            <dd>Webgram#doPaste</dd>
+							            
+							            </dl>
+						            
+						            
+                              </div>
+				            
+                              <div class="member">
+					            <a name="onRedoAction"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					
+					            <span class="light">{<a href="../symbols/Webgram.Event.html">Webgram.Event</a>}</span>
+					            <b>onRedoAction</b>
+					
+					            </div>
+					            <div class="description">
+						            <p>An event that is triggered when the <em>redo</em> action takes place.<br>
+Handlers receive the following arguments: <tt>(drawingElement, operation)</tt>.</p>
+						            
+						            
+					            </div>
+					
+					            
+
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">See:</dt>
+							            
+							            <dd>Webgram#doRedo</dd>
 							            
 							            </dl>
 						            
@@ -1566,8 +1700,7 @@ Handlers receive the following arguments: <tt>(drawingElements)</tt>.</p>
 					            </div>
 					            <div class="description">
 						            <p>An event that is triggered when the <em>send-to-back</em> action takes place.<br>
-Handlers receive the following arguments: <tt>(drawingElements, byKeyboard)</tt>,
-where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by a keyboard combination.</p>
+Handlers receive the following arguments: <tt>(drawingElements)</tt>.</p>
 						            
 						            
 					            </div>
@@ -1581,6 +1714,38 @@ where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by
 							            <dt class="heading">See:</dt>
 							            
 							            <dd>Webgram#doSendToBack</dd>
+							            
+							            </dl>
+						            
+						            
+                              </div>
+				            
+                              <div class="member">
+					            <a name="onUndoAction"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					
+					            <span class="light">{<a href="../symbols/Webgram.Event.html">Webgram.Event</a>}</span>
+					            <b>onUndoAction</b>
+					
+					            </div>
+					            <div class="description">
+						            <p>An event that is triggered when the <em>undo</em> action takes place.<br>
+Handlers receive the following arguments: <tt>(drawingElement, operation)</tt>.</p>
+						            
+						            
+					            </div>
+					
+					            
+
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">See:</dt>
+							            
+							            <dd>Webgram#doUndo</dd>
 							            
 							            </dl>
 						            
@@ -1626,8 +1791,7 @@ Handlers receive the following arguments: <tt>(zoomLevel)</tt>.</p>
 					            </div>
 					            <div class="description">
 						            <p>An event that is triggered when the <em>zoom-fit</em> action takes place.<br>
-Handlers receive the following arguments: <tt>(zoomLevel, byKeyboard)</tt>,
-where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by a keyboard combination.</p>
+Handlers receive the following arguments: <tt>(zoomLevel)</tt>.</p>
 						            
 						            
 					            </div>
@@ -1659,8 +1823,7 @@ where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by
 					            </div>
 					            <div class="description">
 						            <p>An event that is triggered when the <em>zoom-in</em> action takes place.<br>
-Handlers receive the following arguments: <tt>(zoomLevel, byKeyboard)</tt>,
-where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by a keyboard combination.</p>
+Handlers receive the following arguments: <tt>(zoomLevel)</tt>.</p>
 						            
 						            
 					            </div>
@@ -1692,8 +1855,7 @@ where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by
 					            </div>
 					            <div class="description">
 						            <p>An event that is triggered when the <em>zoom-one</em> action takes place.<br>
-Handlers receive the following arguments: <tt>(zoomLevel, byKeyboard)</tt>,
-where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by a keyboard combination.</p>
+Handlers receive the following arguments: <tt>(zoomLevel)</tt>.</p>
 						            
 						            
 					            </div>
@@ -1725,8 +1887,7 @@ where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by
 					            </div>
 					            <div class="description">
 						            <p>An event that is triggered when the <em>zoom-out</em> action takes place.<br>
-Handlers receive the following arguments: <tt>(zoomLevel, byKeyboard)</tt>,
-where <tt>byKeyboard</tt> is set to <tt>true</tt> if the action was triggered by a keyboard combination.</p>
+Handlers receive the following arguments: <tt>(zoomLevel)</tt>.</p>
 						            
 						            
 					            </div>
@@ -2095,6 +2256,43 @@ classes inherited with the <tt>Class</tt> function, defined above.</p>
                               </div>
 				            
                               <div class="member">
+					            <a name="disableUndoCheckPoints"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            
+					            <b>disableUndoCheckPoints</b>()
+					
+					            </div>
+					            <div class="description">
+						            <p>Use this method if you want to temporarily disable the
+creation of <em>undo check points</em>.<br>
+If you wish to completely disable the undo mechanism,
+set the <tt>maxUndoLevels</tt> setting to <tt>0</tt>.</p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+						            
+						            
+						            
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">See:</dt>
+							            
+								            <dd></dd>
+							            
+							            </dl>
+						            
+
+                              </div>
+				            
+                              <div class="member">
 					            <a name="doBringToFrontAction"> </a>
 					            <div class="fixedFont">
                                   <div class="modifiers">
@@ -2396,6 +2594,40 @@ This action is available only when a <a href="../symbols/Webgram.DrawingControls
                               </div>
 				            
                               <div class="member">
+					            <a name="doRedoAction"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            <span class="light">{Boolean}</span>
+					            <b>doRedoAction</b>()
+					
+					            </div>
+					            <div class="description">
+						            <p>This action redoes the last undone operation.</p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+						            
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Returns:</dt>
+							            
+								            <dd><span class="light fixedFont">{Boolean}</span> <tt>true</tt> if the action succeeded, <tt>false</tt> otherwise</dd>
+							            
+							            </dl>
+						            
+						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
 					            <a name="doSendToBackAction"> </a>
 					            <div class="fixedFont">
                                   <div class="modifiers">
@@ -2407,6 +2639,40 @@ This action is available only when a <a href="../symbols/Webgram.DrawingControls
 					            <div class="description">
 						            <p>This action sends the current selection of drawing elements to back with one position.
 This action is available only when a <a href="../symbols/Webgram.DrawingControls.SelectDrawingControl.html">Webgram.DrawingControls.SelectDrawingControl</a> is active.</p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+						            
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Returns:</dt>
+							            
+								            <dd><span class="light fixedFont">{Boolean}</span> <tt>true</tt> if the action succeeded, <tt>false</tt> otherwise</dd>
+							            
+							            </dl>
+						            
+						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
+					            <a name="doUndoAction"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            <span class="light">{Boolean}</span>
+					            <b>doUndoAction</b>()
+					
+					            </div>
+					            <div class="description">
+						            <p>This action undoes the last operation performed on a drawing element.</p>
 						            
 						            
 					            </div>
@@ -2569,6 +2835,81 @@ This action is available only when a <a href="../symbols/Webgram.DrawingControls
 							            </dl>
 						            
 						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
+					            <a name="enableUndoCheckPoints"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            
+					            <b>enableUndoCheckPoints</b>()
+					
+					            </div>
+					            <div class="description">
+						            <p>Use this method to reenable the 
+creation of <em>undo check points</em>.</p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+						            
+						            
+						            
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">See:</dt>
+							            
+								            <dd></dd>
+							            
+							            </dl>
+						            
+
+                              </div>
+				            
+                              <div class="member">
+					            <a name="finishChangeEvents"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            
+					            <b>finishChangeEvents</b>()
+					
+					            </div>
+					            <div class="description">
+						            <p>Finishes the triggering of all the change events that
+are made of a <tt>begin<em>Change</tt>, a <tt>change</tt> and
+an <tt>end</em>Change</tt> part.</p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+						            
+						            
+						            
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">See:</dt>
+							            
+								            <dd></dd>
+							            
+								            <dd></dd>
+							            
+								            <dd></dd>
+							            
+							            </dl>
 						            
 
                               </div>
@@ -2974,6 +3315,78 @@ element added to the webgram instance.<br><br>
 							            <dt class="heading">Returns:</dt>
 							            
 								            <dd><span class="light fixedFont">{any}</span> the value of the setting, or <tt>def</tt> if it is not present</dd>
+							            
+							            </dl>
+						            
+						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
+					            <a name="getUndoCount"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            <span class="light">{Number}</span>
+					            <b>getUndoCount</b>()
+					
+					            </div>
+					            <div class="description">
+						            <p>Returns the current number of undo levels available.</p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+						            
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Returns:</dt>
+							            
+								            <dd><span class="light fixedFont">{Number}</span> </dd>
+							            
+							            </dl>
+						            
+						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
+					            <a name="getUndoPosition"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            <span class="light">{Number}</span>
+					            <b>getUndoPosition</b>()
+					
+					            </div>
+					            <div class="description">
+						            <p>Returns the current position inside the undo stack.
+If this position is <tt>0</tt>, then the <em>undo</em> action
+is not available. If this position equals to the
+number of undo levels returned by <a href="../symbols/Webgram.html#getUndoCount">Webgram#getUndoCount</a>,
+then the <em>redo</em> action is not available.</p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+						            
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Returns:</dt>
+							            
+								            <dd><span class="light fixedFont">{Number}</span> </dd>
 							            
 							            </dl>
 						            
@@ -3632,12 +4045,12 @@ ratio at which the scaling is being done.<br><br>
                               </div>
 				            
                               <div class="member">
-					            <a name="invalidate"> </a>
+					            <a name="invalidateDrawing"> </a>
 					            <div class="fixedFont">
                                   <div class="modifiers">
                                   </div>
 					            
-					            <b>invalidate</b>()
+					            <b>invalidateDrawing</b>()
 					
 					            </div>
 					            <div class="description">
@@ -3661,12 +4074,12 @@ and that a redraw should be issued as soon as possible.<br><br>
                               </div>
 				            
                               <div class="member">
-					            <a name="invalidateMini"> </a>
+					            <a name="invalidateDrawingMini"> </a>
 					            <div class="fixedFont">
                                   <div class="modifiers">
                                   </div>
 					            
-					            <b>invalidateMini</b>()
+					            <b>invalidateDrawingMini</b>()
 					
 					            </div>
 					            <div class="description">
@@ -3792,6 +4205,46 @@ of encapsulating other classes and more).</p>
                               </div>
 				            
                               <div class="member">
+					            <a name="purgeUndoCheckPoints"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            
+					            <b>purgeUndoCheckPoints</b>(drawingElement)
+					
+					            </div>
+					            <div class="description">
+						            <p>Removes any undo check point that references
+a given drawing element. This is particularly useful
+when removing an element from the webgram using external methods.</p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Parameters:</dt>
+							            
+								            <dt>
+									            <span class="light fixedFont">{<a href="../symbols/Webgram.DrawingElement.html">Webgram.DrawingElement</a>}</span> <b>drawingElement</b>
+									            
+								            </dt>
+								            <dd>the referenced drawing element</dd>
+							            
+							            </dl>
+						            
+						            
+						            
+						            
+						            
+						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
 					            <a name="redraw"> </a>
 					            <div class="fixedFont">
                                   <div class="modifiers">
@@ -3859,6 +4312,81 @@ are up-to-date and calls their respective drawing routines.<br><br>
 									            
 								            </dt>
 								            <dd>the drawing element to remove</dd>
+							            
+							            </dl>
+						            
+						            
+						            
+						            
+						            
+						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
+					            <a name="resetUndo"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            
+					            <b>resetUndo</b>()
+					
+					            </div>
+					            <div class="description">
+						            <p>Resets the undo mechanism by clearing all the
+undo check points and setting the current undo position
+to <tt>0</tt>.</p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+						            
+						            
+						            
+						            
+						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
+					            <a name="saveUndoCheckPoint"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            
+					            <b>saveUndoCheckPoint</b>(drawingElements, operation)
+					
+					            </div>
+					            <div class="description">
+						            <p>Adds an <em>undo check point</em> by saving the state of a list of
+drawing elements just before an operation is applied to it.</p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Parameters:</dt>
+							            
+								            <dt>
+									            <span class="light fixedFont">{Array}</span> <b>drawingElements</b>
+									            
+								            </dt>
+								            <dd>the elements that will be modified</dd>
+							            
+								            <dt>
+									            <span class="light fixedFont">{String}</span> <b>operation</b>
+									            
+								            </dt>
+								            <dd>the operation that will be applied to the element
+(<tt>add</tt>, <tt>remove</tt>, <tt>index-change</tt> or <tt>change</tt>)</dd>
 							            
 							            </dl>
 						            
@@ -4377,6 +4905,44 @@ The list of the available zoom levels is defined through the <tt>zoomLevels</tt>
 
                               </div>
 				            
+                              <div class="member">
+					            <a name="userInteraction"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            <span class="light">{Boolean}</span>
+					            <b>userInteraction</b>()
+					
+					            </div>
+					            <div class="description">
+						            <p>Tells if an event triggered by the user is being processed.
+Such events include keyboard, mouse and focus events.
+This method can be used to decide if the current code path
+is due to the user's interaction or due to another (external)
+webgram function call.</p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+						            
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Returns:</dt>
+							            
+								            <dd><span class="light fixedFont">{Boolean}</span> </dd>
+							            
+							            </dl>
+						            
+						            
+						            
+
+                              </div>
+				            
                           </div>
 			            
 			
@@ -4420,6 +4986,10 @@ The list of the available zoom levels is defined through the <tt>zoomLevels</tt>
                            
                              <li>
                                <a href="../symbols/Webgram.html#.jsPath">jsPath</a>
+                             </li>
+                           
+                             <li>
+                               <a href="../symbols/Webgram.html#onBlur">onBlur</a>
                              </li>
                            
                              <li>
@@ -4479,6 +5049,10 @@ The list of the available zoom levels is defined through the <tt>zoomLevels</tt>
                              </li>
                            
                              <li>
+                               <a href="../symbols/Webgram.html#onFocus">onFocus</a>
+                             </li>
+                           
+                             <li>
                                <a href="../symbols/Webgram.html#onKeyDown">onKeyDown</a>
                              </li>
                            
@@ -4527,11 +5101,19 @@ The list of the available zoom levels is defined through the <tt>zoomLevels</tt>
                              </li>
                            
                              <li>
+                               <a href="../symbols/Webgram.html#onRedoAction">onRedoAction</a>
+                             </li>
+                           
+                             <li>
                                <a href="../symbols/Webgram.html#onSelectionChange">onSelectionChange</a>
                              </li>
                            
                              <li>
                                <a href="../symbols/Webgram.html#onSendToBackAction">onSendToBackAction</a>
+                             </li>
+                           
+                             <li>
+                               <a href="../symbols/Webgram.html#onUndoAction">onUndoAction</a>
                              </li>
                            
                              <li>
@@ -4601,6 +5183,10 @@ The list of the available zoom levels is defined through the <tt>zoomLevels</tt>
                                 </li>
                            
                                <li>
+                                    <a href="../symbols/Webgram.html#disableUndoCheckPoints">disableUndoCheckPoints</a>
+                                </li>
+                           
+                               <li>
                                     <a href="../symbols/Webgram.html#doBringToFrontAction">doBringToFrontAction</a>
                                 </li>
                            
@@ -4633,7 +5219,15 @@ The list of the available zoom levels is defined through the <tt>zoomLevels</tt>
                                 </li>
                            
                                <li>
+                                    <a href="../symbols/Webgram.html#doRedoAction">doRedoAction</a>
+                                </li>
+                           
+                               <li>
                                     <a href="../symbols/Webgram.html#doSendToBackAction">doSendToBackAction</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.html#doUndoAction">doUndoAction</a>
                                 </li>
                            
                                <li>
@@ -4650,6 +5244,14 @@ The list of the available zoom levels is defined through the <tt>zoomLevels</tt>
                            
                                <li>
                                     <a href="../symbols/Webgram.html#doZoomOutAction">doZoomOutAction</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.html#enableUndoCheckPoints">enableUndoCheckPoints</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.html#finishChangeEvents">finishChangeEvents</a>
                                 </li>
                            
                                <li>
@@ -4690,6 +5292,14 @@ The list of the available zoom levels is defined through the <tt>zoomLevels</tt>
                            
                                <li>
                                     <a href="../symbols/Webgram.html#getSetting">getSetting</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.html#getUndoCount">getUndoCount</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.html#getUndoPosition">getUndoPosition</a>
                                 </li>
                            
                                <li>
@@ -4757,11 +5367,11 @@ The list of the available zoom levels is defined through the <tt>zoomLevels</tt>
                                 </li>
                            
                                <li>
-                                    <a href="../symbols/Webgram.html#invalidate">invalidate</a>
+                                    <a href="../symbols/Webgram.html#invalidateDrawing">invalidateDrawing</a>
                                 </li>
                            
                                <li>
-                                    <a href="../symbols/Webgram.html#invalidateMini">invalidateMini</a>
+                                    <a href="../symbols/Webgram.html#invalidateDrawingMini">invalidateDrawingMini</a>
                                 </li>
                            
                                <li>
@@ -4773,11 +5383,23 @@ The list of the available zoom levels is defined through the <tt>zoomLevels</tt>
                                 </li>
                            
                                <li>
+                                    <a href="../symbols/Webgram.html#purgeUndoCheckPoints">purgeUndoCheckPoints</a>
+                                </li>
+                           
+                               <li>
                                     <a href="../symbols/Webgram.html#redraw">redraw</a>
                                 </li>
                            
                                <li>
                                     <a href="../symbols/Webgram.html#remDrawingElement">remDrawingElement</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.html#resetUndo">resetUndo</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.html#saveUndoCheckPoint">saveUndoCheckPoint</a>
                                 </li>
                            
                                <li>
@@ -4828,6 +5450,10 @@ The list of the available zoom levels is defined through the <tt>zoomLevels</tt>
                                     <a href="../symbols/Webgram.html#setZoomLevel">setZoomLevel</a>
                                 </li>
                            
+                               <li>
+                                    <a href="../symbols/Webgram.html#userInteraction">userInteraction</a>
+                                </li>
+                           
                          </ul>
                        
                        <!-- end function summary -->
@@ -4845,7 +5471,7 @@ The list of the available zoom levels is defined through the <tt>zoomLevels</tt>
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both;text-align:center">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sat Oct 27 2012 20:05:55 GMT+0300 (EEST)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sun Nov 18 2012 22:31:36 GMT+0200 (EET)
 		</div>
 	</body>
 </html>

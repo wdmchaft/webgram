@@ -41,7 +41,7 @@
 <span class='line'> 34</span> </span><span class="WHIT">        </span><span class="NAME">center</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">Webgram.Geometry.Point.zero</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'> 35</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
 <span class='line'> 36</span> </span><span class="WHIT">    
-<span class='line'> 37</span>     </span><span class="NAME">Webgram.DrawingElement.call</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">id</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">center</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 37</span>     </span><span class="NAME">Webgram.DrawingElement.call</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">id</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="NAME">center</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'> 38</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'> 39</span> 
 <span class='line'> 40</span> </span><span class="NAME">Webgram.DrawingElements.SimpleElement.prototype</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
@@ -110,41 +110,40 @@
 <span class='line'>103</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">point</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">Webgram.Geometry.Point</span><span class="PUNC">(</span><span class="NAME">json.x</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">json.y</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>104</span> </span><span class="WHIT">        
 <span class='line'>105</span>         </span><span class="NAME">this.setCenter</span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>106</span> </span><span class="WHIT">        </span><span class="NAME">this.invalidateBaseRectangle</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>107</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>108</span> </span><span class="WHIT">    
-<span class='line'>109</span>     </span><span class="COMM">/**
-<span class='line'>110</span>      * Moves the center of the element a given point.
-<span class='line'>111</span>      * @param {Webgram.Geometry.Point} center the new center
-<span class='line'>112</span>      */</span><span class="WHIT">
-<span class='line'>113</span> </span><span class="WHIT">    </span><span class="NAME">setCenter</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">center</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>114</span> </span><span class="WHIT">        </span><span class="NAME">this.setRotatedShapePoint</span><span class="PUNC">(</span><span class="NUMB">0</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">center</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>115</span> </span><span class="WHIT">        
-<span class='line'>116</span>         </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this.rotationCenterControlPoint</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>117</span> </span><span class="WHIT">            </span><span class="NAME">this.rotationCenterControlPoint.reset</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>118</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>119</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>120</span> </span><span class="WHIT">    
-<span class='line'>121</span>     </span><span class="COMM">/**
-<span class='line'>122</span>      * Returns the current center of the element.
-<span class='line'>123</span>      * @return {Webgram.Geometry.Point} the current center of the element
-<span class='line'>124</span>      */</span><span class="WHIT">
-<span class='line'>125</span> </span><span class="WHIT">    </span><span class="NAME">getCenter</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>126</span> </span><span class="WHIT">        </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.shape.points</span><span class="PUNC">[</span><span class="NUMB">0</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>127</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>128</span> </span><span class="WHIT">    
-<span class='line'>129</span>     </span><span class="COMM">/**
-<span class='line'>130</span>      * Returns a list of points that make up the effective shape of this element.
-<span class='line'>131</span>      * The points are relative to this element.&lt;br>&lt;br>
-<span class='line'>132</span>      * &lt;em>(should be overridden)&lt;/em>
-<span class='line'>133</span>      * @returns {Array} a list of {Webgram.Geometry.Point}
-<span class='line'>134</span>      */</span><span class="WHIT">
-<span class='line'>135</span> </span><span class="WHIT">    </span><span class="NAME">getPoints</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>136</span> </span><span class="WHIT">        </span><span class="COMM">/* should be overridden */</span><span class="WHIT">
-<span class='line'>137</span> </span><span class="WHIT">        
-<span class='line'>138</span>         </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="NAME">Webgram.Geometry.Point.zero</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>139</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>140</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT"> 
-<span class='line'>141</span> 
-<span class='line'>142</span> </span><span class="NAME">Webgram.Class</span><span class="PUNC">(</span><span class="STRN">'Webgram.DrawingElements.SimpleElement'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">Webgram.DrawingElement</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>143</span> </span></pre></body></html>
+<span class='line'>106</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>107</span> </span><span class="WHIT">    
+<span class='line'>108</span>     </span><span class="COMM">/**
+<span class='line'>109</span>      * Moves the center of the element a given point.
+<span class='line'>110</span>      * @param {Webgram.Geometry.Point} center the new center
+<span class='line'>111</span>      */</span><span class="WHIT">
+<span class='line'>112</span> </span><span class="WHIT">    </span><span class="NAME">setCenter</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">center</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>113</span> </span><span class="WHIT">        </span><span class="NAME">this.setRotatedShapePoint</span><span class="PUNC">(</span><span class="NUMB">0</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">center</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>114</span> </span><span class="WHIT">        
+<span class='line'>115</span>         </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this.rotationCenterControlPoint</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>116</span> </span><span class="WHIT">            </span><span class="NAME">this.rotationCenterControlPoint.reset</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>117</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>118</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>119</span> </span><span class="WHIT">    
+<span class='line'>120</span>     </span><span class="COMM">/**
+<span class='line'>121</span>      * Returns the current center of the element.
+<span class='line'>122</span>      * @returns {Webgram.Geometry.Point} the current center of the element
+<span class='line'>123</span>      */</span><span class="WHIT">
+<span class='line'>124</span> </span><span class="WHIT">    </span><span class="NAME">getCenter</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>125</span> </span><span class="WHIT">        </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.getShapePoint</span><span class="PUNC">(</span><span class="NUMB">0</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>126</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>127</span> </span><span class="WHIT">    
+<span class='line'>128</span>     </span><span class="COMM">/**
+<span class='line'>129</span>      * Returns a list of points that make up the effective shape of this element.
+<span class='line'>130</span>      * The points are relative to this element.&lt;br>&lt;br>
+<span class='line'>131</span>      * &lt;em>(should be overridden)&lt;/em>
+<span class='line'>132</span>      * @returns {Array} a list of {Webgram.Geometry.Point}
+<span class='line'>133</span>      */</span><span class="WHIT">
+<span class='line'>134</span> </span><span class="WHIT">    </span><span class="NAME">getPoints</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>135</span> </span><span class="WHIT">        </span><span class="COMM">/* should be overridden */</span><span class="WHIT">
+<span class='line'>136</span> </span><span class="WHIT">        
+<span class='line'>137</span>         </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="NAME">Webgram.Geometry.Point.zero</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>138</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>139</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT"> 
+<span class='line'>140</span> 
+<span class='line'>141</span> </span><span class="NAME">Webgram.Class</span><span class="PUNC">(</span><span class="STRN">'Webgram.DrawingElements.SimpleElement'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">Webgram.DrawingElement</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>142</span> </span></pre></body></html>
