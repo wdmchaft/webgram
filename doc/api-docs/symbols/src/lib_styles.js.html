@@ -240,7 +240,7 @@
 <span class='line'>233</span>  * @param {String} lineCap one of &lt;tt>'butt'&lt;/tt>, &lt;tt>'round'&lt;/tt> or &lt;tt>'square'&lt;/tt>
 <span class='line'>234</span>  * @param {String} lineJoin one of &lt;tt>'round'&lt;/tt>, &lt;tt>'bevel'&lt;/tt> or &lt;tt>'miter'&lt;/tt>
 <span class='line'>235</span>  * @param {Number} miterLimit the miter limit, when &lt;tt>lineJoin&lt;/tt> is set to &lt;tt>'miter'&lt;/tt>
-<span class='line'>236</span>  * @param {Array} colors a list of colors to use; if a single color is wanted, it can be passed directly (i.e. not enclosed in an array)
+<span class='line'>236</span>  * @param {Array} colors a list of colors to use; even if a single color is used, it must be passed in an array
 <span class='line'>237</span>  * @param {Array} pattern a list of two numbers that form the pattern;
 <span class='line'>238</span>  * the first is the "pencil on" length, the second is the "pencil off" length;
 <span class='line'>239</span>  * if omitted, no stroke pattern will be used
@@ -269,7 +269,7 @@
 <span class='line'>262</span> </span><span class="WHIT">        </span><span class="NAME">miterLimit</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">10</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>263</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
 <span class='line'>264</span> </span><span class="WHIT">    </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">colors</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>265</span> </span><span class="WHIT">        </span><span class="NAME">colors</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">'black'</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>265</span> </span><span class="WHIT">        </span><span class="NAME">colors</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="STRN">'black'</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>266</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
 <span class='line'>267</span> </span><span class="WHIT">    
 <span class='line'>268</span>     </span><span class="COMM">/**
@@ -297,8 +297,8 @@
 <span class='line'>290</span> </span><span class="WHIT">    </span><span class="NAME">this.miterLimit</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">miterLimit</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>291</span> </span><span class="WHIT">    
 <span class='line'>292</span>     </span><span class="COMM">/**
-<span class='line'>293</span>      * A list of colors to use. If a single color is used, this field
-<span class='line'>294</span>      * is set directly to that color instead of being wrapped inside an array.
+<span class='line'>293</span>      * A list of colors to use. Even if a single color is used, this field
+<span class='line'>294</span>      * is set to an array containing that color.
 <span class='line'>295</span>      * @type Array 
 <span class='line'>296</span>      */</span><span class="WHIT">
 <span class='line'>297</span> </span><span class="WHIT">    </span><span class="NAME">this.colors</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">colors</span><span class="PUNC">;</span><span class="WHIT">
@@ -487,7 +487,7 @@
 <span class='line'>480</span>  * @class Represents a style used to fill the shapes on the canvas.
 <span class='line'>481</span>  * Any of the following arguments can be omitted (or passed as &lt;tt>null&lt;/tt>),
 <span class='line'>482</span>  * in which case the default values will be used for that attribute.
-<span class='line'>483</span>  * @param {Array} colors a list of colors to use; if a single color is wanted, it can be passed directly (i.e. not enclosed in an array)
+<span class='line'>483</span>  * @param {Array} colors a list of colors to use; even if a single color is used, it must be passed as an array
 <span class='line'>484</span>  * @param {Webgram.Geometry.Point} gradientPoint1 the start gradient point;
 <span class='line'>485</span>  * no gradient will be used if this is omitted
 <span class='line'>486</span>  * @param {Webgram.Geometry.Point} gradientPoint2 the end gradient point;
@@ -499,12 +499,12 @@
 <span class='line'>492</span>  */</span><span class="WHIT">
 <span class='line'>493</span> </span><span class="NAME">Webgram.Styles.FillStyle</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">colors</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">gradientPoint1</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">gradientPoint2</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">gradientRadius1</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">gradientRadius2</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
 <span class='line'>494</span> </span><span class="WHIT">    </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">colors</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>495</span> </span><span class="WHIT">        </span><span class="NAME">colors</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">'white'</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>495</span> </span><span class="WHIT">        </span><span class="NAME">colors</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="STRN">'white'</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>496</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
 <span class='line'>497</span> </span><span class="WHIT">    
 <span class='line'>498</span>     </span><span class="COMM">/**
-<span class='line'>499</span>      * A list of colors to use. If a single color is used, this field
-<span class='line'>500</span>      * is set directly to that color instead of being wrapped inside an array.
+<span class='line'>499</span>      * A list of colors to use. Even if a single color is used, this field
+<span class='line'>500</span>      * is set to an array containing that color.
 <span class='line'>501</span>      * @type Array 
 <span class='line'>502</span>      */</span><span class="WHIT">
 <span class='line'>503</span> </span><span class="WHIT">    </span><span class="NAME">this.colors</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">colors</span><span class="PUNC">;</span><span class="WHIT">
@@ -645,7 +645,7 @@
 <span class='line'>638</span>  * @param {Number} size the size of the text
 <span class='line'>639</span>  * @param {Boolean} bold whether to draw a bold text or not
 <span class='line'>640</span>  * @param {Boolean} italic whether to draw the text in italics or not
-<span class='line'>641</span>  * @param {Array} justify an array of two letters; the first one indicates the horizontal
+<span class='line'>641</span>  * @param {String} justify a string of two letters; the first one indicates the horizontal
 <span class='line'>642</span>  * alignment and is one of &lt;tt>'l'&lt;/tt>, &lt;tt>'c'&lt;/tt> or &lt;tt>'r'&lt;/tt>,
 <span class='line'>643</span>  * for left, center or right alignment, respectively;
 <span class='line'>644</span>  * the second one indicates the vertical
@@ -684,13 +684,13 @@
 <span class='line'>677</span> </span><span class="WHIT">    </span><span class="NAME">this.italic</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">italic</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>678</span> </span><span class="WHIT">    
 <span class='line'>679</span>     </span><span class="COMM">/**
-<span class='line'>680</span>      * An array of two letters. The first one indicates the horizontal
+<span class='line'>680</span>      * A string of two letters. The first one indicates the horizontal
 <span class='line'>681</span>      * alignment and is one of &lt;tt>'l'&lt;/tt>, &lt;tt>'c'&lt;/tt> or &lt;tt>'r'&lt;/tt>,
 <span class='line'>682</span>      * for left, center or right alignment, respectively.
 <span class='line'>683</span>      * The second one indicates the vertical
 <span class='line'>684</span>      * alignment and is one of &lt;tt>'t'&lt;/tt>, &lt;tt>'c'&lt;/tt> or &lt;tt>'b'&lt;/tt>,
 <span class='line'>685</span>      * for top, center or bottom alignment, respectively.
-<span class='line'>686</span>      * @type Array
+<span class='line'>686</span>      * @type String
 <span class='line'>687</span>      */</span><span class="WHIT">
 <span class='line'>688</span> </span><span class="WHIT">    </span><span class="NAME">this.justify</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">justify</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>689</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">

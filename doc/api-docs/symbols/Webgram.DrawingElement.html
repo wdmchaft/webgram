@@ -299,10 +299,6 @@
                              </li>
                            
                              <li>
-                               <a href="../symbols/Webgram.DrawingElement.html#rotationCenter">rotationCenter</a>
-                             </li>
-                           
-                             <li>
                                <a href="../symbols/Webgram.DrawingElement.html#webgram">webgram</a>
                              </li>
                            
@@ -358,6 +354,18 @@
                            
                                <li>
                                     <a href="../symbols/Webgram.DrawingElement.html#beginCreate">beginCreate</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#beginRotationAngleChange">beginRotationAngleChange</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#beginShapeChange">beginShapeChange</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#beginStyleChange">beginStyleChange</a>
                                 </li>
                            
                                <li>
@@ -477,15 +485,15 @@
                                 </li>
                            
                                <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#flipFromJson">flipFromJson</a>
+                                </li>
+                           
+                               <li>
                                     <a href="../symbols/Webgram.DrawingElement.html#flipHorizontally">flipHorizontally</a>
                                 </li>
                            
                                <li>
-                                    <a href="../symbols/Webgram.DrawingElement.html#flipShapeHorizontally">flipShapeHorizontally</a>
-                                </li>
-                           
-                               <li>
-                                    <a href="../symbols/Webgram.DrawingElement.html#flipShapeVertically">flipShapeVertically</a>
+                                    <a href="../symbols/Webgram.DrawingElement.html#flipToJson">flipToJson</a>
                                 </li>
                            
                                <li>
@@ -569,6 +577,10 @@
                                 </li>
                            
                                <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#getFlippedAngle">getFlippedAngle</a>
+                                </li>
+                           
+                               <li>
                                     <a href="../symbols/Webgram.DrawingElement.html#getFocusType">getFocusType</a>
                                 </li>
                            
@@ -594,6 +606,10 @@
                            
                                <li>
                                     <a href="../symbols/Webgram.DrawingElement.html#getRotationAngle">getRotationAngle</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#getRotationCenter">getRotationCenter</a>
                                 </li>
                            
                                <li>
@@ -637,11 +653,11 @@
                                 </li>
                            
                                <li>
-                                    <a href="../symbols/Webgram.DrawingElement.html#invalidateDrawing">invalidateDrawing</a>
+                                    <a href="../symbols/Webgram.DrawingElement.html#invalidate">invalidate</a>
                                 </li>
                            
                                <li>
-                                    <a href="../symbols/Webgram.DrawingElement.html#invalidatePoints">invalidatePoints</a>
+                                    <a href="../symbols/Webgram.DrawingElement.html#invalidateDrawing">invalidateDrawing</a>
                                 </li>
                            
                                <li>
@@ -797,6 +813,14 @@
                                 </li>
                            
                                <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#scaleDirect">scaleDirect</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#scaleInverse">scaleInverse</a>
+                                </li>
+                           
+                               <li>
                                     <a href="../symbols/Webgram.DrawingElement.html#setDecorationStyle">setDecorationStyle</a>
                                 </li>
                            
@@ -833,15 +857,15 @@
                                 </li>
                            
                                <li>
-                                    <a href="../symbols/Webgram.DrawingElement.html#setRotatedShapePoint">setRotatedShapePoint</a>
-                                </li>
-                           
-                               <li>
                                     <a href="../symbols/Webgram.DrawingElement.html#setRotateEnabled">setRotateEnabled</a>
                                 </li>
                            
                                <li>
                                     <a href="../symbols/Webgram.DrawingElement.html#setRotationAngle">setRotationAngle</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#setRotationCenter">setRotationCenter</a>
                                 </li>
                            
                                <li>
@@ -894,6 +918,10 @@
                            
                                <li>
                                     <a href="../symbols/Webgram.DrawingElement.html#settingsToJson">settingsToJson</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#setTransformedShapePoint">setTransformedShapePoint</a>
                                 </li>
                            
                                <li>
@@ -958,6 +986,14 @@
                            
                                <li>
                                     <a href="../symbols/Webgram.DrawingElement.html#translateInverse">translateInverse</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#zIndexFromJson">zIndexFromJson</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#zIndexToJson">zIndexToJson</a>
                                 </li>
                            
                          </ul>
@@ -1896,32 +1932,6 @@ Handlers receive no arguments.</p>
                               </div>
 				            
                               <div class="member">
-					            <a name="rotationCenter"> </a>
-					            <div class="fixedFont">
-                                  <div class="modifiers">
-                                  </div>
-					
-					            <span class="light">{<a href="../symbols/Webgram.Geometry.Point.html">Webgram.Geometry.Point</a>}</span>
-					            <b>rotationCenter</b>
-					
-					            </div>
-					            <div class="description">
-						            <p>If rotation is enabled for the drawing element, this represents the rotation center,
-relative to the element's center.<br>
-This point is usually managed by an associated <a href="../symbols/Webgram.ControlPoints.RotationCenterControlPoint.html">Webgram.ControlPoints.RotationCenterControlPoint</a>.</p>
-						            
-						            
-					            </div>
-					
-					            
-
-						            
-						            
-						            
-						            
-                              </div>
-				            
-                              <div class="member">
 					            <a name="webgram"> </a>
 					            <div class="fixedFont">
                                   <div class="modifiers">
@@ -2454,6 +2464,96 @@ with the first click of the user when creating an element of this class.<br><br>
 								            <dd><span class="light fixedFont">{Boolean}</span> <tt>true</tt> if the creation process should continue, <tt>false</tt> if the creation is done</dd>
 							            
 							            </dl>
+						            
+						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
+					            <a name="beginRotationAngleChange"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            
+					            <b>beginRotationAngleChange</b>()
+					
+					            </div>
+					            <div class="description">
+						            <p>Call this method before changing the rotation
+angle of this element.
+Calling this method will invalidate the element,
+create an undo check point and trigger the corresponding events.</p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+						            
+						            
+						            
+						            
+						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
+					            <a name="beginShapeChange"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            
+					            <b>beginShapeChange</b>()
+					
+					            </div>
+					            <div class="description">
+						            <p>Call this method before changing any property
+that is part of the shape of this element.
+Calling this method will invalidate the element,
+create an undo check point and trigger the corresponding events.</p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+						            
+						            
+						            
+						            
+						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
+					            <a name="beginStyleChange"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            
+					            <b>beginStyleChange</b>()
+					
+					            </div>
+					            <div class="description">
+						            <p>Call this method before changing any property
+that is part of the style of this element.
+Calling this method will invalidate the element,
+create an undo check point and trigger the corresponding events.</p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+						            
+						            
+						            
 						            
 						            
 						            
@@ -3655,6 +3755,45 @@ methods <a href="../symbols/Webgram.DrawingElement.html#setStrokeStyle">Webgram.
                               </div>
 				            
                               <div class="member">
+					            <a name="flipFromJson"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            
+					            <b>flipFromJson</b>(json)
+					
+					            </div>
+					            <div class="description">
+						            <p>Restores the flipping state of this element from a json object.<br><br>
+<em>(could be overridden)</em></p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Parameters:</dt>
+							            
+								            <dt>
+									            <span class="light fixedFont">{Object}</span> <b>json</b>
+									            
+								            </dt>
+								            <dd>the json object with the flipping state</dd>
+							            
+							            </dl>
+						            
+						            
+						            
+						            
+						            
+						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
 					            <a name="flipHorizontally"> </a>
 					            <div class="fixedFont">
                                   <div class="modifiers">
@@ -3683,16 +3822,16 @@ methods <a href="../symbols/Webgram.DrawingElement.html#setStrokeStyle">Webgram.
                               </div>
 				            
                               <div class="member">
-					            <a name="flipShapeHorizontally"> </a>
+					            <a name="flipToJson"> </a>
 					            <div class="fixedFont">
                                   <div class="modifiers">
                                   </div>
-					            
-					            <b>flipShapeHorizontally</b>()
+					            <span class="light">{Object}</span>
+					            <b>flipToJson</b>()
 					
 					            </div>
 					            <div class="description">
-						            <p>Performs a horizontal flip on the shape.<br><br>
+						            <p>Prepares a json object with the flipping state of this element.<br><br>
 <em>(could be overridden)</em></p>
 						            
 						            
@@ -3705,33 +3844,12 @@ methods <a href="../symbols/Webgram.DrawingElement.html#setStrokeStyle">Webgram.
 						            
 						            
 						            
-						            
-						            
-
-                              </div>
-				            
-                              <div class="member">
-					            <a name="flipShapeVertically"> </a>
-					            <div class="fixedFont">
-                                  <div class="modifiers">
-                                  </div>
-					            
-					            <b>flipShapeVertically</b>()
-					
-					            </div>
-					            <div class="description">
-						            <p>Performs a vertical flip on the shape.<br><br>
-<em>(could be overridden)</em></p>
-						            
-						            
-					            </div>
-					
-					            
-					
-						            
-						            
-						            
-						            
+							            <dl class="detailList">
+							            <dt class="heading">Returns:</dt>
+							            
+								            <dd><span class="light fixedFont">{Object}</span> the json object with the flipping state</dd>
+							            
+							            </dl>
 						            
 						            
 						            
@@ -3922,18 +4040,31 @@ the rotation angle of the element.</p>
                                   <div class="modifiers">
                                   </div>
 					            <span class="light">{Object}</span>
-					            <b>getBounds</b>()
+					            <b>getBounds</b>(transformed)
 					
 					            </div>
 					            <div class="description">
-						            <p>Builds and object with the boundaries of this element, relative to the parent.
-The eight boundaries are instances of <a href="../symbols/Webgram.Geometry.Point.html">Webgram.Geometry.Point</a>.</p>
+						            <p>Builds and object with the boundaries of this element.</p>
 						            
 						            
 					            </div>
 					
 					            
 					
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Parameters:</dt>
+							            
+								            <dt>
+									            <span class="light fixedFont">{Boolean}</span> <b>transformed</b>
+									            
+								            </dt>
+								            <dd>if <tt>true</tt> returns the boundaries
+transformed (relative to the parent), otherwise returns the boundaries
+untransformed (relative to this element)
+The eight boundaries are instances of <a href="../symbols/Webgram.Geometry.Point.html">Webgram.Geometry.Point</a>.</dd>
+							            
+							            </dl>
 						            
 						            
 						            
@@ -4124,8 +4255,8 @@ and the decoration drawn around it. The default implementation returns the webgr
 					            <div class="description">
 						            <p>This method is responsible for returning the actual, final polygon that will be drawn as decoration.
 It takes into account the decoration offset (<a href="../symbols/Webgram.DrawingElement.html#getDecorationOffset">Webgram.DrawingElement#getDecorationOffset</a>),
-the zoom factor (<a href="../symbols/Webgram.DrawingElement.html#getZoomFactor">Webgram.DrawingElement#getZoomFactor</a>),
-as well as the line width (thickness) of the default stroke style of this element.<br><br>
+the zoom factor (<a href="../symbols/Webgram.DrawingElement.html#getZoomFactor">Webgram.DrawingElement#getZoomFactor</a>) and
+the line width of the default stroke style used by this element.<br><br>
 <em>(should not be overridden)</em></p>
 						            
 						            
@@ -4162,7 +4293,7 @@ as well as the line width (thickness) of the default stroke style of this elemen
 					            <div class="description">
 						            <p>Determines the rectangle to be drawn as decoration, relative to this drawing element.
 This method does not take into account the decoration offset. The rectangle returned by this method
-is automatically enlarged (or shrinked) according to the <a href="../symbols/Webgram.DrawingElement.html#getDecorationOffset">Webgram.DrawingElement#getDecorationOffset</a> method.<br><br>
+will be enlarged (or shrinked) according to the <a href="../symbols/Webgram.DrawingElement.html#getDecorationOffset">Webgram.DrawingElement#getDecorationOffset</a> method.<br><br>
 <em>(could be overridden)</em></p>
 						            
 						            
@@ -4480,6 +4611,52 @@ Use this if you want to draw something at coordinates that depend on a round (in
                               </div>
 				            
                               <div class="member">
+					            <a name="getFlippedAngle"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            <span class="light">{Number}</span>
+					            <b>getFlippedAngle</b>(angle)
+					
+					            </div>
+					            <div class="description">
+						            <p>Flips the angle according to the flipping state
+of this drawing element.</p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Parameters:</dt>
+							            
+								            <dt>
+									            <span class="light fixedFont">{Number}</span> <b>angle</b>
+									            
+								            </dt>
+								            <dd>the angle to be flipped</dd>
+							            
+							            </dl>
+						            
+						            
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Returns:</dt>
+							            
+								            <dd><span class="light fixedFont">{Number}</span> the flipped angle</dd>
+							            
+							            </dl>
+						            
+						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
 					            <a name="getFocusType"> </a>
 					            <div class="fixedFont">
                                   <div class="modifiers">
@@ -4722,6 +4899,42 @@ to a webgram, this method returns <tt>null</tt>.</p>
                               </div>
 				            
                               <div class="member">
+					            <a name="getRotationCenter"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            <span class="light">{<a href="../symbols/Webgram.Geometry.Point.html">Webgram.Geometry.Point</a>}</span>
+					            <b>getRotationCenter</b>()
+					
+					            </div>
+					            <div class="description">
+						            <p>If rotation is enabled for the drawing element, this returns the rotation center,
+relative to this element.<br>
+This point is usually managed by an associated <a href="../symbols/Webgram.ControlPoints.RotationCenterControlPoint.html">Webgram.ControlPoints.RotationCenterControlPoint</a>.</p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+						            
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Returns:</dt>
+							            
+								            <dd><span class="light fixedFont">{<a href="../symbols/Webgram.Geometry.Point.html">Webgram.Geometry.Point</a>}</span> the rotation center</dd>
+							            
+							            </dl>
+						            
+						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
 					            <a name="getSetting"> </a>
 					            <div class="fixedFont">
                                   <div class="modifiers">
@@ -4780,26 +4993,33 @@ element added to the webgram instance.<br><br>
                                   <div class="modifiers">
                                   </div>
 					            <span class="light">{<a href="../symbols/Webgram.Geometry.Poly.html">Webgram.Geometry.Poly</a>}</span>
-					            <b>getShape</b>()
+					            <b>getShape</b>(transformed)
 					
 					            </div>
 					            <div class="description">
 						            <p>Returns the shape polygon of this drawing element.<br>
 Each drawing element has a set of one or more points that serve as anchors and often give its exact shape.
 We call the polygon made of these points the <em>shape</em> of the element.<br>
-Shape points are relative to the parent and are not affected by the element's rotation angle.<br>
-In most cases you don't really have to deal with this field, but rather use methods like<br> 
-<a href="../symbols/Webgram.DrawingElement.html#setRotatedShapePoint">Webgram.DrawingElement#setRotatedShapePoint</a>,<br>
-<a href="../symbols/Webgram.DrawingElement.html#getBoundingRectangle">Webgram.DrawingElement#getBoundingRectangle</a>,<br>
-<a href="../symbols/Webgram.DrawingElement.html#getCenter">Webgram.DrawingElement#getCenter</a>, <br>
-<a href="../symbols/Webgram.DrawingElement.html#getWidth">Webgram.DrawingElement#getWidth</a> or<br>
-<a href="../symbols/Webgram.DrawingElement.html#getHeight">Webgram.DrawingElement#getHeight</a></p>
+Shape points are translated so that they are relative to the parent <b>but</b>
+they are not affected by the element's rotation angle or flipping state,
+unless <tt>transformed</tt> is set to <tt>true</tt>.<br></p>
 						            
 						            
 					            </div>
 					
 					            
 					
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Parameters:</dt>
+							            
+								            <dt>
+									            <span class="light fixedFont">{Boolean}</span> <b>transformed</b>
+									            
+								            </dt>
+								            <dd>set to <tt>true</tt> to return the transformed shape (relative to the parent)</dd>
+							            
+							            </dl>
 						            
 						            
 						            
@@ -4814,6 +5034,21 @@ In most cases you don't really have to deal with this field, but rather use meth
 						            
 						            
 						            
+							            <dl class="detailList">
+							            <dt class="heading">See:</dt>
+							            
+								            <dd><a href="../symbols/Webgram.DrawingElement.html#setTransformedShapePoint">Webgram.DrawingElement#setTransformedShapePoint</a></dd>
+							            
+								            <dd><a href="../symbols/Webgram.DrawingElement.html#getBoundingRectangle">Webgram.DrawingElement#getBoundingRectangle</a></dd>
+							            
+								            <dd><a href="../symbols/Webgram.DrawingElement.html#getCenter">Webgram.DrawingElement#getCenter</a></dd>
+							            
+								            <dd><a href="../symbols/Webgram.DrawingElement.html#getWidth">Webgram.DrawingElement#getWidth</a></dd>
+							            
+								            <dd><a href="../symbols/Webgram.DrawingElement.html#getHeight">Webgram.DrawingElement#getHeight</a></dd>
+							            
+							            </dl>
+						            
 
                               </div>
 				            
@@ -4823,11 +5058,11 @@ In most cases you don't really have to deal with this field, but rather use meth
                                   <div class="modifiers">
                                   </div>
 					            <span class="light">{<a href="../symbols/Webgram.Geometry.Point.html">Webgram.Geometry.Point</a>}</span>
-					            <b>getShapePoint</b>(index)
+					            <b>getShapePoint</b>(index, transformed)
 					
 					            </div>
 					            <div class="description">
-						            <p>Returns a point of the shape polygon of this element.</p>
+						            <p>Returns a point of the shape of this element.</p>
 						            
 						            
 					            </div>
@@ -4843,6 +5078,12 @@ In most cases you don't really have to deal with this field, but rather use meth
 									            
 								            </dt>
 								            <dd>the index of the point to return</dd>
+							            
+								            <dt>
+									            <span class="light fixedFont">{Boolean}</span> <b>transformed</b>
+									            
+								            </dt>
+								            <dd>set to <tt>true</tt> to return the transformed shape point</dd>
 							            
 							            </dl>
 						            
@@ -5127,6 +5368,34 @@ does not depend on the rotation angle.<br><br>
                               </div>
 				            
                               <div class="member">
+					            <a name="invalidate"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            
+					            <b>invalidate</b>()
+					
+					            </div>
+					            <div class="description">
+						            <p>Marks the drawing element, as well as its associated points (<tt>sockets</tt>, <tt>control points</tt> and <tt>action menu items</tt>)
+as invalid, telling webgram to update and redraw it as soon as possible.</p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+						            
+						            
+						            
+						            
+						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
 					            <a name="invalidateDrawing"> </a>
 					            <div class="fixedFont">
                                   <div class="modifiers">
@@ -5157,34 +5426,6 @@ and that a redraw should be issued as soon as possible.<br><br>
  also be redrawn.</dd>
 							            
 							            </dl>
-						            
-						            
-						            
-						            
-						            
-						            
-						            
-
-                              </div>
-				            
-                              <div class="member">
-					            <a name="invalidatePoints"> </a>
-					            <div class="fixedFont">
-                                  <div class="modifiers">
-                                  </div>
-					            
-					            <b>invalidatePoints</b>()
-					
-					            </div>
-					            <div class="description">
-						            <p>Marks the points of this element (<tt>sockets</tt>, <tt>control points</tt> and <tt>action menu items</tt>)
-as invalid, forcing future calls to their respective <a href="../symbols/Webgram.ControlPoint.html#update">Webgram.ControlPoint#update</a> methods.</p>
-						            
-						            
-					            </div>
-					
-					            
-					
 						            
 						            
 						            
@@ -6452,8 +6693,8 @@ This method does not affect the original object.</p>
 					
 					            </div>
 					            <div class="description">
-						            <p>Rotates geometric object using the negative of the rotation angle of this element,
-this making its rotation relative to this element.
+						            <p>Rotates the geometric object using the negative of the rotation angle of this element,
+thus making its rotation relative to this element.
 This method does not affect the original object.</p>
 						            
 						            
@@ -6632,6 +6873,114 @@ so that it can be later restored using <a href="../symbols/Webgram.DrawingElemen
 						            
 						            
 						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
+					            <a name="scaleDirect"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            <span class="light">{Object}</span>
+					            <b>scaleDirect</b>(geometry)
+					
+					            </div>
+					            <div class="description">
+						            <p>Scales the geometric object using the flipping state of this element,
+thus making its coordinates relative to the parent's coordinate system.
+This method does not affect the original object.</p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Parameters:</dt>
+							            
+								            <dt>
+									            <span class="light fixedFont">{Object}</span> <b>geometry</b>
+									            
+								            </dt>
+								            <dd>the geometric object to scale</dd>
+							            
+							            </dl>
+						            
+						            
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Returns:</dt>
+							            
+								            <dd><span class="light fixedFont">{Object}</span> the geometric object relative to the parent</dd>
+							            
+							            </dl>
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">See:</dt>
+							            
+								            <dd><a href="../symbols/Webgram.Geometry.html">Webgram.Geometry</a></dd>
+							            
+							            </dl>
+						            
+
+                              </div>
+				            
+                              <div class="member">
+					            <a name="scaleInverse"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            <span class="light">{Object}</span>
+					            <b>scaleInverse</b>(geometry)
+					
+					            </div>
+					            <div class="description">
+						            <p>Scales the geometric object using the inverse of the flipping state of this element,
+thus making its coordinates relative to this element.
+This method does not affect the original object.</p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Parameters:</dt>
+							            
+								            <dt>
+									            <span class="light fixedFont">{Object}</span> <b>geometry</b>
+									            
+								            </dt>
+								            <dd>the geometric object to scale</dd>
+							            
+							            </dl>
+						            
+						            
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Returns:</dt>
+							            
+								            <dd><span class="light fixedFont">{Object}</span> the geometric object relative to this element</dd>
+							            
+							            </dl>
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">See:</dt>
+							            
+								            <dd><a href="../symbols/Webgram.Geometry.html">Webgram.Geometry</a></dd>
+							            
+							            </dl>
 						            
 
                               </div>
@@ -6999,55 +7348,6 @@ When this feature is enabled, the element becomes hovered if the mouse is over o
                               </div>
 				            
                               <div class="member">
-					            <a name="setRotatedShapePoint"> </a>
-					            <div class="fixedFont">
-                                  <div class="modifiers">
-                                  </div>
-					            
-					            <b>setRotatedShapePoint</b>(index, point)
-					
-					            </div>
-					            <div class="description">
-						            <p>Modifies the <tt>index</tt>-th point of the shape so that when applying the rotation,
-the final point will have the coordinates specifined by <tt>point</tt>, relative to the parent.<br>
-The other points of the shape will be recalculated in such a way that when rotated,
-they will keep their effective position on the parent.<br>
-This method does not apply any kind of snapping.<br><br>
-<em>(should not be overridden)</em></p>
-						            
-						            
-					            </div>
-					
-					            
-					
-						            
-							            <dl class="detailList">
-							            <dt class="heading">Parameters:</dt>
-							            
-								            <dt>
-									            <b>index</b>
-									            
-								            </dt>
-								            <dd>{Number} the index of the point in the shape to be modified</dd>
-							            
-								            <dt>
-									            <b>point</b>
-									            
-								            </dt>
-								            <dd>{Webgram.Geometry.Point} the desired position of the point</dd>
-							            
-							            </dl>
-						            
-						            
-						            
-						            
-						            
-						            
-						            
-
-                              </div>
-				            
-                              <div class="member">
 					            <a name="setRotateEnabled"> </a>
 					            <div class="fixedFont">
                                   <div class="modifiers">
@@ -7111,6 +7411,44 @@ This method does not apply any kind of snapping.<br><br>
 									            
 								            </dt>
 								            <dd>the new rotation angle</dd>
+							            
+							            </dl>
+						            
+						            
+						            
+						            
+						            
+						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
+					            <a name="setRotationCenter"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            
+					            <b>setRotationCenter</b>(rotationCenter)
+					
+					            </div>
+					            <div class="description">
+						            <p>Sets the rotation center of this element.</p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Parameters:</dt>
+							            
+								            <dt>
+									            <span class="light fixedFont">{<a href="../symbols/Webgram.Geometry.Point.html">Webgram.Geometry.Point</a>}</span> <b>rotationCenter</b>
+									            
+								            </dt>
+								            <dd>the new rotation center</dd>
 							            
 							            </dl>
 						            
@@ -7223,7 +7561,7 @@ Each drawing element has a set of one or more points that serve as anchors and o
 We call the polygon made of these points the <em>shape</em> of the element.<br>
 Shape points are relative to the parent and are not affected by the element's rotation angle.<br>
 In most cases you don't really have to deal with this field, but rather use methods like<br> 
-<a href="../symbols/Webgram.DrawingElement.html#setRotatedShapePoint">Webgram.DrawingElement#setRotatedShapePoint</a>,<br>
+<a href="../symbols/Webgram.DrawingElement.html#setTransformedShapePoint">Webgram.DrawingElement#setTransformedShapePoint</a>,<br>
 <a href="../symbols/Webgram.DrawingElement.html#getBoundingRectangle">Webgram.DrawingElement#getBoundingRectangle</a>,<br>
 <a href="../symbols/Webgram.DrawingElement.html#getCenter">Webgram.DrawingElement#getCenter</a>, <br>
 <a href="../symbols/Webgram.DrawingElement.html#getWidth">Webgram.DrawingElement#getWidth</a> or<br>
@@ -7664,6 +8002,55 @@ that is <tt>undefined</tt>, this method uses the respective property from the pr
 								            <dd><span class="light fixedFont">{Object}</span> the json object with the settings</dd>
 							            
 							            </dl>
+						            
+						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
+					            <a name="setTransformedShapePoint"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            
+					            <b>setTransformedShapePoint</b>(index, point)
+					
+					            </div>
+					            <div class="description">
+						            <p>Modifies the <tt>index</tt>-th point of the shape so that when applying the transforms,
+the final point will have the coordinates specified by <tt>point</tt>, relative to the parent.<br>
+The other points of the shape will be recalculated in such a way that when transformed,
+they will keep their position relative to the parent.<br>
+This method does not apply any kind of snapping.<br><br>
+<em>(should not be overridden)</em></p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Parameters:</dt>
+							            
+								            <dt>
+									            <b>index</b>
+									            
+								            </dt>
+								            <dd>{Number} the index of the shape point to be modified</dd>
+							            
+								            <dt>
+									            <b>point</b>
+									            
+								            </dt>
+								            <dd>{Webgram.Geometry.Point} the new desired position of the point</dd>
+							            
+							            </dl>
+						            
+						            
+						            
+						            
 						            
 						            
 						            
@@ -8438,6 +8825,80 @@ into this element's coordinate system. This method does not affect the original 
 
                               </div>
 				            
+                              <div class="member">
+					            <a name="zIndexFromJson"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            
+					            <b>zIndexFromJson</b>(json)
+					
+					            </div>
+					            <div class="description">
+						            <p>Restores the z-index of this element from a json object.<br><br>
+<em>(could be overridden)</em></p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Parameters:</dt>
+							            
+								            <dt>
+									            <span class="light fixedFont">{Object}</span> <b>json</b>
+									            
+								            </dt>
+								            <dd>the json object with the z-index</dd>
+							            
+							            </dl>
+						            
+						            
+						            
+						            
+						            
+						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
+					            <a name="zIndexToJson"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            <span class="light">{Object}</span>
+					            <b>zIndexToJson</b>()
+					
+					            </div>
+					            <div class="description">
+						            <p>Prepares a json object with the z-index of this element.<br><br>
+<em>(could be overridden)</em></p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+						            
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Returns:</dt>
+							            
+								            <dd><span class="light fixedFont">{Object}</span> the json object with the z-index</dd>
+							            
+							            </dl>
+						            
+						            
+						            
+
+                              </div>
+				            
                           </div>
 			            
 			
@@ -8600,10 +9061,6 @@ into this element's coordinate system. This method does not affect the original 
                              </li>
                            
                              <li>
-                               <a href="../symbols/Webgram.DrawingElement.html#rotationCenter">rotationCenter</a>
-                             </li>
-                           
-                             <li>
                                <a href="../symbols/Webgram.DrawingElement.html#webgram">webgram</a>
                              </li>
                            
@@ -8659,6 +9116,18 @@ into this element's coordinate system. This method does not affect the original 
                            
                                <li>
                                     <a href="../symbols/Webgram.DrawingElement.html#beginCreate">beginCreate</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#beginRotationAngleChange">beginRotationAngleChange</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#beginShapeChange">beginShapeChange</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#beginStyleChange">beginStyleChange</a>
                                 </li>
                            
                                <li>
@@ -8778,15 +9247,15 @@ into this element's coordinate system. This method does not affect the original 
                                 </li>
                            
                                <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#flipFromJson">flipFromJson</a>
+                                </li>
+                           
+                               <li>
                                     <a href="../symbols/Webgram.DrawingElement.html#flipHorizontally">flipHorizontally</a>
                                 </li>
                            
                                <li>
-                                    <a href="../symbols/Webgram.DrawingElement.html#flipShapeHorizontally">flipShapeHorizontally</a>
-                                </li>
-                           
-                               <li>
-                                    <a href="../symbols/Webgram.DrawingElement.html#flipShapeVertically">flipShapeVertically</a>
+                                    <a href="../symbols/Webgram.DrawingElement.html#flipToJson">flipToJson</a>
                                 </li>
                            
                                <li>
@@ -8870,6 +9339,10 @@ into this element's coordinate system. This method does not affect the original 
                                 </li>
                            
                                <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#getFlippedAngle">getFlippedAngle</a>
+                                </li>
+                           
+                               <li>
                                     <a href="../symbols/Webgram.DrawingElement.html#getFocusType">getFocusType</a>
                                 </li>
                            
@@ -8895,6 +9368,10 @@ into this element's coordinate system. This method does not affect the original 
                            
                                <li>
                                     <a href="../symbols/Webgram.DrawingElement.html#getRotationAngle">getRotationAngle</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#getRotationCenter">getRotationCenter</a>
                                 </li>
                            
                                <li>
@@ -8938,11 +9415,11 @@ into this element's coordinate system. This method does not affect the original 
                                 </li>
                            
                                <li>
-                                    <a href="../symbols/Webgram.DrawingElement.html#invalidateDrawing">invalidateDrawing</a>
+                                    <a href="../symbols/Webgram.DrawingElement.html#invalidate">invalidate</a>
                                 </li>
                            
                                <li>
-                                    <a href="../symbols/Webgram.DrawingElement.html#invalidatePoints">invalidatePoints</a>
+                                    <a href="../symbols/Webgram.DrawingElement.html#invalidateDrawing">invalidateDrawing</a>
                                 </li>
                            
                                <li>
@@ -9098,6 +9575,14 @@ into this element's coordinate system. This method does not affect the original 
                                 </li>
                            
                                <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#scaleDirect">scaleDirect</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#scaleInverse">scaleInverse</a>
+                                </li>
+                           
+                               <li>
                                     <a href="../symbols/Webgram.DrawingElement.html#setDecorationStyle">setDecorationStyle</a>
                                 </li>
                            
@@ -9134,15 +9619,15 @@ into this element's coordinate system. This method does not affect the original 
                                 </li>
                            
                                <li>
-                                    <a href="../symbols/Webgram.DrawingElement.html#setRotatedShapePoint">setRotatedShapePoint</a>
-                                </li>
-                           
-                               <li>
                                     <a href="../symbols/Webgram.DrawingElement.html#setRotateEnabled">setRotateEnabled</a>
                                 </li>
                            
                                <li>
                                     <a href="../symbols/Webgram.DrawingElement.html#setRotationAngle">setRotationAngle</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#setRotationCenter">setRotationCenter</a>
                                 </li>
                            
                                <li>
@@ -9195,6 +9680,10 @@ into this element's coordinate system. This method does not affect the original 
                            
                                <li>
                                     <a href="../symbols/Webgram.DrawingElement.html#settingsToJson">settingsToJson</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#setTransformedShapePoint">setTransformedShapePoint</a>
                                 </li>
                            
                                <li>
@@ -9261,6 +9750,14 @@ into this element's coordinate system. This method does not affect the original 
                                     <a href="../symbols/Webgram.DrawingElement.html#translateInverse">translateInverse</a>
                                 </li>
                            
+                               <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#zIndexFromJson">zIndexFromJson</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#zIndexToJson">zIndexToJson</a>
+                                </li>
+                           
                          </ul>
                        
                        <!-- end function summary -->
@@ -9278,7 +9775,7 @@ into this element's coordinate system. This method does not affect the original 
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both;text-align:center">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sun Nov 18 2012 22:31:38 GMT+0200 (EET)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sat Dec 29 2012 21:07:36 GMT+0200 (EET)
 		</div>
 	</body>
 </html>

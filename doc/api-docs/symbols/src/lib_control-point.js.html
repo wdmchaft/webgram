@@ -442,238 +442,221 @@
 <span class='line'>435</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
 <span class='line'>436</span> </span><span class="WHIT">    
 <span class='line'>437</span>     
-<span class='line'>438</span>     </span><span class="COMM">/* shape-related */</span><span class="WHIT">
-<span class='line'>439</span> </span><span class="WHIT">    
-<span class='line'>440</span>     </span><span class="COMM">/**
-<span class='line'>441</span>      * Returns the &lt;em>bounding rectangle&lt;/em> of this control point.
-<span class='line'>442</span>      * The bounding rectangle is defined as the rectangle circumscribed
-<span class='line'>443</span>      * to the circle having the radius equal to the &lt;tt>radius&lt;/tt> property
-<span class='line'>444</span>      * of the control point and centered in the actual center of the control point.&lt;br>&lt;br>
-<span class='line'>445</span>      * &lt;em>(should not be overridden)&lt;/em>
-<span class='line'>446</span>      * @returns {Webgram.Geometry.Rectangle} the bounding rectangle
-<span class='line'>447</span>      */</span><span class="WHIT">
-<span class='line'>448</span> </span><span class="WHIT">    </span><span class="NAME">getBoundingRectangle</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>449</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">radius</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.radius</span><span class="WHIT"> </span><span class="PUNC">/</span><span class="WHIT"> </span><span class="NAME">this.getZoomFactor</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>450</span> </span><span class="WHIT">        
-<span class='line'>451</span>         </span><span class="COMM">/*
-<span class='line'>452</span>          * this is just an adjustment to compensate the offset of the CP's rectangle
-<span class='line'>453</span>          * when zooming in
-<span class='line'>454</span>          */</span><span class="WHIT">
-<span class='line'>455</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">driftOffset</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.getZoomFactor</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">/</span><span class="WHIT"> </span><span class="NUMB">50</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>456</span> </span><span class="WHIT">        
-<span class='line'>457</span>         </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">anchor</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.getAnchor</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>458</span> </span><span class="WHIT">        
-<span class='line'>459</span>         </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">Webgram.Geometry.Rectangle</span><span class="PUNC">(</span><span class="NAME">anchor.x</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="WHIT"> </span><span class="NAME">radius</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">driftOffset</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">anchor.y</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="WHIT"> </span><span class="NAME">radius</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">driftOffset</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">anchor.x</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">radius</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">driftOffset</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">anchor.y</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">radius</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">driftOffset</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>460</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>461</span> 
-<span class='line'>462</span> </span><span class="WHIT">    </span><span class="COMM">/**
-<span class='line'>463</span>      * Determines if a given &lt;tt>point&lt;/tt> (relative to the element's parent)
-<span class='line'>464</span>      * is inside this control point or not.&lt;br>&lt;br>
-<span class='line'>465</span>      * &lt;em>(could be overridden)&lt;/em> 
-<span class='line'>466</span>      * @param {Webgram.Geometry.Point} point the point to test, relative to parent
-<span class='line'>467</span>      * @returns {Boolean} &lt;tt>true&lt;/tt> if the point is inside this control point, &lt;tt>false&lt;/tt> otherwise
-<span class='line'>468</span>      */</span><span class="WHIT">
-<span class='line'>469</span> </span><span class="WHIT">    </span><span class="NAME">pointInside</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>470</span> </span><span class="WHIT">        </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.getBoundingRectangle</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">pointInside</span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>471</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>472</span> </span><span class="WHIT">    
-<span class='line'>473</span> 
-<span class='line'>474</span>     </span><span class="COMM">/* anchor related */</span><span class="WHIT">
-<span class='line'>475</span> </span><span class="WHIT">    
-<span class='line'>476</span>     </span><span class="COMM">/**
-<span class='line'>477</span>      * Returns the &lt;em>anchor&lt;/em> of this control point. The anchor represents
-<span class='line'>478</span>      * the point where the control point is pinned onto its drawing element.
-<span class='line'>479</span>      * The coordinates of this anchor are relative to the element's parent.
-<span class='line'>480</span>      * In case the anchor is &lt;tt>null&lt;/tt> (read: invalid), this method calls
-<span class='line'>481</span>      * {@link Webgram.ControlPoint#update} which in turn makes a call to
-<span class='line'>482</span>      * {@link Webgram.ControlPoint#computeAnchor} to obtain the value of the anchor.&lt;br>&lt;br>
-<span class='line'>483</span>      * &lt;em>(should not be overridden)&lt;/em>
-<span class='line'>484</span>      * @returns {Webgram.Geometry.Point} the value of the anchor
-<span class='line'>485</span>      */</span><span class="WHIT">
-<span class='line'>486</span> </span><span class="WHIT">    </span><span class="NAME">getAnchor</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>487</span> </span><span class="WHIT">        </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">this._anchor</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>488</span> </span><span class="WHIT">            </span><span class="NAME">this.update</span><span class="PUNC">(</span><span class="KEYW">false</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>489</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>490</span> </span><span class="WHIT">        
-<span class='line'>491</span>         </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this._anchor</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>492</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>493</span> </span><span class="WHIT">    
-<span class='line'>494</span>     </span><span class="COMM">/**
-<span class='line'>495</span>      * A control point can have an &lt;em>offset&lt;/em> from its actual anchor.
-<span class='line'>496</span>      * This offset is made of two numbers, one value for the &lt;tt>x&lt;/tt> axis, and one for the &lt;tt>y&lt;/tt> one.&lt;br>&lt;br>
-<span class='line'>497</span>      * &lt;em>(could be overridden)&lt;/em>
-<span class='line'>498</span>      * @returns {Object} an object with:&lt;ul>
-<span class='line'>499</span>      *  &lt;li>&lt;tt>x&lt;/tt>: the x offset&lt;/li>
-<span class='line'>500</span>      *  &lt;li>&lt;tt>y&lt;/tt>: the y offset&lt;/li>
-<span class='line'>501</span>      * &lt;/ul>
-<span class='line'>502</span>      */</span><span class="WHIT">
-<span class='line'>503</span> </span><span class="WHIT">    </span><span class="NAME">getOffsets</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>504</span> </span><span class="WHIT">        </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="NAME">x</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">y</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>505</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>506</span> </span><span class="WHIT">    
-<span class='line'>507</span>     </span><span class="COMM">/**
-<span class='line'>508</span>      * This method is responsible for the actual computing of the anchor.
-<span class='line'>509</span>      * Implement this method in concrete control point classes and make it
-<span class='line'>510</span>      * return the anchor point, relative to the parent of this control point's element.&lt;br>&lt;br>
-<span class='line'>511</span>      * &lt;em>(must be overridden)&lt;/em>
-<span class='line'>512</span>      */</span><span class="WHIT">
-<span class='line'>513</span> </span><span class="WHIT">    </span><span class="NAME">computeAnchor</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>514</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>515</span> 
-<span class='line'>516</span> </span><span class="WHIT">    </span><span class="COMM">/**
-<span class='line'>517</span>      * This method is responsible for the effect generated by moving this control point.
-<span class='line'>518</span>      * Implement this method in concrete control point classes and change the
-<span class='line'>519</span>      * corresponding fields on the drawing element based on &lt;tt>point&lt;/tt> and &lt;tt>vanillaPoint&lt;/tt> arguments.&lt;br>&lt;br>
-<span class='line'>520</span>      * &lt;em>(must be overridden)&lt;/em>
-<span class='line'>521</span>      * @param {Webgram.Geometry.Point} point the point where the the control point was dragged with the mouse;
-<span class='line'>522</span>      *  this argument contains the value after snapping and applying other limitations; its value is relative to the
-<span class='line'>523</span>      *  element's parent
-<span class='line'>524</span>      * @param {Webgram.Geometry.Point} vanillaPoint the exact point of the mouse where the control point was dragged;
-<span class='line'>525</span>      *  this argument holds the value before any snapping or alteration; its value is relative to the element's parent
-<span class='line'>526</span>      */</span><span class="WHIT">
-<span class='line'>527</span> </span><span class="WHIT">    </span><span class="NAME">processMove</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">vanillaPoint</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>438</span>     </span><span class="COMM">/**
+<span class='line'>439</span>      * Determines if a given &lt;tt>point&lt;/tt> (relative to the element's parent)
+<span class='line'>440</span>      * is inside this control point or not.&lt;br>&lt;br>
+<span class='line'>441</span>      * &lt;em>(could be overridden)&lt;/em> 
+<span class='line'>442</span>      * @param {Webgram.Geometry.Point} point the point to test, relative to the element
+<span class='line'>443</span>      * @returns {Boolean} &lt;tt>true&lt;/tt> if the point is inside this control point, &lt;tt>false&lt;/tt> otherwise
+<span class='line'>444</span>      */</span><span class="WHIT">
+<span class='line'>445</span> </span><span class="WHIT">    </span><span class="NAME">pointInside</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>446</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">radius</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.radius</span><span class="WHIT"> </span><span class="PUNC">/</span><span class="WHIT"> </span><span class="NAME">this.getZoomFactor</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>447</span> </span><span class="WHIT">        
+<span class='line'>448</span>         </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">anchor</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.getAnchor</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>449</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">rect</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">Webgram.Geometry.Rectangle</span><span class="PUNC">(</span><span class="NAME">anchor.x</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="WHIT"> </span><span class="NAME">radius</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">anchor.y</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="WHIT"> </span><span class="NAME">radius</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">anchor.x</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">radius</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">anchor.y</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">radius</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>450</span> 
+<span class='line'>451</span> </span><span class="WHIT">        </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">rect.pointInside</span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>452</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>453</span> </span><span class="WHIT">    
+<span class='line'>454</span> 
+<span class='line'>455</span>     </span><span class="COMM">/* anchor related */</span><span class="WHIT">
+<span class='line'>456</span> </span><span class="WHIT">    
+<span class='line'>457</span>     </span><span class="COMM">/**
+<span class='line'>458</span>      * Returns the &lt;em>anchor&lt;/em> of this control point. The anchor represents
+<span class='line'>459</span>      * the point where the control point is pinned onto its drawing element.
+<span class='line'>460</span>      * The coordinates of this anchor are relative to the element's parent.
+<span class='line'>461</span>      * In case the anchor is &lt;tt>null&lt;/tt> (read: invalid), this method calls
+<span class='line'>462</span>      * {@link Webgram.ControlPoint#update} which in turn makes a call to
+<span class='line'>463</span>      * {@link Webgram.ControlPoint#computeAnchor} to obtain the value of the anchor.&lt;br>&lt;br>
+<span class='line'>464</span>      * &lt;em>(should not be overridden)&lt;/em>
+<span class='line'>465</span>      * @returns {Webgram.Geometry.Point} the value of the anchor
+<span class='line'>466</span>      */</span><span class="WHIT">
+<span class='line'>467</span> </span><span class="WHIT">    </span><span class="NAME">getAnchor</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>468</span> </span><span class="WHIT">        </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">this._anchor</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>469</span> </span><span class="WHIT">            </span><span class="NAME">this.update</span><span class="PUNC">(</span><span class="KEYW">false</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>470</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>471</span> </span><span class="WHIT">        
+<span class='line'>472</span>         </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this._anchor</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>473</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>474</span> </span><span class="WHIT">    
+<span class='line'>475</span>     </span><span class="COMM">/**
+<span class='line'>476</span>      * A control point can have an &lt;em>offset&lt;/em> from its actual anchor.
+<span class='line'>477</span>      * This offset is made of two numbers, one value for the &lt;tt>x&lt;/tt> axis, and one for the &lt;tt>y&lt;/tt> one.&lt;br>&lt;br>
+<span class='line'>478</span>      * &lt;em>(could be overridden)&lt;/em>
+<span class='line'>479</span>      * @returns {Object} an object with:&lt;ul>
+<span class='line'>480</span>      *  &lt;li>&lt;tt>x&lt;/tt>: the x offset&lt;/li>
+<span class='line'>481</span>      *  &lt;li>&lt;tt>y&lt;/tt>: the y offset&lt;/li>
+<span class='line'>482</span>      * &lt;/ul>
+<span class='line'>483</span>      */</span><span class="WHIT">
+<span class='line'>484</span> </span><span class="WHIT">    </span><span class="NAME">getOffsets</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>485</span> </span><span class="WHIT">        </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="NAME">x</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">y</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>486</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>487</span> </span><span class="WHIT">    
+<span class='line'>488</span>     </span><span class="COMM">/**
+<span class='line'>489</span>      * This method is responsible for the actual computing of the anchor.
+<span class='line'>490</span>      * Implement this method in concrete control point classes and make it
+<span class='line'>491</span>      * return the anchor point, relative to this control point's element.&lt;br>&lt;br>
+<span class='line'>492</span>      * &lt;em>(must be overridden)&lt;/em>
+<span class='line'>493</span>      */</span><span class="WHIT">
+<span class='line'>494</span> </span><span class="WHIT">    </span><span class="NAME">computeAnchor</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>495</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>496</span> 
+<span class='line'>497</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'>498</span>      * This method is responsible for the effect generated by moving this control point.
+<span class='line'>499</span>      * Implement this method in concrete control point classes and change the
+<span class='line'>500</span>      * corresponding fields of the drawing element based on &lt;tt>point&lt;/tt> and &lt;tt>vanillaPoint&lt;/tt> arguments.&lt;br>&lt;br>
+<span class='line'>501</span>      * &lt;em>(must be overridden)&lt;/em>
+<span class='line'>502</span>      * @param {Webgram.Geometry.Point} point the point where the the control point was dragged with the mouse;
+<span class='line'>503</span>      *  this argument contains the value after snapping and applying other limitations; its value is relative to the
+<span class='line'>504</span>      *  element
+<span class='line'>505</span>      * @param {Webgram.Geometry.Point} vanillaPoint the exact point of the mouse where the control point was dragged;
+<span class='line'>506</span>      *  this argument holds the value before any snapping or alteration; its value is relative to the element's parent
+<span class='line'>507</span>      */</span><span class="WHIT">
+<span class='line'>508</span> </span><span class="WHIT">    </span><span class="NAME">processMove</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">vanillaPoint</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>509</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>510</span> </span><span class="WHIT">    
+<span class='line'>511</span>     </span><span class="COMM">/**
+<span class='line'>512</span>      * Moves the control point to the given &lt;tt>point&lt;/tt>.
+<span class='line'>513</span>      * This method is called by the active {@link Webgram.DrawingControl} as a consequence
+<span class='line'>514</span>      * of dragging the control point with the mouse.&lt;br>&lt;br>
+<span class='line'>515</span>      * &lt;em>(should not be overridden)&lt;/em>
+<span class='line'>516</span>      * @param {Webgram.Geometry.Point} point the point that this control point will be moved to
+<span class='line'>517</span>      */</span><span class="WHIT">
+<span class='line'>518</span> </span><span class="WHIT">    </span><span class="NAME">move</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>519</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">offsets</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this._getOffsets</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>520</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">vanillaPoint</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">point</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>521</span> </span><span class="WHIT">        </span><span class="NAME">point</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.drawingElement.transformInverse</span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>522</span> </span><span class="WHIT">        </span><span class="NAME">point</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">point.getTranslated</span><span class="PUNC">(</span><span class="PUNC">-</span><span class="NAME">offsets.x</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="NAME">offsets.y</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>523</span> </span><span class="WHIT">        
+<span class='line'>524</span>         </span><span class="NAME">point</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.snap</span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>525</span> </span><span class="WHIT">        </span><span class="NAME">this.processMove</span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">vanillaPoint</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>526</span> </span><span class="WHIT">        </span><span class="NAME">this.onMove.trigger</span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>527</span> </span><span class="WHIT">        </span><span class="NAME">this.update</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>528</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
 <span class='line'>529</span> </span><span class="WHIT">    
 <span class='line'>530</span>     </span><span class="COMM">/**
-<span class='line'>531</span>      * Moves the control point to the given &lt;tt>point&lt;/tt>.
-<span class='line'>532</span>      * This method is called by the active {@link Webgram.DrawingControl} as a consequence
-<span class='line'>533</span>      * of dragging the control point with the mouse.&lt;br>&lt;br>
-<span class='line'>534</span>      * &lt;em>(should not be overridden)&lt;/em>
-<span class='line'>535</span>      * @param {Webgram.Geometry.Point} point the point that this control point will be moved to
+<span class='line'>531</span>      * Recomputes the anchor of this element. If the anchor has changed,
+<span class='line'>532</span>      * that is the control point was moved, an &lt;tt>onUpdate&lt;/tt> event is triggered.
+<span class='line'>533</span>      * This method is automatically called by the library when the control points
+<span class='line'>534</span>      * are invalidated, but can be called by the user as well.&lt;br>&lt;br>
+<span class='line'>535</span>      * &lt;em>(should not be overridden)&lt;/em>
 <span class='line'>536</span>      */</span><span class="WHIT">
-<span class='line'>537</span> </span><span class="WHIT">    </span><span class="NAME">move</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>538</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">offsets</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this._getOffsets</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>539</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">center</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">point</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>540</span> </span><span class="WHIT">        </span><span class="NAME">point</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">point.getTranslated</span><span class="PUNC">(</span><span class="PUNC">-</span><span class="NAME">offsets.x</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="NAME">offsets.y</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>541</span> </span><span class="WHIT">        </span><span class="NAME">point</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">point.getRotated</span><span class="PUNC">(</span><span class="NAME">this.drawingElement.getRotationAngle</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">center</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>542</span> </span><span class="WHIT">        
-<span class='line'>543</span>         </span><span class="NAME">point</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.snap</span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>544</span> </span><span class="WHIT">        </span><span class="NAME">this.processMove</span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">center</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>545</span> </span><span class="WHIT">        </span><span class="NAME">this.onMove.trigger</span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>546</span> </span><span class="WHIT">        </span><span class="NAME">this.update</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>547</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>548</span> </span><span class="WHIT">    
-<span class='line'>549</span>     </span><span class="COMM">/**
-<span class='line'>550</span>      * Recomputes the anchor of this element. If the anchor has changed,
-<span class='line'>551</span>      * that is the control point was moved, an &lt;tt>onUpdate&lt;/tt> event is triggered.
-<span class='line'>552</span>      * This method is automatically called by the library when the control points
-<span class='line'>553</span>      * are invalidated, but can be called by the user as well.&lt;br>&lt;br>
-<span class='line'>554</span>      * &lt;em>(should not be overridden)&lt;/em>
-<span class='line'>555</span>      */</span><span class="WHIT">
-<span class='line'>556</span> </span><span class="WHIT">    </span><span class="NAME">update</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>557</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">anchor</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.computeAnchor</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>558</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">offsets</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this._getOffsets</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>559</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">oldAnchor</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this._anchor</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>560</span> </span><span class="WHIT">        
-<span class='line'>561</span>         </span><span class="NAME">this._anchor</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">anchor.getTranslated</span><span class="PUNC">(</span><span class="NAME">offsets.x</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">offsets.y</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">getRotated</span><span class="PUNC">(</span><span class="NAME">this.drawingElement.getRotationAngle</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">anchor</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>562</span> </span><span class="WHIT">        
-<span class='line'>563</span>         </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">oldAnchor</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">this._anchor.x</span><span class="WHIT"> </span><span class="PUNC">!==</span><span class="WHIT"> </span><span class="NAME">oldAnchor.x</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">this._anchor.y</span><span class="WHIT"> </span><span class="PUNC">!==</span><span class="WHIT"> </span><span class="NAME">oldAnchor.y</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>564</span> </span><span class="WHIT">            </span><span class="NAME">this.onUpdate.trigger</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>565</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>566</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>567</span> </span><span class="WHIT">    
-<span class='line'>568</span>     </span><span class="COMM">/**
-<span class='line'>569</span>      * Snaps the control point. The default implementation
-<span class='line'>570</span>      * simply snaps to &lt;em>grid&lt;/em>, if enabled.
-<span class='line'>571</span>      * @param {Webgram.Geometry.Point} point the point to snap
-<span class='line'>572</span>      * @returns {Webgram.Geometry.Point} the snapped point
-<span class='line'>573</span>      */</span><span class="WHIT">
-<span class='line'>574</span> </span><span class="WHIT">    </span><span class="NAME">snap</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>575</span> </span><span class="WHIT">        </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this.isSnapToGridEnabled</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">this.getSetting</span><span class="PUNC">(</span><span class="STRN">'snapGrid'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">!=</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>576</span> </span><span class="WHIT">            </span><span class="NAME">point</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.snapToGrid</span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>577</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>578</span> </span><span class="WHIT">        
-<span class='line'>579</span>         </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">point</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>580</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>581</span> </span><span class="WHIT">    
-<span class='line'>582</span>     </span><span class="COMM">/**
-<span class='line'>583</span>      * Snaps the given point to the &lt;em>grid&lt;/em>.
-<span class='line'>584</span>      * @param {Webgram.Geometry.Point} point the point to snap
-<span class='line'>585</span>      * @returns {Webgram.Geometry.Point} the snapped point
-<span class='line'>586</span>      */</span><span class="WHIT">
-<span class='line'>587</span> </span><span class="WHIT">    </span><span class="NAME">snapToGrid</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>588</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">snapGrid</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.getSetting</span><span class="PUNC">(</span><span class="STRN">'snapGrid'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>589</span> </span><span class="WHIT">        </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">snapGrid</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>590</span> </span><span class="WHIT">            </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">point</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>591</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>592</span> </span><span class="WHIT">        
-<span class='line'>593</span>         </span><span class="NAME">point</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">Webgram.Geometry.Point</span><span class="PUNC">(</span><span class="NAME">Math.round</span><span class="PUNC">(</span><span class="NAME">point.x</span><span class="WHIT"> </span><span class="PUNC">/</span><span class="WHIT"> </span><span class="NAME">snapGrid.sizeX</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">*</span><span class="WHIT"> </span><span class="NAME">snapGrid.sizeX</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">Math.round</span><span class="PUNC">(</span><span class="NAME">point.y</span><span class="WHIT"> </span><span class="PUNC">/</span><span class="WHIT"> </span><span class="NAME">snapGrid.sizeY</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">*</span><span class="WHIT"> </span><span class="NAME">snapGrid.sizeY</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>594</span> </span><span class="WHIT">        
-<span class='line'>595</span>         </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">point</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>596</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>597</span> </span><span class="WHIT">    
-<span class='line'>598</span>     
-<span class='line'>599</span>     </span><span class="COMM">/* settings */</span><span class="WHIT">
-<span class='line'>600</span> </span><span class="WHIT">    
-<span class='line'>601</span>     </span><span class="COMM">/**
-<span class='line'>602</span>      * Returns a webgram setting. These settings are global and are available to each
-<span class='line'>603</span>      * element added to the webgram instance.&lt;br>&lt;br>
-<span class='line'>604</span>      * &lt;em>(should not be overridden)&lt;/em>
-<span class='line'>605</span>      * @param {String} setting the full name of the setting
-<span class='line'>606</span>      * @param {any} def the default value to return if the setting is not present
-<span class='line'>607</span>      * @returns {any} the value of the setting, or &lt;tt>def&lt;/tt> if it is not present
-<span class='line'>608</span>      */</span><span class="WHIT">
-<span class='line'>609</span> </span><span class="WHIT">    </span><span class="NAME">getSetting</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">setting</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">def</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>610</span> </span><span class="WHIT">        </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">this.drawingElement</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="COMM">/* not added yet */</span><span class="WHIT">
-<span class='line'>611</span> </span><span class="WHIT">            </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>612</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>613</span> </span><span class="WHIT">        
-<span class='line'>614</span>         </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.drawingElement.getSetting</span><span class="PUNC">(</span><span class="NAME">setting</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">def</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>615</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>616</span> </span><span class="WHIT">    
-<span class='line'>617</span>     </span><span class="COMM">/**
-<span class='line'>618</span>      * Tells whether snapping to grid is enabled for this control point or not.
-<span class='line'>619</span>      * @returns {Boolean} &lt;tt>true&lt;/tt> if snapping to grid is enabled, &lt;tt>false&lt;/tt> otherwise
-<span class='line'>620</span>      */</span><span class="WHIT">
-<span class='line'>621</span> </span><span class="WHIT">    </span><span class="NAME">isSnapToGridEnabled</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>622</span> </span><span class="WHIT">        </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this._snapToGridEnabled</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>623</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>624</span> </span><span class="WHIT">    
-<span class='line'>625</span>     </span><span class="COMM">/**
-<span class='line'>626</span>      * Enables or disables snapping to grid for this control point.
-<span class='line'>627</span>      * When snapping to grid is enabled, changes to the anchor will
-<span class='line'>628</span>      * be followed by a call to {@link Webgram.ControlPoint#snapToGrid}.
-<span class='line'>629</span>      * @param {Boolean} enabled &lt;tt>true&lt;/tt> to enable snapping to grid, &lt;tt>false&lt;/tt> to disable it
-<span class='line'>630</span>      */</span><span class="WHIT">
-<span class='line'>631</span> </span><span class="WHIT">    </span><span class="NAME">setSnapToGridEnabled</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">enabled</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>632</span> </span><span class="WHIT">        </span><span class="NAME">this._snapToGridEnabled</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">enabled</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>633</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>634</span> 
-<span class='line'>635</span> </span><span class="WHIT">    
-<span class='line'>636</span>     </span><span class="COMM">/* private methods */</span><span class="WHIT">
-<span class='line'>637</span> </span><span class="WHIT">    
-<span class='line'>638</span>     </span><span class="NAME">_getOffsets</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>639</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">zoomFactor</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.getZoomFactor</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>640</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">strokeStyle</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.drawingElement.getStrokeStyle</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>641</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">thickness</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">strokeStyle</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="NAME">strokeStyle.lineWidth</span><span class="WHIT"> </span><span class="PUNC">/</span><span class="WHIT"> </span><span class="NUMB">2</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>642</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">offsets</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.getOffsets</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>643</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">x</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">offsets.x</span><span class="WHIT"> </span><span class="PUNC">/</span><span class="WHIT"> </span><span class="NAME">zoomFactor</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>644</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">y</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">offsets.y</span><span class="WHIT"> </span><span class="PUNC">/</span><span class="WHIT"> </span><span class="NAME">zoomFactor</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>645</span> </span><span class="WHIT">        
-<span class='line'>646</span>         </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">offsets.x</span><span class="WHIT"> </span><span class="PUNC">></span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>647</span> </span><span class="WHIT">            </span><span class="NAME">x</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">thickness</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>648</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>649</span> </span><span class="WHIT">        </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">offsets.x</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>650</span> </span><span class="WHIT">            </span><span class="NAME">x</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">thickness</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>651</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>652</span> </span><span class="WHIT">        
-<span class='line'>653</span>         </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">offsets.y</span><span class="WHIT"> </span><span class="PUNC">></span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>654</span> </span><span class="WHIT">            </span><span class="NAME">y</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">thickness</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>655</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>656</span> </span><span class="WHIT">        </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">offsets.y</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>657</span> </span><span class="WHIT">            </span><span class="NAME">y</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">thickness</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>658</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>659</span> </span><span class="WHIT">        
-<span class='line'>660</span>         </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="NAME">x</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">x</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">y</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">y</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>661</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>662</span> </span><span class="WHIT">    
-<span class='line'>663</span>     </span><span class="NAME">_scaleDownToZoomFactor</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>664</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">angle</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">Webgram.Geometry.Point.zero</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">getAngleTo</span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>665</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">distance</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">Webgram.Geometry.Point.zero</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">getDistanceTo</span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>666</span> </span><span class="WHIT">        
-<span class='line'>667</span>         </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">Webgram.Geometry.Point.zero</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">getPointAt</span><span class="PUNC">(</span><span class="NAME">distance</span><span class="WHIT"> </span><span class="PUNC">/</span><span class="WHIT"> </span><span class="NAME">this.getZoomFactor</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">angle</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>668</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>669</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>670</span> 
-<span class='line'>671</span> </span><span class="NAME">Webgram.Class</span><span class="PUNC">(</span><span class="STRN">'Webgram.ControlPoint'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>672</span> </span></pre></body></html>
+<span class='line'>537</span> </span><span class="WHIT">    </span><span class="NAME">update</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>538</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">anchor</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.computeAnchor</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>539</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">offsets</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this._getOffsets</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>540</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">oldAnchor</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this._anchor</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>541</span> </span><span class="WHIT">        
+<span class='line'>542</span>         </span><span class="NAME">anchor</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">anchor.getTranslated</span><span class="PUNC">(</span><span class="NAME">offsets.x</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">offsets.y</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>543</span> </span><span class="WHIT">        </span><span class="NAME">anchor</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.drawingElement.transformDirect</span><span class="PUNC">(</span><span class="NAME">anchor</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>544</span> </span><span class="WHIT">        </span><span class="NAME">this._anchor</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">anchor</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>545</span> </span><span class="WHIT">        
+<span class='line'>546</span>         </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">oldAnchor</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">this._anchor.x</span><span class="WHIT"> </span><span class="PUNC">!==</span><span class="WHIT"> </span><span class="NAME">oldAnchor.x</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">this._anchor.y</span><span class="WHIT"> </span><span class="PUNC">!==</span><span class="WHIT"> </span><span class="NAME">oldAnchor.y</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>547</span> </span><span class="WHIT">            </span><span class="NAME">this.onUpdate.trigger</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>548</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>549</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>550</span> </span><span class="WHIT">    
+<span class='line'>551</span>     </span><span class="COMM">/**
+<span class='line'>552</span>      * Snaps the control point. The default implementation
+<span class='line'>553</span>      * simply snaps to &lt;em>grid&lt;/em>, if enabled.
+<span class='line'>554</span>      * @param {Webgram.Geometry.Point} point the point to snap
+<span class='line'>555</span>      * @returns {Webgram.Geometry.Point} the snapped point
+<span class='line'>556</span>      */</span><span class="WHIT">
+<span class='line'>557</span> </span><span class="WHIT">    </span><span class="NAME">snap</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>558</span> </span><span class="WHIT">        </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this.isSnapToGridEnabled</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">this.getSetting</span><span class="PUNC">(</span><span class="STRN">'snapGrid'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">!=</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>559</span> </span><span class="WHIT">            </span><span class="NAME">point</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.snapToGrid</span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>560</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>561</span> </span><span class="WHIT">        
+<span class='line'>562</span>         </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">point</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>563</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>564</span> </span><span class="WHIT">    
+<span class='line'>565</span>     </span><span class="COMM">/**
+<span class='line'>566</span>      * Snaps the given point to the &lt;em>grid&lt;/em>.
+<span class='line'>567</span>      * @param {Webgram.Geometry.Point} point the point to snap
+<span class='line'>568</span>      * @returns {Webgram.Geometry.Point} the snapped point
+<span class='line'>569</span>      */</span><span class="WHIT">
+<span class='line'>570</span> </span><span class="WHIT">    </span><span class="NAME">snapToGrid</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>571</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">snapGrid</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.getSetting</span><span class="PUNC">(</span><span class="STRN">'snapGrid'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>572</span> </span><span class="WHIT">        </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">snapGrid</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>573</span> </span><span class="WHIT">            </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">point</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>574</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>575</span> </span><span class="WHIT">        
+<span class='line'>576</span>         </span><span class="NAME">point</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">Webgram.Geometry.Point</span><span class="PUNC">(</span><span class="NAME">Math.round</span><span class="PUNC">(</span><span class="NAME">point.x</span><span class="WHIT"> </span><span class="PUNC">/</span><span class="WHIT"> </span><span class="NAME">snapGrid.sizeX</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">*</span><span class="WHIT"> </span><span class="NAME">snapGrid.sizeX</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">Math.round</span><span class="PUNC">(</span><span class="NAME">point.y</span><span class="WHIT"> </span><span class="PUNC">/</span><span class="WHIT"> </span><span class="NAME">snapGrid.sizeY</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">*</span><span class="WHIT"> </span><span class="NAME">snapGrid.sizeY</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>577</span> </span><span class="WHIT">        
+<span class='line'>578</span>         </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">point</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>579</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>580</span> </span><span class="WHIT">    
+<span class='line'>581</span>     
+<span class='line'>582</span>     </span><span class="COMM">/* settings */</span><span class="WHIT">
+<span class='line'>583</span> </span><span class="WHIT">    
+<span class='line'>584</span>     </span><span class="COMM">/**
+<span class='line'>585</span>      * Returns a webgram setting. These settings are global and are available to each
+<span class='line'>586</span>      * element added to the webgram instance.&lt;br>&lt;br>
+<span class='line'>587</span>      * &lt;em>(should not be overridden)&lt;/em>
+<span class='line'>588</span>      * @param {String} setting the full name of the setting
+<span class='line'>589</span>      * @param {any} def the default value to return if the setting is not present
+<span class='line'>590</span>      * @returns {any} the value of the setting, or &lt;tt>def&lt;/tt> if it is not present
+<span class='line'>591</span>      */</span><span class="WHIT">
+<span class='line'>592</span> </span><span class="WHIT">    </span><span class="NAME">getSetting</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">setting</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">def</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>593</span> </span><span class="WHIT">        </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">this.drawingElement</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="COMM">/* not added yet */</span><span class="WHIT">
+<span class='line'>594</span> </span><span class="WHIT">            </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>595</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>596</span> </span><span class="WHIT">        
+<span class='line'>597</span>         </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.drawingElement.getSetting</span><span class="PUNC">(</span><span class="NAME">setting</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">def</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>598</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>599</span> </span><span class="WHIT">    
+<span class='line'>600</span>     </span><span class="COMM">/**
+<span class='line'>601</span>      * Tells whether snapping to grid is enabled for this control point or not.
+<span class='line'>602</span>      * @returns {Boolean} &lt;tt>true&lt;/tt> if snapping to grid is enabled, &lt;tt>false&lt;/tt> otherwise
+<span class='line'>603</span>      */</span><span class="WHIT">
+<span class='line'>604</span> </span><span class="WHIT">    </span><span class="NAME">isSnapToGridEnabled</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>605</span> </span><span class="WHIT">        </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this._snapToGridEnabled</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>606</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>607</span> </span><span class="WHIT">    
+<span class='line'>608</span>     </span><span class="COMM">/**
+<span class='line'>609</span>      * Enables or disables snapping to grid for this control point.
+<span class='line'>610</span>      * When snapping to grid is enabled, changes to the anchor will
+<span class='line'>611</span>      * be followed by a call to {@link Webgram.ControlPoint#snapToGrid}.
+<span class='line'>612</span>      * @param {Boolean} enabled &lt;tt>true&lt;/tt> to enable snapping to grid, &lt;tt>false&lt;/tt> to disable it
+<span class='line'>613</span>      */</span><span class="WHIT">
+<span class='line'>614</span> </span><span class="WHIT">    </span><span class="NAME">setSnapToGridEnabled</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">enabled</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>615</span> </span><span class="WHIT">        </span><span class="NAME">this._snapToGridEnabled</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">enabled</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>616</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>617</span> 
+<span class='line'>618</span> </span><span class="WHIT">    
+<span class='line'>619</span>     </span><span class="COMM">/* private methods */</span><span class="WHIT">
+<span class='line'>620</span> </span><span class="WHIT">    
+<span class='line'>621</span>     </span><span class="NAME">_getOffsets</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>622</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">zoomFactor</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.getZoomFactor</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>623</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">strokeStyle</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.drawingElement.getStrokeStyle</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>624</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">thickness</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">Math.round</span><span class="PUNC">(</span><span class="NAME">strokeStyle</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="NAME">strokeStyle.lineWidth</span><span class="WHIT"> </span><span class="PUNC">/</span><span class="WHIT"> </span><span class="NUMB">2</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>625</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">offsets</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.getOffsets</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>626</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">x</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">offsets.x</span><span class="WHIT"> </span><span class="PUNC">/</span><span class="WHIT"> </span><span class="NAME">zoomFactor</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>627</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">y</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">offsets.y</span><span class="WHIT"> </span><span class="PUNC">/</span><span class="WHIT"> </span><span class="NAME">zoomFactor</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>628</span> </span><span class="WHIT">        
+<span class='line'>629</span>         </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">offsets.x</span><span class="WHIT"> </span><span class="PUNC">></span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>630</span> </span><span class="WHIT">            </span><span class="NAME">x</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">thickness</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>631</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>632</span> </span><span class="WHIT">        </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">offsets.x</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>633</span> </span><span class="WHIT">            </span><span class="NAME">x</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">thickness</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>634</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>635</span> </span><span class="WHIT">        
+<span class='line'>636</span>         </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">offsets.y</span><span class="WHIT"> </span><span class="PUNC">></span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>637</span> </span><span class="WHIT">            </span><span class="NAME">y</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">thickness</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>638</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>639</span> </span><span class="WHIT">        </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">offsets.y</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>640</span> </span><span class="WHIT">            </span><span class="NAME">y</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">thickness</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>641</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>642</span> </span><span class="WHIT">        
+<span class='line'>643</span>         </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="NAME">x</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">x</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">y</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">y</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>644</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>645</span> </span><span class="WHIT">    
+<span class='line'>646</span>     </span><span class="NAME">_scaleDownToZoomFactor</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>647</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">angle</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">Webgram.Geometry.Point.zero</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">getAngleTo</span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>648</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">distance</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">Webgram.Geometry.Point.zero</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">getDistanceTo</span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>649</span> </span><span class="WHIT">        
+<span class='line'>650</span>         </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">Webgram.Geometry.Point.zero</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">getPointAt</span><span class="PUNC">(</span><span class="NAME">distance</span><span class="WHIT"> </span><span class="PUNC">/</span><span class="WHIT"> </span><span class="NAME">this.getZoomFactor</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">angle</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>651</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>652</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>653</span> 
+<span class='line'>654</span> </span><span class="NAME">Webgram.Class</span><span class="PUNC">(</span><span class="STRN">'Webgram.ControlPoint'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>655</span> </span></pre></body></html>
