@@ -9,27 +9,27 @@
             function onLoad() {
                 /* change the background fill style */
                 Webgram.Styles.setFillStyle('background',
-                        new Webgram.Styles.FillStyle('black'));
+                        new Webgram.Styles.FillStyle(['black']));
                 
                 /* change the main grid axes stroke style */
                 Webgram.Styles.setStrokeStyle('main-grid-axes',
-                        new Webgram.Styles.StrokeStyle(5, 'round', 'round', 0, '#00DE2C'));
+                        new Webgram.Styles.StrokeStyle(5, 'round', 'round', 0, ['#00DE2C']));
 
                 /* change the main grid stroke style */
                 Webgram.Styles.setStrokeStyle('main-grid',
-                        new Webgram.Styles.StrokeStyle(5, 'round', 'round', 0, '#00961E'));
+                        new Webgram.Styles.StrokeStyle(5, 'round', 'round', 0, ['#00961E']));
 
                 /* change the snap grid stroke style */
                 Webgram.Styles.setStrokeStyle('snap-grid',
-                        new Webgram.Styles.StrokeStyle(5, 'round', 'round', 0, '#296034'));
+                        new Webgram.Styles.StrokeStyle(5, 'round', 'round', 0, ['#296034']));
 
                 /* change the rulers stroke style */
                 Webgram.Styles.setStrokeStyle('rulers',
-                        new Webgram.Styles.StrokeStyle(1, 'butt', 'bevel', 0, 'rgba(0, 255, 0, 0.6)'));
+                        new Webgram.Styles.StrokeStyle(1, 'butt', 'bevel', 0, ['rgba(0, 255, 0, 0.6)']));
 
                 /* change the rulers fill style */
                 Webgram.Styles.setFillStyle('rulers',
-                        new Webgram.Styles.FillStyle('rgba(0, 255, 0, 0.4)'));
+                        new Webgram.Styles.FillStyle(['rgba(0, 255, 0, 0.4)']));
 
                 /* change the rulers text style */
                 Webgram.Styles.setTextStyle('rulers',
@@ -62,27 +62,27 @@
                     
 <pre style='color:#000000;background:#ffffff;'><span style='color:#3f7f59; '>/* change the background fill style */</span>
 Webgram.Styles.setFillStyle(<span style='color:#2a00ff; '>'background'</span>,
-        <span style='color:#7f0055; font-weight:bold; '>new</span> Webgram.Styles.FillStyle(<span style='color:#2a00ff; '>'black'</span>));
+        <span style='color:#7f0055; font-weight:bold; '>new</span> Webgram.Styles.FillStyle([<span style='color:#2a00ff; '>'black'</span>]));
 
 <span style='color:#3f7f59; '>/* change the main grid axes stroke style */</span>
 Webgram.Styles.setStrokeStyle(<span style='color:#2a00ff; '>'main-grid-axes'</span>,
-        <span style='color:#7f0055; font-weight:bold; '>new</span> Webgram.Styles.StrokeStyle(5, <span style='color:#2a00ff; '>'round'</span>, <span style='color:#2a00ff; '>'round'</span>, 0, <span style='color:#2a00ff; '>'#00DE2C'</span>));
+        <span style='color:#7f0055; font-weight:bold; '>new</span> Webgram.Styles.StrokeStyle(5, <span style='color:#2a00ff; '>'round'</span>, <span style='color:#2a00ff; '>'round'</span>, 0, [<span style='color:#2a00ff; '>'#00DE2C'</span>]));
 
 <span style='color:#3f7f59; '>/* change the main grid stroke style */</span>
 Webgram.Styles.setStrokeStyle(<span style='color:#2a00ff; '>'main-grid'</span>,
-        <span style='color:#7f0055; font-weight:bold; '>new</span> Webgram.Styles.StrokeStyle(5, <span style='color:#2a00ff; '>'round'</span>, <span style='color:#2a00ff; '>'round'</span>, 0, <span style='color:#2a00ff; '>'#00961E'</span>));
+        <span style='color:#7f0055; font-weight:bold; '>new</span> Webgram.Styles.StrokeStyle(5, <span style='color:#2a00ff; '>'round'</span>, <span style='color:#2a00ff; '>'round'</span>, 0, [<span style='color:#2a00ff; '>'#00961E'</span>]));
 
 <span style='color:#3f7f59; '>/* change the snap grid stroke style */</span>
 Webgram.Styles.setStrokeStyle(<span style='color:#2a00ff; '>'snap-grid'</span>,
-        <span style='color:#7f0055; font-weight:bold; '>new</span> Webgram.Styles.StrokeStyle(5, <span style='color:#2a00ff; '>'round'</span>, <span style='color:#2a00ff; '>'round'</span>, 0, <span style='color:#2a00ff; '>'#296034'</span>));
+        <span style='color:#7f0055; font-weight:bold; '>new</span> Webgram.Styles.StrokeStyle(5, <span style='color:#2a00ff; '>'round'</span>, <span style='color:#2a00ff; '>'round'</span>, 0, [<span style='color:#2a00ff; '>'#296034'</span>]));
 
 <span style='color:#3f7f59; '>/* change the rulers stroke style */</span>
 Webgram.Styles.setStrokeStyle(<span style='color:#2a00ff; '>'rulers'</span>,
-        <span style='color:#7f0055; font-weight:bold; '>new</span> Webgram.Styles.StrokeStyle(1, <span style='color:#2a00ff; '>'butt'</span>, <span style='color:#2a00ff; '>'bevel'</span>, 0, <span style='color:#2a00ff; '>'rgba(0, 255, 0, 0.6)'</span>));
+        <span style='color:#7f0055; font-weight:bold; '>new</span> Webgram.Styles.StrokeStyle(1, <span style='color:#2a00ff; '>'butt'</span>, <span style='color:#2a00ff; '>'bevel'</span>, 0, [<span style='color:#2a00ff; '>'rgba(0, 255, 0, 0.6)'</span>]));
 
 <span style='color:#3f7f59; '>/* change the rulers fill style */</span>
 Webgram.Styles.setFillStyle(<span style='color:#2a00ff; '>'rulers'</span>,
-        <span style='color:#7f0055; font-weight:bold; '>new</span> Webgram.Styles.FillStyle(<span style='color:#2a00ff; '>'rgba(0, 255, 0, 0.4)'</span>));
+        <span style='color:#7f0055; font-weight:bold; '>new</span> Webgram.Styles.FillStyle([<span style='color:#2a00ff; '>'rgba(0, 255, 0, 0.4)'</span>]));
 
 <span style='color:#3f7f59; '>/* change the rulers text style */</span>
 Webgram.Styles.setTextStyle(<span style='color:#2a00ff; '>'rulers'</span>,
@@ -99,8 +99,7 @@ Webgram.Styles.setTextStyle(<span style='color:#2a00ff; '>'rulers'</span>,
 
 <span style='color:#3f7f59; '>/* install the mouse and keyboard event handlers */</span>
 webgram.attachHandlers();
-</pre>                        
-
+</pre>
                     </div>
                 </td>
             </tr>

@@ -35,10 +35,10 @@
                 webgram.addDrawingElement(rectangleElement);
                 
                 /* create a stroke style */
-                var strokeStyle = new Webgram.Styles.StrokeStyle(5, 'round', 'round', 0, '#A52800');
+                var strokeStyle = new Webgram.Styles.StrokeStyle(5, 'round', 'round', 0, ['#A52800']);
 
                 /* obtain a fill style by modifying the default one */
-                var fillStyle = Webgram.Styles.getFillStyle('default').replace({'colors': 'rgba(166, 40, 0, 0.5)'});
+                var fillStyle = Webgram.Styles.getFillStyle('default').replace({'colors': ['rgba(166, 40, 0, 0.5)']});
 
                 /* obtain a text style by modifying the element's text style */
                 var textStyle = rectangleElement.getTextStyle().replace({'size': 32});
@@ -89,10 +89,10 @@ webgram.attachHandlers();
 webgram.addDrawingElement(rectangleElement);
 
 <span style='color:#3f7f59; '>/* create a stroke style */</span>
-<span style='color:#7f0055; font-weight:bold; '>var</span> strokeStyle = <span style='color:#7f0055; font-weight:bold; '>new</span> Webgram.Styles.StrokeStyle(5, <span style='color:#2a00ff; '>'round'</span>, <span style='color:#2a00ff; '>'round'</span>, 0, <span style='color:#2a00ff; '>'#A52800'</span>);
+<span style='color:#7f0055; font-weight:bold; '>var</span> strokeStyle = <span style='color:#7f0055; font-weight:bold; '>new</span> Webgram.Styles.StrokeStyle(5, <span style='color:#2a00ff; '>'round'</span>, <span style='color:#2a00ff; '>'round'</span>, 0, [<span style='color:#2a00ff; '>'#A52800'</span>]);
 
 <span style='color:#3f7f59; '>/* obtain a fill style by modifying the default one */</span>
-<span style='color:#7f0055; font-weight:bold; '>var</span> fillStyle = Webgram.Styles.getFillStyle(<span style='color:#2a00ff; '>'default'</span>).<span style='color:#7f0055; font-weight:bold; '>replace</span>({<span style='color:#2a00ff; '>'colors'</span>: <span style='color:#2a00ff; '>'rgba(166, 40, 0, 0.5)'</span>});
+<span style='color:#7f0055; font-weight:bold; '>var</span> fillStyle = Webgram.Styles.getFillStyle(<span style='color:#2a00ff; '>'default'</span>).<span style='color:#7f0055; font-weight:bold; '>replace</span>({<span style='color:#2a00ff; '>'colors'</span>: [<span style='color:#2a00ff; '>'rgba(166, 40, 0, 0.5)'</span>]});
 
 <span style='color:#3f7f59; '>/* obtain a text style by modifying the element's text style */</span>
 <span style='color:#7f0055; font-weight:bold; '>var</span> textStyle = rectangleElement.getTextStyle().<span style='color:#7f0055; font-weight:bold; '>replace</span>({<span style='color:#2a00ff; '>'size'</span>: 32});
@@ -101,8 +101,7 @@ webgram.addDrawingElement(rectangleElement);
 rectangleElement.setStrokeStyle(strokeStyle);
 rectangleElement.setFillStyle(fillStyle);
 rectangleElement.setTextStyle(textStyle);
-</pre>                    
-                    
+</pre>
                     </div>
                 </td>
             </tr>
