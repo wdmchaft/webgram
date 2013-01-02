@@ -1002,9 +1002,9 @@
 <span class='line'>995</span>      * @returns {Webgram.Geometry.Point} the rounded point
 <span class='line'>996</span>      */</span><span class="WHIT">
 <span class='line'>997</span> </span><span class="WHIT">    </span><span class="NAME">roundPoint</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>998</span> </span><span class="WHIT">        </span><span class="COMM">//point = this.applyToGeometry(point);</span><span class="WHIT">
-<span class='line'>999</span> </span><span class="WHIT">        </span><span class="COMM">//point = point./*round().*/getTranslated(0.5, 0.5);</span><span class="WHIT">
-<span class='line'>1000</span> </span><span class="WHIT">        </span><span class="COMM">//point = this.applyToGeometry(point, true);</span><span class="WHIT">
+<span class='line'>998</span> </span><span class="WHIT">        </span><span class="NAME">point</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.applyToGeometry</span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>999</span> </span><span class="WHIT">        </span><span class="NAME">point</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">point.round</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>1000</span> </span><span class="WHIT">        </span><span class="NAME">point</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.applyToGeometry</span><span class="PUNC">(</span><span class="NAME">point</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>1001</span> </span><span class="WHIT">        
 <span class='line'>1002</span>         </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">point</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>1003</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">

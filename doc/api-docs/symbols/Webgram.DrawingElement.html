@@ -211,6 +211,18 @@
                              </li>
                            
                              <li>
+                               <a href="../symbols/Webgram.DrawingElement.html#onCopy">onCopy</a>
+                             </li>
+                           
+                             <li>
+                               <a href="../symbols/Webgram.DrawingElement.html#onCreate">onCreate</a>
+                             </li>
+                           
+                             <li>
+                               <a href="../symbols/Webgram.DrawingElement.html#onDuplicate">onDuplicate</a>
+                             </li>
+                           
+                             <li>
                                <a href="../symbols/Webgram.DrawingElement.html#onEndRotate">onEndRotate</a>
                              </li>
                            
@@ -272,6 +284,10 @@
                            
                              <li>
                                <a href="../symbols/Webgram.DrawingElement.html#onMove">onMove</a>
+                             </li>
+                           
+                             <li>
+                               <a href="../symbols/Webgram.DrawingElement.html#onPaste">onPaste</a>
                              </li>
                            
                              <li>
@@ -661,7 +677,15 @@
                                 </li>
                            
                                <li>
-                                    <a href="../symbols/Webgram.DrawingElement.html#isCreating">isCreating</a>
+                                    <a href="../symbols/Webgram.DrawingElement.html#isBeingCreated">isBeingCreated</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#isBeingDuplicated">isBeingDuplicated</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#isBeingPasted">isBeingPasted</a>
                                 </li>
                            
                                <li>
@@ -1366,6 +1390,81 @@ Handlers receive no arguments.</p>
                               </div>
 				            
                               <div class="member">
+					            <a name="onCopy"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					
+					            <span class="light">{<a href="../symbols/Webgram.Event.html">Webgram.Event</a>}</span>
+					            <b>onCopy</b>
+					
+					            </div>
+					            <div class="description">
+						            <p>An event that is triggered when the element is copied (to clipboard).<br>
+Handlers receive no arguments.</p>
+						            
+						            
+					            </div>
+					
+					            
+
+						            
+						            
+						            
+						            
+                              </div>
+				            
+                              <div class="member">
+					            <a name="onCreate"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					
+					            <span class="light">{<a href="../symbols/Webgram.Event.html">Webgram.Event</a>}</span>
+					            <b>onCreate</b>
+					
+					            </div>
+					            <div class="description">
+						            <p>An event that is triggered after the element is created by the <a href="../symbols/Webgram.DrawingControls.CreateDrawingControl.html">Webgram.DrawingControls.CreateDrawingControl</a>.<br>
+Handlers receive no arguments.</p>
+						            
+						            
+					            </div>
+					
+					            
+
+						            
+						            
+						            
+						            
+                              </div>
+				            
+                              <div class="member">
+					            <a name="onDuplicate"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					
+					            <span class="light">{<a href="../symbols/Webgram.Event.html">Webgram.Event</a>}</span>
+					            <b>onDuplicate</b>
+					
+					            </div>
+					            <div class="description">
+						            <p>An event that is triggered when the element is created using <em>duplicate</em> action.<br>
+Handlers receive no arguments.</p>
+						            
+						            
+					            </div>
+					
+					            
+
+						            
+						            
+						            
+						            
+                              </div>
+				            
+                              <div class="member">
 					            <a name="onEndRotate"> </a>
 					            <div class="fixedFont">
                                   <div class="modifiers">
@@ -1769,6 +1868,31 @@ or by explicitly calling <a href="../symbols/Webgram.DrawingElement.html#moveTo"
 This event is not triggered when the shape is changed,
 since such a change is considered a change in shape rather than a move.<br>
 Handlers receive the following arguments: <tt>(deltaX, deltaY)</tt>.</p>
+						            
+						            
+					            </div>
+					
+					            
+
+						            
+						            
+						            
+						            
+                              </div>
+				            
+                              <div class="member">
+					            <a name="onPaste"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					
+					            <span class="light">{<a href="../symbols/Webgram.Event.html">Webgram.Event</a>}</span>
+					            <b>onPaste</b>
+					
+					            </div>
+					            <div class="description">
+						            <p>An event that is triggered when the element is created using <em>paste</em> action.<br>
+Handlers receive no arguments.</p>
 						            
 						            
 					            </div>
@@ -5437,12 +5561,12 @@ and that a redraw should be issued as soon as possible.<br><br>
                               </div>
 				            
                               <div class="member">
-					            <a name="isCreating"> </a>
+					            <a name="isBeingCreated"> </a>
 					            <div class="fixedFont">
                                   <div class="modifiers">
                                   </div>
 					            <span class="light">{Boolean}</span>
-					            <b>isCreating</b>()
+					            <b>isBeingCreated</b>()
 					
 					            </div>
 					            <div class="description">
@@ -5463,6 +5587,74 @@ by the <a href="../symbols/Webgram.DrawingControls.CreateDrawingControl.html">We
 							            <dt class="heading">Returns:</dt>
 							            
 								            <dd><span class="light fixedFont">{Boolean}</span> <tt>true</tt> if the element is being created, <tt>false</tt> otherwise</dd>
+							            
+							            </dl>
+						            
+						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
+					            <a name="isBeingDuplicated"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            <span class="light">{Boolean}</span>
+					            <b>isBeingDuplicated</b>()
+					
+					            </div>
+					            <div class="description">
+						            <p>Tells whether the element is in the process of being duplicated or not.</p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+						            
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Returns:</dt>
+							            
+								            <dd><span class="light fixedFont">{Boolean}</span> <tt>true</tt> if the element is being duplicated, <tt>false</tt> otherwise</dd>
+							            
+							            </dl>
+						            
+						            
+						            
+
+                              </div>
+				            
+                              <div class="member">
+					            <a name="isBeingPasted"> </a>
+					            <div class="fixedFont">
+                                  <div class="modifiers">
+                                  </div>
+					            <span class="light">{Boolean}</span>
+					            <b>isBeingPasted</b>()
+					
+					            </div>
+					            <div class="description">
+						            <p>Tells whether the element is in the process of being pasted or not.</p>
+						            
+						            
+					            </div>
+					
+					            
+					
+						            
+						            
+						            
+						            
+						            
+							            <dl class="detailList">
+							            <dt class="heading">Returns:</dt>
+							            
+								            <dd><span class="light fixedFont">{Boolean}</span> <tt>true</tt> if the element is being pasted, <tt>false</tt> otherwise</dd>
 							            
 							            </dl>
 						            
@@ -8973,6 +9165,18 @@ into this element's coordinate system. This method does not affect the original 
                              </li>
                            
                              <li>
+                               <a href="../symbols/Webgram.DrawingElement.html#onCopy">onCopy</a>
+                             </li>
+                           
+                             <li>
+                               <a href="../symbols/Webgram.DrawingElement.html#onCreate">onCreate</a>
+                             </li>
+                           
+                             <li>
+                               <a href="../symbols/Webgram.DrawingElement.html#onDuplicate">onDuplicate</a>
+                             </li>
+                           
+                             <li>
                                <a href="../symbols/Webgram.DrawingElement.html#onEndRotate">onEndRotate</a>
                              </li>
                            
@@ -9034,6 +9238,10 @@ into this element's coordinate system. This method does not affect the original 
                            
                              <li>
                                <a href="../symbols/Webgram.DrawingElement.html#onMove">onMove</a>
+                             </li>
+                           
+                             <li>
+                               <a href="../symbols/Webgram.DrawingElement.html#onPaste">onPaste</a>
                              </li>
                            
                              <li>
@@ -9423,7 +9631,15 @@ into this element's coordinate system. This method does not affect the original 
                                 </li>
                            
                                <li>
-                                    <a href="../symbols/Webgram.DrawingElement.html#isCreating">isCreating</a>
+                                    <a href="../symbols/Webgram.DrawingElement.html#isBeingCreated">isBeingCreated</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#isBeingDuplicated">isBeingDuplicated</a>
+                                </li>
+                           
+                               <li>
+                                    <a href="../symbols/Webgram.DrawingElement.html#isBeingPasted">isBeingPasted</a>
                                 </li>
                            
                                <li>
@@ -9775,7 +9991,7 @@ into this element's coordinate system. This method does not affect the original 
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both;text-align:center">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sat Dec 29 2012 21:07:36 GMT+0200 (EET)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Wed Jan 02 2013 20:31:56 GMT+0200 (EET)
 		</div>
 	</body>
 </html>
