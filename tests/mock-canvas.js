@@ -40,7 +40,7 @@ MockCanvas.prototype = {
         this._callback(this.clear, arguments);
     },
     
-    drawArc: function (center, radiusX, radiusY, startAngle, endAngle) {
+    drawArc: function (center, radiusX, radiusY, startAngle, endAngle, anti) {
         this._callback(this.clear, arguments);
     },
     
