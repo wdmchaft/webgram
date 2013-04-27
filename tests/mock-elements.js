@@ -12,7 +12,7 @@ MockRectangleElement = function (id, x, y, width, height) {
 
 MockRectangleElement.prototype = {
     draw: function () {
-        this.drawRect(this.getDrawingRectangle());
+        this.drawRect(this.getBaseRectangle());
         this.paint();
         this.drawText(this.text);
     }

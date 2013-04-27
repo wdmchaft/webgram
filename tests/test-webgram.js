@@ -548,7 +548,7 @@ registerTest('webgram', 'events', 'onDrawingElementRemove', 'CE/DE, CE removed f
     }
 });
 
-registerTest('webgram', 'events', 'onDrawingElementChange', 'one element, moveTo', {
+registerTest('webgram', 'events', 'onDrawingElementChange', 'one element, setCenter', {
     run: function (webgram, miniWebgram) {
         var drawingElement = new MockRectangleElement('drawingElement', 50, 50, 100, 50);
         var called = false;
@@ -563,7 +563,7 @@ registerTest('webgram', 'events', 'onDrawingElementChange', 'one element, moveTo
             called = true;
         });
         
-        drawingElement.moveTo(new Webgram.Geometry.Point(100, 100));
+        drawingElement.setCenter(new Webgram.Geometry.Point(100, 100));
         drawingElement.finishChangeEvents();
         
         if (!called) {
@@ -572,7 +572,7 @@ registerTest('webgram', 'events', 'onDrawingElementChange', 'one element, moveTo
     }
 });
 
-registerTest('webgram', 'events', 'onDrawingElementChange', 'CE/DE, moveTo', {
+registerTest('webgram', 'events', 'onDrawingElementChange', 'CE/DE, setCenter', {
     run: function (webgram, miniWebgram) {
         var drawingElement = new MockRectangleElement('drawingElement', 50, 50, 100, 50);
         var containerElement = new Webgram.DrawingElements.ContainerElement('containerElement', 0, 0, 200, 100);
@@ -589,7 +589,7 @@ registerTest('webgram', 'events', 'onDrawingElementChange', 'CE/DE, moveTo', {
             called = true;
         });
         
-        drawingElement.moveTo(new Webgram.Geometry.Point(100, 100));
+        drawingElement.setCenter(new Webgram.Geometry.Point(100, 100));
         drawingElement.finishChangeEvents();
         
         if (!called) {
@@ -650,7 +650,7 @@ registerTest('webgram', 'events', 'onDrawingElementChange', 'CE/DE, setRotationA
     }
 });
 
-registerTest('webgram', 'events', 'onDrawingElementChange', 'connector, moveTo', {
+registerTest('webgram', 'events', 'onDrawingElementChange', 'connector, setCenter', {
     run: function (webgram, miniWebgram) {
         var drawingElement = new MockRectangleElement('drawingElement', 0, 0, 100, 100);
         var connector = new MockConnector('connector', -100, -100, 50, 50);
@@ -667,7 +667,7 @@ registerTest('webgram', 'events', 'onDrawingElementChange', 'connector, moveTo',
             }
         });
         
-        drawingElement.moveTo(100, 100);
+        drawingElement.setCenter(100, 100);
         drawingElement.finishChangeEvents();
         
         if (!called) {
