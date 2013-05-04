@@ -1,11 +1,11 @@
 
-MockCanvas = function (width, height, callback) {
-    this.width = width;
-    this.height = height;
-    this.callback = callback;
-};
+MockCanvas = Webgram.Class.extend({
+    initialize: function MockCanvas(width, height, callback) {
+        this.width = width;
+        this.height = height;
+        this.callback = callback;
+    },
 
-MockCanvas.prototype = {
     clear: function () {
         this._callback(this.clear, arguments);
     },
@@ -77,6 +77,4 @@ MockCanvas.prototype = {
         argList.unshift(method);
         this.callback.apply(this, argList);
     }
-};
-
-Webgram.Class('MockCanvas');
+});
