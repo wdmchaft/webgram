@@ -2,10 +2,10 @@
 /*
  * De facut:
  *  Refacut gradient editing
- *  Reimplementat connectors
  *  Reimplementat rectangular elements
  *  Reimplementat poly elements
  *  Reimplementat snapping, bazat pe Geometry.Line()
+ *  Reimplementat connectors
  *  try "use strict"; - reveals error in code
  *  Redenumit focusType in focus
  *  Redenumit shiftEnabled in shiftActive
