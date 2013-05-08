@@ -130,12 +130,12 @@ function onBodyLoad() {
     s.setFillStyle(Webgram.Styles.createFillStyle({
         colors: ['red', 'blue'],
         gradientPoint1: undefined,
-        gradientPoint2: undefined,
-        gradientRadius1: null,
-        gradientRadius2: null
+        gradientPoint2: null,
+        gradientRadius1: undefined,
+        gradientRadius2: undefined
     }));
     
-//    s.setGradientEditEnabled(true);
+    s.setGradientEditEnabled(true);
     
     s.onEndChange.bind(function () {
         console.log(arguments);
