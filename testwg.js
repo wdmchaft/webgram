@@ -1,7 +1,7 @@
 
 /*
  * De facut:
- *  Refacut gradient editing
+ *  Gradient lines drawn
  *  Reimplementat rectangular elements
  *  Reimplementat poly elements
  *  Reimplementat snapping, bazat pe Geometry.Line()
@@ -112,6 +112,7 @@ MyElement = Webgram.DrawingElement.extend({
 });
 
 
+
 function onBodyLoad() {
     var canvasElement = document.getElementById('mainCanvas');
     var canvas = new Webgram.Canvas(canvasElement.getContext('2d'));
@@ -122,20 +123,22 @@ function onBodyLoad() {
     webgram.setSetting('snapAngle', null);
 //    webgram.setSetting('snapDistance', null);
     
-    s = new MyElement('myElement1', -100, -50, 100, 50);
+    s = new Webgram.DrawingElements.RectangularElement('myRectangularElement1', 101, 51);
     webgram.addDrawingElement(s);
     
     s.setRotateEnabled(true);
+    s.setRotationAngle(Math.PI / 2);
 //    s.flipHorizontally();
-    s.setFillStyle(Webgram.Styles.createFillStyle({
-        colors: ['red', 'blue'],
-        gradientPoint1: undefined,
-        gradientPoint2: null,
-        gradientRadius1: undefined,
-        gradientRadius2: undefined
-    }));
+//    s.setFillStyle(Webgram.Styles.createFillStyle({
+//        colors: ['red', 'blue'],
+//        gradientPoint1: undefined,
+//        gradientPoint2: null,
+//        gradientRadius1: undefined,
+//        gradientRadius2: undefined
+//    }));
     
-    s.setGradientEditEnabled(true);
+    //s.setGradientEditEnabled(true);
+    s.setResizeEnabled(true);
     
     s.onEndChange.bind(function () {
         console.log(arguments);
