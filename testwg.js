@@ -6,6 +6,7 @@
  *  Reimplementat poly elements
  *  Reimplementat snapping, bazat pe Geometry.Line()
  *  Reimplementat connectors
+ *  Reimplementat MiniWebgram
  *  try "use strict"; - reveals error in code
  *  Redenumit focusType in focus
  *  Redenumit shiftEnabled in shiftActive
@@ -115,12 +116,15 @@ MyElement = Webgram.DrawingElement.extend({
 MyRectangularElement = Webgram.DrawingElements.RectangularElement.extend({
     initialize: function (id, width, height) {
         this.callSuper(id, width, height);
+        
+        this.text = 'ana';
     },
 
     draw: function () {
         this.drawRect(this.getBoundingRectangle());
         this.paint();
         
+        this.drawText(this.text);
 //        var r = 5;
 //        var x = 0;
 //        var y = 0;
@@ -141,12 +145,12 @@ function onBodyLoad() {
     webgram.setSetting('snapAngle', null);
 //    webgram.setSetting('snapDistance', null);
     
-    s = new MyRectangularElement('myRectangularElement1', 101, 51);
+    s = new MyRectangularElement('myRectangularElement1', 51, 51);
     webgram.addDrawingElement(s);
     
     s.setRotateEnabled(true);
 //    s.setPreserveAspectRatioEnabled(true);
-//    s.setRotationAngle(Math.PI / 2);
+    s.setRotationAngle(Math.PI / 4);
 //    s.flipHorizontally();
 //    s.setFillStyle(Webgram.Styles.createFillStyle({
 //        colors: ['red', 'blue'],
@@ -165,6 +169,8 @@ function onBodyLoad() {
         console.log('----------');
     });
     
-    webgram.createDrawingControl.setDrawingElementClass(MyRectangularElement);
-    webgram.createDrawingControl.activate();
+//    s.setLocation(new Webgram.Geometry.Point(113, 44));
+    
+    webgram.textDrawingControl.configure(s, 'text', s.getBoundingRectangle(), s.getTextStyle(), s.getRotationAngle());
+    webgram.textDrawingControl.activate();
 }
