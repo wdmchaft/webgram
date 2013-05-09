@@ -1,6 +1,7 @@
 
 /*
  * De facut:
+ *  Reimplementat drawing controls
  *  Reimplementat rectangular elements
  *  Reimplementat poly elements
  *  Reimplementat snapping, bazat pe Geometry.Line()
@@ -163,4 +164,7 @@ function onBodyLoad() {
         console.log(this);
         console.log('----------');
     });
+    
+    webgram.createDrawingControl.setDrawingElementClass(MyRectangularElement);
+    webgram.createDrawingControl.activate();
 }
