@@ -1,7 +1,6 @@
 
 /*
  * De facut:
- *  Gradient lines drawn
  *  Reimplementat rectangular elements
  *  Reimplementat poly elements
  *  Reimplementat snapping, bazat pe Geometry.Line()
@@ -112,6 +111,24 @@ MyElement = Webgram.DrawingElement.extend({
 });
 
 
+MyRectangularElement = Webgram.DrawingElements.RectangularElement.extend({
+    initialize: function (id, width, height) {
+        this.callSuper(id, width, height);
+    },
+
+    draw: function () {
+        this.drawRect(this.getBoundingRectangle());
+        this.paint();
+        
+//        var r = 5;
+//        var x = 0;
+//        var y = 0;
+//        
+//        this.drawRect(new Webgram.Geometry.Rectangle(x - r, y - r, x + r, y + r));
+//        this.paint(this.getStrokeStyle(), this.getFillStyle().replace({colors: ['green']}));
+    }
+});
+
 
 function onBodyLoad() {
     var canvasElement = document.getElementById('mainCanvas');
@@ -123,12 +140,12 @@ function onBodyLoad() {
     webgram.setSetting('snapAngle', null);
 //    webgram.setSetting('snapDistance', null);
     
-    s = new Webgram.DrawingElements.RectangularElement('myRectangularElement1', 101, 51);
+    s = new MyRectangularElement('myRectangularElement1', 101, 51);
     webgram.addDrawingElement(s);
     
     s.setRotateEnabled(true);
 //    s.setPreserveAspectRatioEnabled(true);
-    s.setRotationAngle(Math.PI / 2);
+//    s.setRotationAngle(Math.PI / 2);
 //    s.flipHorizontally();
 //    s.setFillStyle(Webgram.Styles.createFillStyle({
 //        colors: ['red', 'blue'],
@@ -138,7 +155,7 @@ function onBodyLoad() {
 //        gradientRadius2: undefined
 //    }));
     
-    //s.setGradientEditEnabled(true);
+    s.setGradientEditEnabled(true);
     s.setResizeEnabled(true);
     
     s.onEndChange.bind(function () {
