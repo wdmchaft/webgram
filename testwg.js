@@ -127,6 +127,7 @@ function onBodyLoad() {
     webgram.addDrawingElement(s);
     
     s.setRotateEnabled(true);
+//    s.setPreserveAspectRatioEnabled(true);
     s.setRotationAngle(Math.PI / 2);
 //    s.flipHorizontally();
 //    s.setFillStyle(Webgram.Styles.createFillStyle({
