@@ -1,9 +1,9 @@
 
 /*
  * De facut:
+ *  rectangular elements - resizing is fucked up when element is flipped
+ *  Reimplementat poly elements - test flipping and creation
  *  Reimplementat drawing controls
- *  Reimplementat rectangular elements
- *  Reimplementat poly elements
  *  Reimplementat snapping, bazat pe Geometry.Line()
  *  Reimplementat connectors
  *  Reimplementat MiniWebgram
@@ -13,7 +13,9 @@
  *  Redenumit "webgram" in "Webgram" in jsdocs
  *  setSnapVisualFeedback sa ia argumente separate, nu un singur obiect
  *  Redenumit _noZoom in ceva mai omenesc
+ *  all the points in a DE should be untransformed (even method arguments)
  *  "must be overridden" should throw UnimplementedException or so
+ *  solve TODOs
  *  Replace the :special: and :local: id crap with something more suitable
  *  remove testwg.js and testwg.html
  */
@@ -82,8 +84,6 @@ MyElement = Webgram.DrawingElement.extend({
     },
     
     pointInside: function (point) {
-        point = this.transformInverse(point);
-        
         return this.getBoundingRectangle().pointInside(point);
     },
     
@@ -135,6 +135,24 @@ MyRectangularElement = Webgram.DrawingElements.RectangularElement.extend({
 });
 
 
+MyPolyElement = Webgram.DrawingElements.PolyElement.extend({
+    initialize: function (id) {
+        var points = [
+            new Webgram.Geometry.Point(-100, -100),
+            new Webgram.Geometry.Point(100, 100),
+            new Webgram.Geometry.Point(40, 210)
+        ];
+        
+        this.callSuper(id, points);
+    },
+
+    draw: function () {
+        this.drawPoly(this.getPoly(), this.closed);
+        this.paint(undefined, null);
+    }
+});
+
+
 function onBodyLoad() {
     var canvasElement = document.getElementById('mainCanvas');
     var canvas = new Webgram.Canvas(canvasElement.getContext('2d'));
@@ -145,14 +163,17 @@ function onBodyLoad() {
     webgram.setSetting('snapAngle', null);
 //    webgram.setSetting('snapDistance', null);
     
-    s = new MyRectangularElement('myRectangularElement1', 51, 51);
-    webgram.addDrawingElement(s);
+    de = new MyPolyElement('myPolyElement1');
+//    de = new MyRectangularElement('myPolyElement1', 300, 200);
+    de.setEditEnabled(true);
+    de.addShiftBehavior(de.setAddRemovePointsEnabled, de.isAddRemovePointsEnabled);
+    //de.setRotateEnabled(true);
+    webgram.addDrawingElement(de);
     
-    s.setRotateEnabled(true);
 //    s.setPreserveAspectRatioEnabled(true);
-    s.setRotationAngle(Math.PI / 4);
+//    s.setRotationAngle(Math.PI / 4);
 //    s.flipHorizontally();
-//    s.setFillStyle(Webgram.Styles.createFillStyle({
+//    de.setFillStyle(Webgram.Styles.createFillStyle({
 //        colors: ['red', 'blue'],
 //        gradientPoint1: undefined,
 //        gradientPoint2: null,
@@ -160,17 +181,13 @@ function onBodyLoad() {
 //        gradientRadius2: undefined
 //    }));
     
-    s.setGradientEditEnabled(true);
-    s.setResizeEnabled(true);
+//    de.setGradientEditEnabled(true);
     
-    s.onEndChange.bind(function () {
+    de.onEndChange.bind(function () {
         console.log(arguments);
         console.log(this);
         console.log('----------');
     });
     
 //    s.setLocation(new Webgram.Geometry.Point(113, 44));
-    
-    webgram.textDrawingControl.configure(s, 'text', s.getBoundingRectangle(), s.getTextStyle(), s.getRotationAngle());
-    webgram.textDrawingControl.activate();
 }
