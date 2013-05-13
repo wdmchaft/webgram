@@ -2,7 +2,7 @@
 /*
  * De facut:
  *  rectangular elements - resizing is fucked up when element is flipped
- *  Reimplementat poly elements - test flipping and creation
+ *  Reimplementat poly elements - the rotate control point is misplaced when flipped vertically
  *  Reimplementat drawing controls
  *  Reimplementat snapping, bazat pe Geometry.Line()
  *  Reimplementat connectors
@@ -149,6 +149,13 @@ MyPolyElement = Webgram.DrawingElements.PolyElement.extend({
     draw: function () {
         this.drawPoly(this.getPoly(), this.closed);
         this.paint(undefined, null);
+
+        var x = 0;
+        var y = 0;
+        var r = 5;
+      
+        this.drawRect(new Webgram.Geometry.Rectangle(x - r, y - r, x + r, y + r));
+        this.paint(this.getStrokeStyle(), this.getFillStyle().replace({colors: ['green']}));
     }
 });
 
@@ -167,7 +174,7 @@ function onBodyLoad() {
 //    de = new MyRectangularElement('myPolyElement1', 300, 200);
     de.setEditEnabled(true);
     de.addShiftBehavior(de.setAddRemovePointsEnabled, de.isAddRemovePointsEnabled);
-    //de.setRotateEnabled(true);
+    de.setRotateEnabled(true);
     webgram.addDrawingElement(de);
     
 //    s.setPreserveAspectRatioEnabled(true);
@@ -189,5 +196,17 @@ function onBodyLoad() {
         console.log('----------');
     });
     
-//    s.setLocation(new Webgram.Geometry.Point(113, 44));
+//    de.onChange.bind(function () {
+//        console.log(arguments);
+//        console.log(this);
+//        console.log('----------');
+//    });
+    
+    //de._setPoint(1, new Webgram.Geometry.Point(200, 0));
+    de._controlPoints[1].move(new Webgram.Geometry.Point(200, 0));
+    de._controlPoints[1].move(new Webgram.Geometry.Point(200, 0));
+    
+//    de.setLocation(new Webgram.Geometry.Point(113, 44));
+//    webgram.createDrawingControl.setDrawingElementClass(MyPolyElement);
+//    webgram.createDrawingControl.activate();
 }
