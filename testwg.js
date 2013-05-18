@@ -1,6 +1,7 @@
 
 /*
  * De facut:
+ *  snapping to siblings should take precedence over snapping to grid
  *  Reimplementat snapping, bazat pe Geometry.Line()
  *  Reimplementat connectors
  *  Reimplementat MiniWebgram
@@ -132,7 +133,7 @@ MyRectangularElement = Webgram.DrawingElements.RectangularElement.extend({
 
 
 MyPolyElement = Webgram.DrawingElements.PolyElement.extend({
-    initialize: function (id) {
+    initialize: function MyPolyElement(id) {
         var points = [
             new Webgram.Geometry.Point(-100, -100),
             new Webgram.Geometry.Point(100, 100),
@@ -162,20 +163,21 @@ function onBodyLoad() {
     webgram = new Webgram(canvasElement, canvas);
     webgram.attachHandlers();
     webgram.setSetting('multipleSelectionEnabled', false);
-    webgram.setSetting('snapGrid', null);
+//    webgram.setSetting('snapGrid', {sizeX: 100, sizeY: 100});
+//    webgram.setSetting('mainGrid', {sizeX: 100, sizeY: 100});
     webgram.setSetting('snapAngle', null);
-//    webgram.setSetting('snapDistance', null);
+    webgram.setSetting('snapDistance', 25);
     
-    de = new MyPolyElement('myPolyElement1');
-//    de = new MyRectangularElement('myPolyElement1', 200, 200);
+//    de = new MyPolyElement('myPolyElement1');
+    de = new MyRectangularElement('myPolyElement1', 100, 100);
     de.setEditEnabled(true);
-    de.setAddRemovePointsEnabled(true);
+//    de.setAddRemovePointsEnabled(true);
 //    de.addShiftBehavior(de.setAddRemovePointsEnabled, de.isAddRemovePointsEnabled);
     de.setRotateEnabled(true);
     webgram.addDrawingElement(de);
     
-//    s.setPreserveAspectRatioEnabled(true);
-//    s.setRotationAngle(Math.PI / 4);
+//    de.setPreserveAspectRatioEnabled(true);
+//    de.setRotationAngle(Math.PI / 4);
 //    s.flipHorizontally();
 //    de.setFillStyle(Webgram.Styles.createFillStyle({
 //        colors: ['red', 'blue'],
@@ -211,7 +213,8 @@ function onBodyLoad() {
 //    de.flipVertically();
 //    de._controlPoints[0].move(new Webgram.Geometry.Point(-406, 0));
     
-//    de.setLocation(new Webgram.Geometry.Point(113, 44));
+//    de._setLocation(new Webgram.Geometry.Point(5, 0), true);
+//    de._setLocation(new Webgram.Geometry.Point(1, 0), true);
 //    webgram.createDrawingControl.setDrawingElementClass(MyRectangularElement);
 //    webgram.createDrawingControl.activate();
 }
