@@ -1,7 +1,6 @@
 
 /*
  * De facut:
- *  rectangular elements - resizing is fucked up when element is flipped
  *  Reimplementat poly elements - the rotate control point is misplaced when flipped vertically
  *  Reimplementat drawing controls
  *  Reimplementat snapping, bazat pe Geometry.Line()
@@ -173,7 +172,7 @@ function onBodyLoad() {
     de = new MyPolyElement('myPolyElement1');
 //    de = new MyRectangularElement('myPolyElement1', 300, 200);
     de.setEditEnabled(true);
-    de.addShiftBehavior(de.setAddRemovePointsEnabled, de.isAddRemovePointsEnabled);
+//    de.addShiftBehavior(de.setAddRemovePointsEnabled, de.isAddRemovePointsEnabled);
     de.setRotateEnabled(true);
     webgram.addDrawingElement(de);
     
@@ -203,8 +202,8 @@ function onBodyLoad() {
 //    });
     
     //de._setPoint(1, new Webgram.Geometry.Point(200, 0));
-    de._controlPoints[1].move(new Webgram.Geometry.Point(200, 0));
-    de._controlPoints[1].move(new Webgram.Geometry.Point(200, 0));
+    de.flipHorizontally();
+//    de._controlPoints[0].move(new Webgram.Geometry.Point(-406, 0));
     
 //    de.setLocation(new Webgram.Geometry.Point(113, 44));
 //    webgram.createDrawingControl.setDrawingElementClass(MyPolyElement);
