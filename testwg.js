@@ -1,7 +1,6 @@
 
 /*
  * De facut:
- *  Reimplementat drawing controls
  *  Reimplementat snapping, bazat pe Geometry.Line()
  *  Reimplementat connectors
  *  Reimplementat MiniWebgram
@@ -167,9 +166,10 @@ function onBodyLoad() {
     webgram.setSetting('snapAngle', null);
 //    webgram.setSetting('snapDistance', null);
     
-//    de = new MyPolyElement('myPolyElement1');
-    de = new MyRectangularElement('myPolyElement1', 200, 200);
+    de = new MyPolyElement('myPolyElement1');
+//    de = new MyRectangularElement('myPolyElement1', 200, 200);
     de.setEditEnabled(true);
+    de.setAddRemovePointsEnabled(true);
 //    de.addShiftBehavior(de.setAddRemovePointsEnabled, de.isAddRemovePointsEnabled);
     de.setRotateEnabled(true);
     webgram.addDrawingElement(de);
