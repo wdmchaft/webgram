@@ -1,7 +1,6 @@
 
 /*
  * De facut:
- *  Reimplementat poly elements - the rotate control point is misplaced when flipped vertically
  *  Reimplementat drawing controls
  *  Reimplementat snapping, bazat pe Geometry.Line()
  *  Reimplementat connectors
@@ -202,7 +201,7 @@ function onBodyLoad() {
 //    });
     
     //de._setPoint(1, new Webgram.Geometry.Point(200, 0));
-    de.flipHorizontally();
+    de.flipVertically();
 //    de._controlPoints[0].move(new Webgram.Geometry.Point(-406, 0));
     
 //    de.setLocation(new Webgram.Geometry.Point(113, 44));
