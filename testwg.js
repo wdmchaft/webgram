@@ -11,7 +11,6 @@
  *  Redenumit "webgram" in "Webgram" in jsdocs
  *  setSnapVisualFeedback sa ia argumente separate, nu un singur obiect
  *  Redenumit _noZoom in ceva mai omenesc
- *  all the points in a DE should be untransformed (even method arguments)
  *  "must be overridden" should throw UnimplementedException or so
  *  solve TODOs
  *  Replace the :special: and :local: id crap with something more suitable
@@ -35,7 +34,7 @@ MyControlPoint = Webgram.ControlPoint.extend({
             return;
         }
         
-        this.drawImage(image.content, Webgram.Geometry.Point.zero(), image.size, 0);
+        this.drawImage(image);
     },
     
     computeAnchor: function () {
@@ -115,14 +114,14 @@ MyRectangularElement = Webgram.DrawingElements.RectangularElement.extend({
     initialize: function (id, width, height) {
         this.callSuper(id, width, height);
         
-        this.text = 'ana';
+        this.text = 'Bunica';
     },
 
     draw: function () {
         this.drawRect(this.getBoundingRectangle());
         this.paint();
         
-        this.drawText(this.text);
+        this.drawText(this.text, new Webgram.Geometry.Rectangle(-100, -100, 0, 0), Math.PI / 6);
 //        var r = 5;
 //        var x = 0;
 //        var y = 0;
@@ -168,8 +167,8 @@ function onBodyLoad() {
     webgram.setSetting('snapAngle', null);
 //    webgram.setSetting('snapDistance', null);
     
-    de = new MyPolyElement('myPolyElement1');
-//    de = new MyRectangularElement('myPolyElement1', 300, 200);
+//    de = new MyPolyElement('myPolyElement1');
+    de = new MyRectangularElement('myPolyElement1', 200, 200);
     de.setEditEnabled(true);
 //    de.addShiftBehavior(de.setAddRemovePointsEnabled, de.isAddRemovePointsEnabled);
     de.setRotateEnabled(true);
@@ -188,6 +187,14 @@ function onBodyLoad() {
     
 //    de.setGradientEditEnabled(true);
     
+    de.onMouseDown.bind(function (point, button, modifiers) {
+        if (modifiers.doubleClick) {
+            webgram.textDrawingControl.configure(this, 'text', new Webgram.Geometry.Rectangle(-100, -100, 0, 0), null, Math.PI/6);
+            webgram.textDrawingControl.activate();
+            return true;
+        }
+    });
+    
     de.onEndChange.bind(function () {
         console.log(arguments);
         console.log(this);
@@ -201,10 +208,10 @@ function onBodyLoad() {
 //    });
     
     //de._setPoint(1, new Webgram.Geometry.Point(200, 0));
-    de.flipVertically();
+//    de.flipVertically();
 //    de._controlPoints[0].move(new Webgram.Geometry.Point(-406, 0));
     
 //    de.setLocation(new Webgram.Geometry.Point(113, 44));
-//    webgram.createDrawingControl.setDrawingElementClass(MyPolyElement);
+//    webgram.createDrawingControl.setDrawingElementClass(MyRectangularElement);
 //    webgram.createDrawingControl.activate();
 }
