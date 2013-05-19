@@ -1,8 +1,9 @@
 
 /*
  * De facut:
- *  snapping to siblings should take precedence over snapping to grid
- *  Reimplementat snapping, bazat pe Geometry.Line()
+ *  vertical line rotation seems to be fucked up
+ *  snapping for rectangular elements (top, right, bottom, left)
+ *  internal snapping for poly elements
  *  Reimplementat connectors
  *  Reimplementat MiniWebgram
  *  try "use strict"; - reveals error in code
@@ -121,7 +122,7 @@ MyRectangularElement = Webgram.DrawingElements.RectangularElement.extend({
         this.drawRect(this.getBoundingRectangle());
         this.paint();
         
-        this.drawText(this.text, new Webgram.Geometry.Rectangle(-100, -100, 0, 0), Math.PI / 6);
+//        this.drawText(this.text, new Webgram.Geometry.Rectangle(-100, -100, 0, 0), Math.PI / 6);
 //        var r = 5;
 //        var x = 0;
 //        var y = 0;
@@ -163,21 +164,34 @@ function onBodyLoad() {
     webgram = new Webgram(canvasElement, canvas);
     webgram.attachHandlers();
     webgram.setSetting('multipleSelectionEnabled', false);
-//    webgram.setSetting('snapGrid', {sizeX: 100, sizeY: 100});
-//    webgram.setSetting('mainGrid', {sizeX: 100, sizeY: 100});
-    webgram.setSetting('snapAngle', null);
-    webgram.setSetting('snapDistance', 25);
+//    webgram.setSetting('snapGrid', {sizeX: 25, sizeY: 25});
+//    webgram.setSetting('snapGrid', {sizeX: 5, sizeY: 5});
+    webgram.setSetting('snapGrid', null);
+    webgram.setSetting('mainGrid', {sizeX: 25, sizeY: 25});
+//    webgram.setSetting('snapAngle', null);
+    webgram.setSetting('snapDistance', 10);
     
 //    de = new MyPolyElement('myPolyElement1');
-    de = new MyRectangularElement('myPolyElement1', 100, 100);
+    
+    de = new MyRectangularElement('myPolyElement1', 101, 101);
     de.setEditEnabled(true);
+    de.setSnapToAngleEnabled(true);
+    de.setSnapExternallyEnabled(true);
+    de.setSnapInternallyEnabled(true);
 //    de.setAddRemovePointsEnabled(true);
 //    de.addShiftBehavior(de.setAddRemovePointsEnabled, de.isAddRemovePointsEnabled);
     de.setRotateEnabled(true);
+    de.setRotationAngle(Math.PI);
     webgram.addDrawingElement(de);
     
+    de2 = new MyRectangularElement('myPolyElement2', 101, 101);
+    webgram.addDrawingElement(de2);
+    de2.setEditEnabled(true);
+    de2.setSnapToAngleEnabled(true);
+    de2.setSnapExternallyEnabled(true);
+    de2.setSnapInternallyEnabled(true);
+    
 //    de.setPreserveAspectRatioEnabled(true);
-//    de.setRotationAngle(Math.PI / 4);
 //    s.flipHorizontally();
 //    de.setFillStyle(Webgram.Styles.createFillStyle({
 //        colors: ['red', 'blue'],
@@ -203,13 +217,17 @@ function onBodyLoad() {
         console.log('----------');
     });
     
+    de._setLocation(new Webgram.Geometry.Point(100, 0), false);
+    de2._setLocation(new Webgram.Geometry.Point(0, 200), false);
+
+    de._setTopRight(new Webgram.Geometry.Point(50, -50), true);
+    
 //    de.onChange.bind(function () {
 //        console.log(arguments);
 //        console.log(this);
 //        console.log('----------');
 //    });
     
-    //de._setPoint(1, new Webgram.Geometry.Point(200, 0));
 //    de.flipVertically();
 //    de._controlPoints[0].move(new Webgram.Geometry.Point(-406, 0));
     
