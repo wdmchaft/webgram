@@ -211,11 +211,11 @@ function onBodyLoad() {
         }
     });
     
-    de.onEndChange.bind(function () {
-        console.log(arguments);
-        console.log(this);
-        console.log('----------');
-    });
+//    de.onEndChange.bind(function () {
+//        console.log(arguments);
+//        console.log(this);
+//        console.log('----------');
+//    });
     
     de._setLocation(new Webgram.Geometry.Point(100, 0), false);
     de2._setLocation(new Webgram.Geometry.Point(0, 200), false);
@@ -235,4 +235,8 @@ function onBodyLoad() {
 //    de._setLocation(new Webgram.Geometry.Point(1, 0), true);
 //    webgram.createDrawingControl.setDrawingElementClass(MyRectangularElement);
 //    webgram.createDrawingControl.activate();
+    
+    line = new Webgram.Geometry.Line(Infinity, 50);
+    line = line.getRotated(Math.PI/6);
+    console.log(line);
 }
