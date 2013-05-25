@@ -166,7 +166,7 @@ function onBodyLoad() {
     webgram.setSetting('multipleSelectionEnabled', false);
 //    webgram.setSetting('snapGrid', {sizeX: 25, sizeY: 25});
 //    webgram.setSetting('snapGrid', {sizeX: 5, sizeY: 5});
-    webgram.setSetting('snapGrid', null);
+//    webgram.setSetting('snapGrid', null);
     webgram.setSetting('mainGrid', {sizeX: 25, sizeY: 25});
 //    webgram.setSetting('snapAngle', null);
     webgram.setSetting('snapDistance', 10);
@@ -178,6 +178,7 @@ function onBodyLoad() {
     de.setSnapToAngleEnabled(true);
     de.setSnapExternallyEnabled(true);
     de.setSnapInternallyEnabled(true);
+    de.setSnapToGridEnabled(true);
 //    de.setAddRemovePointsEnabled(true);
 //    de.addShiftBehavior(de.setAddRemovePointsEnabled, de.isAddRemovePointsEnabled);
     de.setRotateEnabled(true);
@@ -220,7 +221,7 @@ function onBodyLoad() {
     de._setLocation(new Webgram.Geometry.Point(100, 0), false);
     de2._setLocation(new Webgram.Geometry.Point(0, 200), false);
 
-    de._setTopRight(new Webgram.Geometry.Point(50, -50), true);
+    de._setLocation(de.getLocation(), true);
     
 //    de.onChange.bind(function () {
 //        console.log(arguments);
@@ -235,8 +236,4 @@ function onBodyLoad() {
 //    de._setLocation(new Webgram.Geometry.Point(1, 0), true);
 //    webgram.createDrawingControl.setDrawingElementClass(MyRectangularElement);
 //    webgram.createDrawingControl.activate();
-    
-    line = new Webgram.Geometry.Line(Infinity, 50);
-    line = line.getRotated(Math.PI/6);
-    console.log(line);
 }
