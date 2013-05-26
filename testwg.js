@@ -1,7 +1,7 @@
 
 /*
  * De facut:
- *  internal snapping for poly elements
+ *  fix internal snapping for poly elements
  *  Reimplementat connectors
  *  Reimplementat MiniWebgram
  *  try "use strict"; - reveals error in code
@@ -136,7 +136,8 @@ MyPolyElement = Webgram.DrawingElements.PolyElement.extend({
         var points = [
             new Webgram.Geometry.Point(-100, -100),
             new Webgram.Geometry.Point(100, 100),
-            new Webgram.Geometry.Point(40, 210)
+            new Webgram.Geometry.Point(40, 210),
+            new Webgram.Geometry.Point(-33, 310)
         ];
         
         this.callSuper(id, points);
@@ -169,9 +170,9 @@ function onBodyLoad() {
 //    webgram.setSetting('snapAngle', null);
     webgram.setSetting('snapDistance', 10);
     
-//    de = new MyPolyElement('myPolyElement1');
+    de = new MyPolyElement('myPolyElement1');
     
-    de = new MyRectangularElement('myPolyElement1', 101, 101);
+//    de = new MyRectangularElement('myPolyElement1', 101, 101);
     de.setEditEnabled(true);
     de.setSnapToAngleEnabled(true);
     de.setSnapExternallyEnabled(true);
@@ -217,8 +218,6 @@ function onBodyLoad() {
 //    });
     
     de2._setLocation(new Webgram.Geometry.Point(0, 200), false);
-    de._setLocation(new Webgram.Geometry.Point(70, 75), true);
-    de._setLocation(new Webgram.Geometry.Point(70, 75), true);
 
 //    webgram.createDrawingControl.setDrawingElementClass(MyRectangularElement);
 //    webgram.createDrawingControl.activate();
