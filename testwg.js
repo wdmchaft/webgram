@@ -1,8 +1,6 @@
 
 /*
  * De facut:
- *  vertical line rotation seems to be fucked up
- *  snapping for rectangular elements (top, right, bottom, left)
  *  internal snapping for poly elements
  *  Reimplementat connectors
  *  Reimplementat MiniWebgram
@@ -182,7 +180,7 @@ function onBodyLoad() {
 //    de.setAddRemovePointsEnabled(true);
 //    de.addShiftBehavior(de.setAddRemovePointsEnabled, de.isAddRemovePointsEnabled);
     de.setRotateEnabled(true);
-    de.setRotationAngle(Math.PI);
+    de.setRotationAngle(Math.PI / 4);
     webgram.addDrawingElement(de);
     
     de2 = new MyRectangularElement('myPolyElement2', 101, 101);
@@ -218,22 +216,10 @@ function onBodyLoad() {
 //        console.log('----------');
 //    });
     
-    de._setLocation(new Webgram.Geometry.Point(100, 0), false);
     de2._setLocation(new Webgram.Geometry.Point(0, 200), false);
+    de._setLocation(new Webgram.Geometry.Point(70, 75), true);
+    de._setLocation(new Webgram.Geometry.Point(70, 75), true);
 
-    de._setLocation(de.getLocation(), true);
-    
-//    de.onChange.bind(function () {
-//        console.log(arguments);
-//        console.log(this);
-//        console.log('----------');
-//    });
-    
-//    de.flipVertically();
-//    de._controlPoints[0].move(new Webgram.Geometry.Point(-406, 0));
-    
-//    de._setLocation(new Webgram.Geometry.Point(5, 0), true);
-//    de._setLocation(new Webgram.Geometry.Point(1, 0), true);
 //    webgram.createDrawingControl.setDrawingElementClass(MyRectangularElement);
 //    webgram.createDrawingControl.activate();
 }
