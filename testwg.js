@@ -1,7 +1,6 @@
 
 /*
  * De facut:
- *  fix internal snapping for poly elements
  *  Reimplementat connectors
  *  Reimplementat MiniWebgram
  *  try "use strict"; - reveals error in code
@@ -135,9 +134,8 @@ MyPolyElement = Webgram.DrawingElements.PolyElement.extend({
     initialize: function MyPolyElement(id) {
         var points = [
             new Webgram.Geometry.Point(-100, -100),
-            new Webgram.Geometry.Point(100, 100),
-            new Webgram.Geometry.Point(40, 210),
-            new Webgram.Geometry.Point(-33, 310)
+            new Webgram.Geometry.Point(100, -75),
+            new Webgram.Geometry.Point(100, 100)
         ];
         
         this.callSuper(id, points);
@@ -167,7 +165,7 @@ function onBodyLoad() {
 //    webgram.setSetting('snapGrid', {sizeX: 5, sizeY: 5});
 //    webgram.setSetting('snapGrid', null);
     webgram.setSetting('mainGrid', {sizeX: 25, sizeY: 25});
-//    webgram.setSetting('snapAngle', null);
+    webgram.setSetting('snapAngle', Math.PI / 4);
     webgram.setSetting('snapDistance', 10);
     
     de = new MyPolyElement('myPolyElement1');
@@ -179,13 +177,13 @@ function onBodyLoad() {
     de.setSnapInternallyEnabled(true);
     de.setSnapToGridEnabled(true);
 //    de.setAddRemovePointsEnabled(true);
-//    de.addShiftBehavior(de.setAddRemovePointsEnabled, de.isAddRemovePointsEnabled);
+    de.addShiftBehavior(de.setAddRemovePointsEnabled, de.isAddRemovePointsEnabled);
     de.setRotateEnabled(true);
-    de.setRotationAngle(Math.PI / 4);
+//    de.setRotationAngle(Math.PI / 4);
     webgram.addDrawingElement(de);
     
     de2 = new MyRectangularElement('myPolyElement2', 101, 101);
-    webgram.addDrawingElement(de2);
+//    webgram.addDrawingElement(de2);
     de2.setEditEnabled(true);
     de2.setSnapToAngleEnabled(true);
     de2.setSnapExternallyEnabled(true);
