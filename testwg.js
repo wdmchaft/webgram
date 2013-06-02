@@ -7,9 +7,8 @@
  *  Redenumit focusType in focus
  *  Redenumit shiftEnabled in shiftActive
  *  Redenumit "webgram" in "Webgram" in jsdocs
- *  setSnapVisualFeedback sa ia argumente separate, nu un singur obiect
  *  Redenumit _noZoom in ceva mai omenesc
- *  "must be overridden" should throw UnimplementedException or so
+ *  ActionMenuItems should become simple control points
  *  solve TODOs
  *  Replace the :special: and :local: id crap with something more suitable
  *  remove testwg.js and testwg.html
@@ -19,10 +18,10 @@ var webgram = null;
 var miniWebgram = null;
 
 MyControlPoint = Webgram.ControlPoint.extend({
-    initialize: function (index) {
+    initialize: function MyControlPoint(index) {
         this.index = index;
         
-        this.callSuper();
+        MyControlPoint.parentClass.call(this);
     },
     
     draw: function () {
@@ -54,9 +53,15 @@ MyControlPoint = Webgram.ControlPoint.extend({
     }
 });
 
+PolyEndPoint = Webgram.DrawingElements.PolyElement.PolyControlPoint.augment(Webgram.Connectors.EndPoint, {
+    initialize: function PolyEndPoint(polyPointIndex) {
+        PolyEndPoint.parentClass.call(this, polyPointIndex);
+    }
+});
+
 MyElement = Webgram.DrawingElement.extend({
     initialize: function MyElement(id, x1, y1, x2, y2) {
-        this.callSuper(id);
+        MyElement.parentClass.call(this, id);
         
         this.point1 = new Webgram.Geometry.Point(x1, y1);
         this.point2 = new Webgram.Geometry.Point(x2, y2);
@@ -110,7 +115,7 @@ MyElement = Webgram.DrawingElement.extend({
 
 MyRectangularElement = Webgram.DrawingElements.RectangularElement.extend({
     initialize: function (id, width, height) {
-        this.callSuper(id, width, height);
+        MyRectangularElement.parentClass.call(this, id, width, height);
         
         this.text = 'Bunica';
     },
@@ -138,7 +143,7 @@ MyPolyElement = Webgram.DrawingElements.PolyElement.extend({
             new Webgram.Geometry.Point(100, 100)
         ];
         
-        this.callSuper(id, points);
+        MyPolyElement.parentClass.call(this, id, points);
     },
 
     draw: function () {
@@ -151,9 +156,39 @@ MyPolyElement = Webgram.DrawingElements.PolyElement.extend({
       
         this.drawRect(new Webgram.Geometry.Rectangle(x - r, y - r, x + r, y + r));
         this.paint(this.getStrokeStyle(), this.getFillStyle().replace({colors: ['green']}));
+    },
+    
+    getPolyControlPointClass: function (index) {
+        return PolyEndPoint;
     }
 });
 
+var TestPoint = Webgram.Geometry.Point.extend({
+    nothing: function () {
+        window.a = 44;
+    }
+});
+
+function benchmark(cls, n) {
+    
+    var before = new Date();
+    for (var i = 0; i < n; i++) {
+        window.tp = new cls(34,45);
+        //tp.nothing();
+    }
+    var after = new Date();
+    var diff = after.getTime() - before.getTime();
+    return diff;
+}
+
+function actualbench() {
+    var max = 1000;
+    for (var n = max; n < max * 10; n += max) {
+        var d1 = benchmark(Webgram.Geometry.Point, n);
+        var d2 = benchmark(TestPoint, n);
+        console.log(Math.max(0, Math.round(100 - d1 / d2 * 100)) + '%');
+    }
+}
 
 function onBodyLoad() {
     var canvasElement = document.getElementById('mainCanvas');
@@ -163,10 +198,10 @@ function onBodyLoad() {
     webgram.setSetting('multipleSelectionEnabled', false);
 //    webgram.setSetting('snapGrid', {sizeX: 25, sizeY: 25});
 //    webgram.setSetting('snapGrid', {sizeX: 5, sizeY: 5});
-//    webgram.setSetting('snapGrid', null);
+    webgram.setSetting('snapGrid', null);
     webgram.setSetting('mainGrid', {sizeX: 25, sizeY: 25});
     webgram.setSetting('snapAngle', Math.PI / 4);
-    webgram.setSetting('snapDistance', 10);
+    webgram.setSetting('snapDistance', null);
     
     de = new MyPolyElement('myPolyElement1');
     
@@ -181,13 +216,18 @@ function onBodyLoad() {
     de.setRotateEnabled(true);
 //    de.setRotationAngle(Math.PI / 4);
     webgram.addDrawingElement(de);
+
+    var socket = new Webgram.Connectors.Socket(function (socket) {
+        return Webgram.Geometry.Point.zero();
+    });
     
-    de2 = new MyRectangularElement('myPolyElement2', 101, 101);
-//    webgram.addDrawingElement(de2);
+    de2 = new MyRectangularElement('myRectangularElement1', 101, 101);
+    webgram.addDrawingElement(de2);
     de2.setEditEnabled(true);
     de2.setSnapToAngleEnabled(true);
     de2.setSnapExternallyEnabled(true);
     de2.setSnapInternallyEnabled(true);
+    de2.addControlPoint(socket);
     
 //    de.setPreserveAspectRatioEnabled(true);
 //    s.flipHorizontally();
@@ -201,22 +241,10 @@ function onBodyLoad() {
     
 //    de.setGradientEditEnabled(true);
     
-    de.onMouseDown.bind(function (point, button, modifiers) {
-        if (modifiers.doubleClick) {
-            webgram.textDrawingControl.configure(this, 'text', new Webgram.Geometry.Rectangle(-100, -100, 0, 0), null, Math.PI/6);
-            webgram.textDrawingControl.activate();
-            return true;
-        }
-    });
-    
-//    de.onEndChange.bind(function () {
-//        console.log(arguments);
-//        console.log(this);
-//        console.log('----------');
-//    });
-    
     de2._setLocation(new Webgram.Geometry.Point(0, 200), false);
 
 //    webgram.createDrawingControl.setDrawingElementClass(MyRectangularElement);
 //    webgram.createDrawingControl.activate();
+    
+    pep = new PolyEndPoint();
 }
