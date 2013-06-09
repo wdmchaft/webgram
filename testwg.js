@@ -1,11 +1,8 @@
 
 /*
  * De facut:
- *  cp.update does not get called when poly-element's setPoint is called 
- *  snapping poly point la 45 + 90 nu merge
- *  la connectori, cand elementul e mutat, ar trebui sa se deconecteze, dar PolyElement._recenter genereaza un onMove si strica tot
- *  la connectori, getSnappingPoints nu ar trebui sa returneze si punctele conectate (getSiblings)
  *  la connectori, de verificat ce se intampla daca stergi unul din elemente
+ *  add PolyEndPoint
  *  Reimplementat connectors
  *  snapping bug with rectangle rotated at pi/2 and a poly element
  *  interact event should include snapping and connecting/disconnecting
@@ -16,6 +13,7 @@
  *  Redenumit "webgram" in "Webgram" in jsdocs
  *  Redenumit _noZoom in ceva mai omenesc
  *  ActionMenuItems should become simple control points
+ *  add a functionality to snap a DE to current location (and use it for connectors)
  *  solve TODOs
  *  remove console.log()s
  *  Replace the :special: and :local: id crap with something more suitable
@@ -147,8 +145,8 @@ MyPolyElement = Webgram.DrawingElements.PolyElement.extend({
     initialize: function MyPolyElement(id) {
         var points = [
             new Webgram.Geometry.Point(-100, -100),
-            new Webgram.Geometry.Point(100, -75),
-            new Webgram.Geometry.Point(100, 100)
+            new Webgram.Geometry.Point(100, 100),
+            new Webgram.Geometry.Point(100, 200)
         ];
         
         MyPolyElement.parentClass.call(this, id, points);
@@ -206,8 +204,8 @@ function onBodyLoad() {
     webgram.attachHandlers();
     webgram.setSetting('multipleSelectionEnabled', false);
 //    webgram.setSetting('snapGrid', {sizeX: 25, sizeY: 25});
-    webgram.setSetting('snapGrid', {sizeX: 5, sizeY: 5});
-//    webgram.setSetting('snapGrid', null);
+//    webgram.setSetting('snapGrid', {sizeX: 5, sizeY: 5});
+    webgram.setSetting('snapGrid', null);
     webgram.setSetting('mainGrid', {sizeX: 25, sizeY: 25});
     webgram.setSetting('snapAngle', Math.PI / 4);
 //    webgram.setSetting('snapDistance', null);
@@ -237,7 +235,7 @@ function onBodyLoad() {
     socket2.radius = 20;
     
     de2 = new MyRectangularElement('myRectangularElement1', 101, 101);
-    webgram.addDrawingElement(de2);
+//    webgram.addDrawingElement(de2);
     de2.setEditEnabled(true);
     de2.setSnapToAngleEnabled(true);
     de2.setSnapExternallyEnabled(true);
@@ -246,17 +244,17 @@ function onBodyLoad() {
     de2.addControlPoint(socket);
     
     de3 = new MyRectangularElement('myRectangularElement2', 101, 101);
-    webgram.addDrawingElement(de3);
+//    webgram.addDrawingElement(de3);
     de3.setEditEnabled(true);
     de3.setSnapToAngleEnabled(true);
     de3.setSnapExternallyEnabled(true);
     de3.setSnapInternallyEnabled(true);
     de3.setRotateEnabled(true);
     de3._setLocation(new Webgram.Geometry.Point(140, 100), false);
-    de3.addControlPoint(socket2);
+    //de3.addControlPoint(socket2);
     
-    de.getControlPoints()[0].connect(socket);
-    de.getControlPoints()[2].connect(socket2);
+    //de.getControlPoints()[0].connect(socket);
+    //de.getControlPoints()[2].connect(socket2);
     
 //    de.setPreserveAspectRatioEnabled(true);
 //    s.flipHorizontally();
@@ -275,5 +273,11 @@ function onBodyLoad() {
 //    webgram.createDrawingControl.setDrawingElementClass(MyRectangularElement);
 //    webgram.createDrawingControl.activate();
     
+    de._setPoint(1, de.getPoints()[1], true);
+    
     pep = new PolyEndPoint();
+    
+    line1 = new Webgram.Geometry.Line(1, 0);
+    line2 = new Webgram.Geometry.Line(Infinity, 100);
+    inters = line1.intersectLine(line2);
 }
