@@ -1,13 +1,14 @@
 
 /*
  * De facut:
- *  Reimplementat MiniWebgram
  *  try "use strict"; - reveals error in code
  *  Redenumit focusType in focus
  *  Redenumit shiftEnabled in shiftActive
  *  Redenumit "webgram" in "Webgram" in jsdocs
  *  Redenumit _noZoom in ceva mai omenesc
  *  ActionMenuItems should become simple control points
+ *  implement group elements
+ *  implement multiple selection 
  *  add a functionality to snap a DE to current location (and use it for connectors)
  *  make rulers more configurable
  *  solve TODOs
@@ -190,6 +191,9 @@ function actualbench() {
 function onBodyLoad() {
     var canvasElement = document.getElementById('mainCanvas');
     var canvas = new Webgram.Canvas(canvasElement.getContext('2d'));
+    var miniCanvasElement = document.getElementById('miniCanvas');
+    var miniCanvas = new Webgram.Canvas(miniCanvasElement.getContext('2d'));
+    
     webgram = new Webgram(canvasElement, canvas);
     webgram.attachHandlers();
     webgram.setSetting('multipleSelectionEnabled', false);
@@ -212,7 +216,7 @@ function onBodyLoad() {
     de.addShiftBehavior(de.setAddRemovePointsEnabled, de.isAddRemovePointsEnabled);
     de.setRotateEnabled(true);
 //    de.setRotationAngle(Math.PI / 4);
-    webgram.addDrawingElement(de);
+//    webgram.addDrawingElement(de);
 
     socket = new Webgram.Connectors.Socket(function (socket) {
         return new Webgram.Geometry.Point(-10, -20);
@@ -243,23 +247,11 @@ function onBodyLoad() {
     de3._setLocation(new Webgram.Geometry.Point(140, 100), false);
     de3.addControlPoint(socket2);
     
-//    de.getControlPoints()[0].connect(socket);
-//    de.getControlPoints()[2].connect(socket2);
-    
-//    de.setPreserveAspectRatioEnabled(true);
-//    s.flipHorizontally();
-//    de.setFillStyle(Webgram.Styles.createFillStyle({
-//        colors: ['red', 'blue'],
-//        gradientPoint1: undefined,
-//        gradientPoint2: null,
-//        gradientRadius1: undefined,
-//        gradientRadius2: undefined
-//    }));
-    
-//    de.setGradientEditEnabled(true);
-    
-    de2._setLocation(new Webgram.Geometry.Point(0, 200), false);
+    de2._setLocation(new Webgram.Geometry.Point(0, 0), false);
+    de3._setLocation(new Webgram.Geometry.Point(1000, 0), false);
 
 //    webgram.createDrawingControl.setDrawingElementClass(MyRectangularElement);
 //    webgram.createDrawingControl.activate();
+    
+    webgram.setMiniWebgram(miniCanvasElement, miniCanvas);
 }
