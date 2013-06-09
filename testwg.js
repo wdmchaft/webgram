@@ -1,10 +1,8 @@
 
 /*
  * De facut:
- *  la connectori, de verificat ce se intampla daca stergi unul din elemente
  *  add PolyEndPoint
  *  Reimplementat connectors
- *  snapping bug with rectangle rotated at pi/2 and a poly element
  *  interact event should include snapping and connecting/disconnecting
  *  Reimplementat MiniWebgram
  *  try "use strict"; - reveals error in code
@@ -56,12 +54,6 @@ MyControlPoint = Webgram.ControlPoint.extend({
         else {
             this.drawingElement._setPoint(point, 2);
         }
-    }
-});
-
-PolyEndPoint = Webgram.DrawingElements.PolyElement.PolyControlPoint.augment(Webgram.Connectors.EndPoint, {
-    initialize: function PolyEndPoint(polyPointIndex) {
-        PolyEndPoint.parentClass.call(this, polyPointIndex);
     }
 });
 
@@ -167,7 +159,7 @@ MyPolyElement = Webgram.DrawingElements.PolyElement.extend({
     },
     
     getPolyControlPointClass: function (index) {
-        return PolyEndPoint;
+        return Webgram.DrawingElements.PolyElement.PolyEndPoint;
     }
 });
 
@@ -235,7 +227,7 @@ function onBodyLoad() {
     socket2.radius = 20;
     
     de2 = new MyRectangularElement('myRectangularElement1', 101, 101);
-//    webgram.addDrawingElement(de2);
+    webgram.addDrawingElement(de2);
     de2.setEditEnabled(true);
     de2.setSnapToAngleEnabled(true);
     de2.setSnapExternallyEnabled(true);
@@ -244,17 +236,17 @@ function onBodyLoad() {
     de2.addControlPoint(socket);
     
     de3 = new MyRectangularElement('myRectangularElement2', 101, 101);
-//    webgram.addDrawingElement(de3);
+    webgram.addDrawingElement(de3);
     de3.setEditEnabled(true);
     de3.setSnapToAngleEnabled(true);
     de3.setSnapExternallyEnabled(true);
     de3.setSnapInternallyEnabled(true);
     de3.setRotateEnabled(true);
     de3._setLocation(new Webgram.Geometry.Point(140, 100), false);
-    //de3.addControlPoint(socket2);
+    de3.addControlPoint(socket2);
     
-    //de.getControlPoints()[0].connect(socket);
-    //de.getControlPoints()[2].connect(socket2);
+//    de.getControlPoints()[0].connect(socket);
+//    de.getControlPoints()[2].connect(socket2);
     
 //    de.setPreserveAspectRatioEnabled(true);
 //    s.flipHorizontally();
@@ -272,12 +264,4 @@ function onBodyLoad() {
 
 //    webgram.createDrawingControl.setDrawingElementClass(MyRectangularElement);
 //    webgram.createDrawingControl.activate();
-    
-    de._setPoint(1, de.getPoints()[1], true);
-    
-    pep = new PolyEndPoint();
-    
-    line1 = new Webgram.Geometry.Line(1, 0);
-    line2 = new Webgram.Geometry.Line(Infinity, 100);
-    inters = line1.intersectLine(line2);
 }
