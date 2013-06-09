@@ -1,14 +1,13 @@
 
 /*
  * De facut:
- *  ActionMenuItems should become simple control points
  *  implement group elements
- *  implement multiple selection 
+ *  implement multiple selection
+ *  add support for hatching and texture fill styles 
  *  add a functionality to snap a DE to current location (and use it for connectors)
- *  try "use strict"; - reveals error in code
  *  make rulers more configurable
  *  solve TODOs
- *  remove console.log()s
+ *  does fine moving work?
  *  Replace the :special: and :local: id crap with something more suitable
  *  remove testwg.js and testwg.html
  */
@@ -248,6 +247,17 @@ function onBodyLoad() {
 
 //    webgram.createDrawingControl.setDrawingElementClass(MyRectangularElement);
 //    webgram.createDrawingControl.activate();
+    
+    ami = new Webgram.ControlPoints.ActionMenuItem('arrow-horiz-control-point', 'copy', 'lt', function () {
+        console.log('called');
+    });
+    
+    ami2 = new Webgram.ControlPoints.ActionMenuItem('arrow-vert-control-point', 'paste', 'lt', function () {
+        console.log('called2');
+    });
+    
+    de2.addControlPoint(ami);
+    de2.addControlPoint(ami2);
     
     webgram.setMiniWebgram(miniCanvasElement, miniCanvas);
 }
