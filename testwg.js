@@ -1,6 +1,8 @@
 
 /*
  * De facut:
+ *  cp.update does not get called when poly-element's setPoint is called 
+ *  snapping poly point la 45 + 90 nu merge
  *  la connectori, cand elementul e mutat, ar trebui sa se deconecteze, dar PolyElement._recenter genereaza un onMove si strica tot
  *  la connectori, getSnappingPoints nu ar trebui sa returneze si punctele conectate (getSiblings)
  *  la connectori, de verificat ce se intampla daca stergi unul din elemente
@@ -224,10 +226,15 @@ function onBodyLoad() {
 //    de.setRotationAngle(Math.PI / 4);
     webgram.addDrawingElement(de);
 
-    var socket = new Webgram.Connectors.Socket(function (socket) {
+    socket = new Webgram.Connectors.Socket(function (socket) {
         return new Webgram.Geometry.Point(-10, -20);
     });
-//    socket.radius = 30;
+    socket.radius = 20;
+    
+    socket2 = new Webgram.Connectors.Socket(function (socket) {
+        return new Webgram.Geometry.Point(-10, -20);
+    });
+    socket2.radius = 20;
     
     de2 = new MyRectangularElement('myRectangularElement1', 101, 101);
     webgram.addDrawingElement(de2);
@@ -237,6 +244,19 @@ function onBodyLoad() {
     de2.setSnapInternallyEnabled(true);
     de2.setRotateEnabled(true);
     de2.addControlPoint(socket);
+    
+    de3 = new MyRectangularElement('myRectangularElement2', 101, 101);
+    webgram.addDrawingElement(de3);
+    de3.setEditEnabled(true);
+    de3.setSnapToAngleEnabled(true);
+    de3.setSnapExternallyEnabled(true);
+    de3.setSnapInternallyEnabled(true);
+    de3.setRotateEnabled(true);
+    de3._setLocation(new Webgram.Geometry.Point(140, 100), false);
+    de3.addControlPoint(socket2);
+    
+    de.getControlPoints()[0].connect(socket);
+    de.getControlPoints()[2].connect(socket2);
     
 //    de.setPreserveAspectRatioEnabled(true);
 //    s.flipHorizontally();
