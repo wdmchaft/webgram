@@ -1,9 +1,6 @@
 
 /*
  * De facut:
- *  add PolyEndPoint
- *  Reimplementat connectors
- *  interact event should include snapping and connecting/disconnecting
  *  Reimplementat MiniWebgram
  *  try "use strict"; - reveals error in code
  *  Redenumit focusType in focus
@@ -12,6 +9,7 @@
  *  Redenumit _noZoom in ceva mai omenesc
  *  ActionMenuItems should become simple control points
  *  add a functionality to snap a DE to current location (and use it for connectors)
+ *  make rulers more configurable
  *  solve TODOs
  *  remove console.log()s
  *  Replace the :special: and :local: id crap with something more suitable
