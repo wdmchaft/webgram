@@ -1,15 +1,11 @@
 
 /*
  * De facut:
- *  try "use strict"; - reveals error in code
- *  Redenumit focusType in focus
- *  Redenumit shiftEnabled in shiftActive
- *  Redenumit "webgram" in "Webgram" in jsdocs
- *  Redenumit _noZoom in ceva mai omenesc
  *  ActionMenuItems should become simple control points
  *  implement group elements
  *  implement multiple selection 
  *  add a functionality to snap a DE to current location (and use it for connectors)
+ *  try "use strict"; - reveals error in code
  *  make rulers more configurable
  *  solve TODOs
  *  remove console.log()s
@@ -195,7 +191,7 @@ function onBodyLoad() {
     var miniCanvas = new Webgram.Canvas(miniCanvasElement.getContext('2d'));
     
     webgram = new Webgram(canvasElement, canvas);
-    webgram.attachHandlers();
+    webgram.enableKeyMouseHandlers();
     webgram.setSetting('multipleSelectionEnabled', false);
 //    webgram.setSetting('snapGrid', {sizeX: 25, sizeY: 25});
 //    webgram.setSetting('snapGrid', {sizeX: 5, sizeY: 5});
