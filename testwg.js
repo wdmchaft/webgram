@@ -10,6 +10,7 @@
  *  does fine moving work?
  *  Replace the :special: and :local: id crap with something more suitable
  *  remove testwg.js and testwg.html
+ *  add some icons for common action menu items
  */
 
 var webgram = null;
