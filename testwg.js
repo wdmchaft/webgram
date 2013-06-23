@@ -1,12 +1,15 @@
 
 /*
- * De facut:
+ * TO DO:
+ *  RectangularElement.fit sucks balls
+ *  implement fit for everybody 
  *  implement group elements
  *  implement multiple selection
  *  add support for hatching and texture fill styles 
  *  add a functionality to snap a DE to current location (and use it for connectors)
  *  make rulers more configurable
  *  solve TODOs
+ *  search for //
  *  does fine moving work?
  *  Replace the :special: and :local: id crap with something more suitable
  *  remove testwg.js and testwg.html
@@ -258,12 +261,12 @@ function onBodyLoad() {
     
 //    de2.minSize = new Webgram.Geometry.Size(50, 50);
 //    de2.maxSize = new Webgram.Geometry.Size(210, 110);
-//    de3.setRotationAngle(Math.PI / 4);
+//    de3.setRotationAngle(Math.PI / 3);
     
     ge = new Webgram.DrawingElements.GroupElement();
-    webgram.addDrawingElement(ge);
-    ge.addDrawingElement(de3);
-    ge.addDrawingElement(de2);
+//    webgram.addDrawingElement(ge);
+//    ge.addDrawingElement(de3);
+//    ge.addDrawingElement(de2);
     ge.setEditEnabled(true);
     ge.setRotateEnabled(true);
     ge.setRotationCenterEnabled(true);
@@ -277,8 +280,8 @@ function onBodyLoad() {
 //    de3.setRotationAngle(3 * Math.PI / 2 + Math.PI / 4);
 //    de3.fit(rect);
     
-//    webgram.addDrawingElement(de2);
-//    webgram.addDrawingElement(de3);
+    webgram.addDrawingElement(de2);
+    webgram.addDrawingElement(de3);
     
 //    webgram.setMiniWebgram(miniCanvasElement, miniCanvas);
 }
