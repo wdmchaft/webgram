@@ -4,17 +4,18 @@
  *  mscontainer:
  *   * multiple selection index preservation mechanism sucks
  *   * multiple selection transparency MSContainerElement: ms*ToJson
+ *   * flipping the ms should flip children individually
  *  RectangularElement.fit could still be improved
  *  move min|maxX|Y crappy code to a common function
  *  PolyElement snapping to angle feedback does not take into account the element's rotationAngle 
+ *  add a functionality to snap a DE to current location (and use it for connectors)
+ *  does fine moving work?
  *  test various events
  *  add support for hatching and texture fill styles
  *  add support for shadows 
- *  add a functionality to snap a DE to current location (and use it for connectors)
  *  make rulers more configurable
  *  solve TODOs
  *  search for //
- *  does fine moving work?
  *  Replace the :special: and :local: id crap with something more suitable
  *  remove testwg.js and testwg.html
  *  add some icons for common action menu items
