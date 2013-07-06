@@ -2,9 +2,9 @@
 /*
  * TO DO:
  *  mscontainer:
- *   * multiple selection index preservation mechanism sucks
  *   * multiple selection transparency MSContainerElement: ms*ToJson
  *   * flipping the ms should flip children individually
+ *   * add some kind of change protection when in multiple selection
  *  RectangularElement.fit could still be improved
  *  move min|maxX|Y crappy code to a common function
  *  PolyElement snapping to angle feedback does not take into account the element's rotationAngle 
@@ -124,14 +124,18 @@ MyRectangularElement = Webgram.DrawingElements.RectangularElement.extend({
     initialize: function MyRectangularElement(id, width, height) {
         MyRectangularElement.parentClass.call(this, id, width, height);
         
-        this.text = 'Bunica';
+        this.name = '';
+        //this.setFillStyle(this.getFillStyle().replace({colors: ['rgba(0,0,0,0.3)']}));
+        this.setTextStyle(this.getTextStyle().replace({'justify': 'lc'}));
     },
 
     draw: function () {
         this.drawRect(this.getBoundingRectangle());
         this.paint();
         
-        this.drawText(this.text);
+        var thisIndex = this._parent.getDrawingElementIndex(this);
+        var prevName = this._prevSibling ? this._prevSibling.name : '?';
+        this.drawText(this.name + '\n' + thisIndex + '\n' + prevName);
 //        var r = 5;
 //        var x = 0;
 //        var y = 0;
@@ -209,96 +213,20 @@ function onBodyLoad() {
     webgram.setSetting('snapAngle', Math.PI / 4);
 //    webgram.setSetting('snapDistance', null);
     
-    de = new MyPolyElement('myPolyElement1');
+    letters = ['A', 'B', 'C', 'D', 'E', 'F'];
     
-//    de = new MyRectangularElement('myPolyElement1', 101, 101);
-    de.setEditEnabled(true);
-    de.setSnapToAngleEnabled(true);
-    de.setSnapExternallyEnabled(true);
-    de.setSnapInternallyEnabled(true);
-    de.setSnapToGridEnabled(true);
-//    de.setAddRemovePointsEnabled(true);
-    de.addShiftBehavior(de.setAddRemovePointsEnabled, de.isAddRemovePointsEnabled);
-    de.setRotateEnabled(true);
-    de.setRotationAngle(-Math.PI / 4);
-    //webgram.addDrawingElement(de);
-
-    socket = new Webgram.Connectors.Socket(function (socket) {
-        return new Webgram.Geometry.Point(-10, -20);
-    });
-    socket.radius = 20;
+    for (var i = 0; i < 4; i++) {
+        de2 = new MyRectangularElement('myRectangularElement1', 101, 76);
+        de2.setEditEnabled(true);
+        de2.setRotateEnabled(true);
+        de2.setSnapToAngleEnabled(true);
+        de2.setSnapExternallyEnabled(true);
+        de2.setSnapInternallyEnabled(true);
+        de2._setLocation(new Webgram.Geometry.Point(i * 50, i * 30), false);
+        de2.name = letters[i];
+        
+        webgram.addDrawingElement(de2);
+    }
     
-    socket2 = new Webgram.Connectors.Socket(function (socket) {
-        return new Webgram.Geometry.Point(-10, -20);
-    });
-    socket2.radius = 20;
-    
-    de2 = new MyRectangularElement('myRectangularElement1', 101, 101);
-//    webgram.addDrawingElement(de2);
-    de2.setEditEnabled(true);
-//    de2.setSnapToAngleEnabled(true);
-//    de2.setSnapExternallyEnabled(true);
-//    de2.setSnapInternallyEnabled(true);
-    de2.setRotateEnabled(true);
-//    de2.setMoveEnabled(false);
-//    de2.addControlPoint(socket);
-//    
-    de3 = new MyRectangularElement('myRectangularElement2', 101, 101);
-//    webgram.addDrawingElement(de3);
-    de3.setEditEnabled(true);
-//    de3.setSnapToAngleEnabled(true);
-//    de3.setSnapExternallyEnabled(true);
-//    de3.setSnapInternallyEnabled(true);
-    de3.setRotateEnabled(true);
-//    de3.setPreserveAspectRatioEnabled(true);
-//    de3._setLocation(new Webgram.Geometry.Point(140, 100), false);
-//    de3.addControlPoint(socket2);
-    
-    de2._setLocation(new Webgram.Geometry.Point(150, 100), false);
-//    de3._setLocation(new Webgram.Geometry.Point(-200, 0), false);
-//
-////    webgram.createDrawingControl.setDrawingElementClass(MyRectangularElement);
-////    webgram.createDrawingControl.activate();
-//    
-//    ami = new Webgram.ControlPoints.ActionMenuItem('arrow-horiz-control-point', 'copy', 'lt', function () {
-//        console.log('called');
-//    });
-//    
-//    ami2 = new Webgram.ControlPoints.ActionMenuItem('arrow-vert-control-point', 'paste', 'lt', function () {
-//        console.log('called2');
-//    });
-//    
-//    de2.addControlPoint(ami);
-//    de2.addControlPoint(ami2);
-    
-//    de2.minSize = new Webgram.Geometry.Size(50, 50);
-//    de2.maxSize = new Webgram.Geometry.Size(210, 110);
-    de3.setRotationAngle(Math.PI / 3);
-    de3.fit(new Webgram.Geometry.Rectangle(0, 0, 137.111, 136.60));
-    
-    ge = new Webgram.DrawingElements.GroupElement();
-    webgram.addDrawingElement(ge);
-    ge.addDrawingElement(de3);
-    ge.addDrawingElement(de2);
-    ge.setEditEnabled(true);
-    ge.setRotateEnabled(true);
-    ge.setRotationCenterEnabled(true);
-//    ge.setPreserveAspectRatioEnabled(true);
-//    ge._setWidth(1000);
-    
-//    var rect = new Webgram.Geometry.Rectangle(-50, -100, 50, 100);
-////    var rect = new Webgram.Geometry.Rectangle(-100, -50, 100, 50);
-//    de2.fit(rect);
-//    
-//    de3.setRotationAngle(3 * Math.PI / 2 + Math.PI / 4);
-//    de3.fit(rect);
-    
-    webgram.addDrawingElement(de2);
-    webgram.addDrawingElement(de3);
-    
-//    webgram.setSelectedDrawingElements([de2, de3]);
-//    webgram.selectDrawingControl._msContainerElement._setHeight(200);
-//    webgram.selectDrawingControl._msContainerElement._setHeight(webgram.selectDrawingControl._msContainerElement.getHeight());
-    
-//    webgram.setMiniWebgram(miniCanvasElement, miniCanvas);
+    webgram.setMiniWebgram(miniCanvasElement, miniCanvas);
 }
