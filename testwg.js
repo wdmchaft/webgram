@@ -3,7 +3,6 @@
  * TO DO:
  *  mscontainer:
  *   * add some kind of change protection when in multiple selection
- *   * merge duplicate din msce?
  *   * parents in json
  *  unicode text support
  *  RectangularElement.fit could still be improved
@@ -126,6 +125,12 @@ MyRectangularElement = Webgram.DrawingElements.RectangularElement.extend({
     initialize: function MyRectangularElement(id, width, height) {
         MyRectangularElement.parentClass.call(this, id, width, height);
         
+        this.setEditEnabled(true);
+        this.setRotateEnabled(true);
+        this.setSnapToAngleEnabled(true);
+        this.setSnapExternallyEnabled(true);
+        this.setSnapInternallyEnabled(true);
+
         this.name = '';
 //        this.setFillStyle(this.getFillStyle().replace({colors: ['rgba(0,0,0,0.3)']}));
         this.setTextStyle(this.getTextStyle().replace({'justify': 'cc'}));
@@ -221,14 +226,9 @@ function onBodyLoad() {
     
     letters = ['Abc', 'Bcd', 'C', 'D', 'E', 'F'];
     
-    des = []
+    des = [];
     for (var i = 0; i < 2; i++) {
         de2 = new MyRectangularElement('myRectangularElement1', 101, 76);
-        de2.setEditEnabled(true);
-        de2.setRotateEnabled(true);
-        de2.setSnapToAngleEnabled(true);
-        de2.setSnapExternallyEnabled(true);
-        de2.setSnapInternallyEnabled(true);
         de2._setLocation(new Webgram.Geometry.Point(i * 150, i), false);
         de2.name = letters[i];
         
@@ -244,4 +244,9 @@ function onBodyLoad() {
             webgram.textDrawingControl.activate();
         }
     });
+    
+//    ge = new Webgram.DrawingElements.GroupElement();
+//    ge.addDrawingElement(des[0]);
+//    ge.addDrawingElement(des[1]);
+//    webgram.addDrawingElement(ge);
 }
