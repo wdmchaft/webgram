@@ -2,9 +2,9 @@
 /*
  * TO DO:
  *  mscontainer:
- *   * multiple selection transparency MSContainerElement: ms*ToJson
- *   * flipping the ms should flip children individually
+ *   * getAbs* funcs are not enough to enter/leave a container
  *   * add some kind of change protection when in multiple selection
+ *  unicode text support
  *  RectangularElement.fit could still be improved
  *  move min|maxX|Y crappy code to a common function
  *  PolyElement snapping to angle feedback does not take into account the element's rotationAngle 
@@ -23,6 +23,7 @@
 
 var webgram = null;
 var miniWebgram = null;
+var myAngle = 0;
 
 MyControlPoint = Webgram.ControlPoint.extend({
     initialize: function MyControlPoint(index) {
@@ -125,7 +126,7 @@ MyRectangularElement = Webgram.DrawingElements.RectangularElement.extend({
         MyRectangularElement.parentClass.call(this, id, width, height);
         
         this.name = '';
-        //this.setFillStyle(this.getFillStyle().replace({colors: ['rgba(0,0,0,0.3)']}));
+//        this.setFillStyle(this.getFillStyle().replace({colors: ['rgba(0,0,0,0.3)']}));
         this.setTextStyle(this.getTextStyle().replace({'justify': 'lc'}));
     },
 
@@ -133,10 +134,16 @@ MyRectangularElement = Webgram.DrawingElements.RectangularElement.extend({
         this.drawRect(this.getBoundingRectangle());
         this.paint();
         
-        var thisIndex = this._parent.getDrawingElementIndex(this);
-        var prevName = this._prevSibling ? this._prevSibling.name : '?';
-        this.drawText(this.name + '\n' + thisIndex + '\n' + prevName);
-//        var r = 5;
+        //var thisIndex = this._parent.getDrawingElementIndex(this);
+        //var prevName = this._prevSibling ? this._prevSibling.name : '?';
+        
+        this.drawPoly(new Webgram.Geometry.Rectangle(-50, -25, 0, 0).getPoly().getRotated(myAngle, new Webgram.Geometry.Point(-25, -12.5)), true);
+        this.paint();
+        
+        //this.drawText(this.name + '\n' + (this.rotationAngleToJson() * 180 / Math.PI).toFixed(0));
+        this.drawText(this.name, new Webgram.Geometry.Rectangle(-50, -25, 0, 0), myAngle);
+
+        //        var r = 5;
 //        var x = 0;
 //        var y = 0;
 //        
@@ -213,20 +220,29 @@ function onBodyLoad() {
     webgram.setSetting('snapAngle', Math.PI / 4);
 //    webgram.setSetting('snapDistance', null);
     
-    letters = ['A', 'B', 'C', 'D', 'E', 'F'];
+    letters = ['Abc', 'Bcd', 'C', 'D', 'E', 'F'];
     
-    for (var i = 0; i < 4; i++) {
+    des = []
+    for (var i = 0; i < 2; i++) {
         de2 = new MyRectangularElement('myRectangularElement1', 101, 76);
         de2.setEditEnabled(true);
         de2.setRotateEnabled(true);
         de2.setSnapToAngleEnabled(true);
         de2.setSnapExternallyEnabled(true);
         de2.setSnapInternallyEnabled(true);
-        de2._setLocation(new Webgram.Geometry.Point(i * 50, i * 30), false);
+        de2._setLocation(new Webgram.Geometry.Point(i * 150, i), false);
         de2.name = letters[i];
         
         webgram.addDrawingElement(de2);
+        des[i] = de2;
     }
     
     webgram.setMiniWebgram(miniCanvasElement, miniCanvas);
+    
+    de2.onKeyDown.bind(function (key) {
+        if (key === 27) {
+            webgram.textDrawingControl.configure(de2, 'name', new Webgram.Geometry.Rectangle(-50, -25, 0, 0), null, myAngle);
+            webgram.textDrawingControl.activate();
+        }
+    });
 }
