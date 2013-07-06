@@ -2,8 +2,9 @@
 /*
  * TO DO:
  *  mscontainer:
- *   * getAbs* funcs are not enough to enter/leave a container
  *   * add some kind of change protection when in multiple selection
+ *   * merge duplicate din msce?
+ *   * parents in json
  *  unicode text support
  *  RectangularElement.fit could still be improved
  *  move min|maxX|Y crappy code to a common function
@@ -127,7 +128,7 @@ MyRectangularElement = Webgram.DrawingElements.RectangularElement.extend({
         
         this.name = '';
 //        this.setFillStyle(this.getFillStyle().replace({colors: ['rgba(0,0,0,0.3)']}));
-        this.setTextStyle(this.getTextStyle().replace({'justify': 'lc'}));
+        this.setTextStyle(this.getTextStyle().replace({'justify': 'cc'}));
     },
 
     draw: function () {
@@ -137,11 +138,9 @@ MyRectangularElement = Webgram.DrawingElements.RectangularElement.extend({
         //var thisIndex = this._parent.getDrawingElementIndex(this);
         //var prevName = this._prevSibling ? this._prevSibling.name : '?';
         
-        this.drawPoly(new Webgram.Geometry.Rectangle(-50, -25, 0, 0).getPoly().getRotated(myAngle, new Webgram.Geometry.Point(-25, -12.5)), true);
-        this.paint();
-        
-        //this.drawText(this.name + '\n' + (this.rotationAngleToJson() * 180 / Math.PI).toFixed(0));
-        this.drawText(this.name, new Webgram.Geometry.Rectangle(-50, -25, 0, 0), myAngle);
+        this.drawText(this.name + '\n' + (this.rotationAngleToJson() * 180 / Math.PI).toFixed(0));
+        //this.drawText(this.name + '\n' + (this.locationToJson().x) + ', ' + (this.locationToJson().y));
+        //this.drawText(this.name, new Webgram.Geometry.Rectangle(-50, -25, 0, 0), myAngle);
 
         //        var r = 5;
 //        var x = 0;
