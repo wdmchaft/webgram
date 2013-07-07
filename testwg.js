@@ -2,8 +2,9 @@
 /*
  * TO DO:
  *  mscontainer:
- *   * add some kind of change protection when in multiple selection
  *   * parents in json
+ *   * class name is not fq
+ *   * add some kind of change protection when in multiple selection
  *  unicode text support
  *  RectangularElement.fit could still be improved
  *  move min|maxX|Y crappy code to a common function
@@ -16,7 +17,6 @@
  *  make rulers more configurable
  *  solve TODOs
  *  search for //
- *  Replace the :special: and :local: id crap with something more suitable
  *  remove testwg.js and testwg.html
  *  add some icons for common action menu items
  */
@@ -245,8 +245,8 @@ function onBodyLoad() {
         }
     });
     
-//    ge = new Webgram.DrawingElements.GroupElement();
+    ge = new Webgram.DrawingElements.GroupElement();
 //    ge.addDrawingElement(des[0]);
 //    ge.addDrawingElement(des[1]);
-//    webgram.addDrawingElement(ge);
+    webgram.addDrawingElement(ge);
 }
