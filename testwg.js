@@ -1,10 +1,13 @@
 
 /*
  * TO DO:
- *  mscontainer:
- *   * parents in json
- *   * class name is not fq
- *   * add some kind of change protection when in multiple selection
+ *  make a mechanism to use full paths to classes in json
+ *  the whole json ObjRefs should go away
+ *  undo mechanism:
+ *   * undo should not keep references at all
+ *   * group undo checkpoints
+ *   * use a separate storage place to store ids of elements instead of references
+ *   * undo checkpoints are now generated when adding/remove to/from multiple selection group
  *  unicode text support
  *  RectangularElement.fit could still be improved
  *  move min|maxX|Y crappy code to a common function
@@ -142,10 +145,10 @@ MyRectangularElement = Webgram.DrawingElements.RectangularElement.extend({
         this.drawRect(this.getBoundingRectangle());
         this.paint();
         
-        //var thisIndex = this._parent.getDrawingElementIndex(this);
+        var thisIndex = this._parent.getDrawingElementIndex(this);
         //var prevName = this._prevSibling ? this._prevSibling.name : '?';
         
-        this.drawText(this.name + '\n' + (this.rotationAngleToJson() * 180 / Math.PI).toFixed(0));
+        this.drawText(this.name + '\n' + (thisIndex));
         //this.drawText(this.name + '\n' + (this.locationToJson().x) + ', ' + (this.locationToJson().y));
         //this.drawText(this.name, new Webgram.Geometry.Rectangle(-50, -25, 0, 0), myAngle);
 
@@ -247,8 +250,10 @@ function onBodyLoad() {
         }
     });
     
-    ge = new Webgram.DrawingElements.GroupElement();
+//    ge = new Webgram.DrawingElements.GroupElement();
 //    ge.addDrawingElement(des[0]);
 //    ge.addDrawingElement(des[1]);
-    webgram.addDrawingElement(ge);
+//    webgram.addDrawingElement(ge);
+    
+    webgram.resetUndo();
 }
