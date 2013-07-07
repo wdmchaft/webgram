@@ -134,6 +134,8 @@ MyRectangularElement = Webgram.DrawingElements.RectangularElement.extend({
         this.name = '';
 //        this.setFillStyle(this.getFillStyle().replace({colors: ['rgba(0,0,0,0.3)']}));
         this.setTextStyle(this.getTextStyle().replace({'justify': 'cc'}));
+        
+        this.addJsonField('name', 'name');
     },
 
     draw: function () {
