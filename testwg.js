@@ -2,9 +2,11 @@
 /*
  * TO DO:
  *  undo mechanism:
- *   * doUndo & doRedo have to be rewritten
- *   * how are undo checkpoints generated when manipulating a multiple selection?
- *   * undo checkpoints are now generated when adding/remove to/from multiple selection group
+ *   * select a second element with shift and deselect it with shift:
+ *     * the whole selection is lost
+ *     * undo check points are created
+ *   * changing a msGroup does not create undo check points
+ *   * rewrite doRedo
  *  unicode text support
  *  RectangularElement.fit could still be improved
  *  move min|maxX|Y crappy code to a common function
@@ -247,10 +249,14 @@ function onBodyLoad() {
         }
     });
     
-//    ge = new Webgram.DrawingElements.GroupElement();
+    ge = new Webgram.DrawingElements.GroupElement();
 //    ge.addDrawingElement(des[0]);
 //    ge.addDrawingElement(des[1]);
-//    webgram.addDrawingElement(ge);
+    webgram.addDrawingElement(ge);
     
     webgram.resetUndo();
+//    webgram._actionEvent = true;
+//    ge.addDrawingElement(des[1]);
+//    webgram._actionEvent = false;
+    
 }
