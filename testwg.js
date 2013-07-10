@@ -1,8 +1,6 @@
 
 /*
  * TO DO:
- *  make a mechanism to use full paths to classes in json
- *  the whole json ObjRefs should go away
  *  undo mechanism:
  *   * undo should not keep references at all
  *   * group undo checkpoints
@@ -65,8 +63,8 @@ MyControlPoint = Webgram.ControlPoint.extend({
 });
 
 MyElement = Webgram.DrawingElement.extend({
-    initialize: function MyElement(id, x1, y1, x2, y2) {
-        MyElement.parentClass.call(this, id);
+    initialize: function MyElement(x1, y1, x2, y2) {
+        MyElement.parentClass.call(this);
         
         this.point1 = new Webgram.Geometry.Point(x1, y1);
         this.point2 = new Webgram.Geometry.Point(x2, y2);
@@ -125,8 +123,8 @@ MyElement = Webgram.DrawingElement.extend({
 
 
 MyRectangularElement = Webgram.DrawingElements.RectangularElement.extend({
-    initialize: function MyRectangularElement(id, width, height) {
-        MyRectangularElement.parentClass.call(this, id, width, height);
+    initialize: function MyRectangularElement(width, height) {
+        MyRectangularElement.parentClass.call(this, width, height);
         
         this.setEditEnabled(true);
         this.setRotateEnabled(true);
@@ -163,14 +161,14 @@ MyRectangularElement = Webgram.DrawingElements.RectangularElement.extend({
 
 
 MyPolyElement = Webgram.DrawingElements.PolyElement.extend({
-    initialize: function MyPolyElement(id) {
+    initialize: function MyPolyElement() {
         var points = [
             new Webgram.Geometry.Point(-100, -100),
             new Webgram.Geometry.Point(100, 100),
             new Webgram.Geometry.Point(100, 200)
         ];
         
-        MyPolyElement.parentClass.call(this, id, points);
+        MyPolyElement.parentClass.call(this, points);
         
         this.zIndex = 1;
     },
@@ -233,8 +231,8 @@ function onBodyLoad() {
     
     des = [];
     for (var i = 0; i < 2; i++) {
-        de2 = new MyRectangularElement('myRectangularElement1', 101, 76);
-        de2._setLocation(new Webgram.Geometry.Point(i * 150, i), false);
+        de2 = new MyRectangularElement(101, 76);
+        de2._setLocation(new Webgram.Geometry.Point(i * 150, 0), false);
         de2.name = letters[i];
         
         webgram.addDrawingElement(de2);
