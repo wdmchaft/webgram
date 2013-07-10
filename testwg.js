@@ -2,9 +2,8 @@
 /*
  * TO DO:
  *  undo mechanism:
- *   * undo should not keep references at all
- *   * group undo checkpoints
- *   * use a separate storage place to store ids of elements instead of references
+ *   * doUndo & doRedo have to be rewritten
+ *   * how are undo checkpoints generated when manipulating a multiple selection?
  *   * undo checkpoints are now generated when adding/remove to/from multiple selection group
  *  unicode text support
  *  RectangularElement.fit could still be improved
