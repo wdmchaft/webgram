@@ -249,7 +249,7 @@ function onBodyLoad() {
     ge = new Webgram.DrawingElements.GroupElement();
 //    ge.addDrawingElement(des[0]);
 //    ge.addDrawingElement(des[1]);
-//    webgram.addDrawingElement(ge);
+    webgram.addDrawingElement(ge);
     
     webgram.resetUndo();
 //    webgram._actionEvent = true;
