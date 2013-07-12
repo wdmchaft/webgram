@@ -2,8 +2,9 @@
 /*
  * TO DO:
  *  undo mechanism:
- *   * changing a msGroup does not create undo check points
- *   * rewrite doRedo
+ *   * group & msGroup should group all the undo check points
+ *   * moving, changing a msGroup does not trigger events on children
+ *  implement group & ungroup actions
  *  unicode text support
  *  RectangularElement.fit could still be improved
  *  move min|maxX|Y crappy code to a common function
@@ -229,8 +230,8 @@ function onBodyLoad() {
     
     des = [];
     for (var i = 0; i < 2; i++) {
-        de2 = new MyRectangularElement(101, 76);
-        de2._setLocation(new Webgram.Geometry.Point(i * 150, 0), false);
+        de2 = new MyRectangularElement(50, 50);
+        de2._setLocation(new Webgram.Geometry.Point(i * 50, 0), false);
         de2.name = letters[i];
         
         webgram.addDrawingElement(de2);
@@ -246,14 +247,20 @@ function onBodyLoad() {
         }
     });
     
-    ge = new Webgram.DrawingElements.GroupElement();
+//    ge = new Webgram.DrawingElements.GroupElement();
 //    ge.addDrawingElement(des[0]);
 //    ge.addDrawingElement(des[1]);
-    webgram.addDrawingElement(ge);
-    
+//    webgram.addDrawingElement(ge);
+//    
     webgram.resetUndo();
-//    webgram._actionEvent = true;
-//    ge.addDrawingElement(des[1]);
-//    webgram._actionEvent = false;
+
+    webgram._actionEvent = true;
+    webgram.setSelectedDrawingElements(des);
+    webgram.selectDrawingControl._msGroup.setWidth(1000);
+    webgram._actionEvent = false;
+    //webgram.doUndoAction();
     
+    
+    
+    //de2.onEndChange.bind(function () {console.log('end change');});
 }
