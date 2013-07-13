@@ -1,17 +1,22 @@
 
 /*
  * TO DO:
+ * no more triggerEvents for add/remove/set*index, etc
+ * 
  *  undo mechanism:
  *   * group & msGroup should group all the undo check points
  *   * moving, changing a msGroup does not trigger events on children
  *  implement group & ungroup actions
+ *  use selectDrawingControl.updateHover everywhere it is needed
  *  unicode text support
  *  RectangularElement.fit could still be improved
  *  move min|maxX|Y crappy code to a common function
- *  PolyElement snapping to angle feedback does not take into account the element's rotationAngle 
+ *  PolyElement snapping to angle feedback does not take into account the element's rotationAngle
+ *  two superposed rectangular elements at 45 deg don't snap as expected 
  *  add a functionality to snap a DE to current location (and use it for connectors)
  *  does fine moving work?
  *  test various events
+ *  move some actions from selectDrawingControl to Webgram
  *  add support for hatching and texture fill styles
  *  add support for shadows 
  *  make rulers more configurable
@@ -254,13 +259,11 @@ function onBodyLoad() {
 //    
     webgram.resetUndo();
 
-    webgram._actionEvent = true;
+//    webgram._actionEvent = true;
     webgram.setSelectedDrawingElements(des);
-    webgram.selectDrawingControl._msGroup.setWidth(1000);
-    webgram._actionEvent = false;
+//    webgram.selectDrawingControl._msGroup.setWidth(1000);
+//    webgram._actionEvent = false;
     //webgram.doUndoAction();
     
-    
-    
-    //de2.onEndChange.bind(function () {console.log('end change');});
+    de2.setHoveredControlPointsEnabled(true);
 }
